@@ -56,6 +56,15 @@ cd promptdivers
 
 Detecta IDE (Claude Code, Cursor, Windsurf) e instala los **tres skills** en tu carpeta global de skills.
 
+**Windows / PowerShell:** `install.sh` es **Bash**; en PowerShell no hace lo mismo. Usa [`install.ps1`](install.ps1) (mismas opciones: `-Project`, `-Cursor`, `-Claude`, `-Help`):
+
+```powershell
+cd ruta\a\promptdivers
+pwsh -File .\install.ps1
+```
+
+Si bloquea la ejecución: `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`. Alternativa: **Git Bash** o **WSL** y `./install.sh`.
+
 **Arrancar un proyecto a la vez:**
 
 ```bash

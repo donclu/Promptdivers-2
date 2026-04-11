@@ -9,7 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- (nothing yet)
+- **`install.ps1`** — PowerShell installer for Windows (and `pwsh` elsewhere); mirrors `install.sh` (`-Project`, `-Cursor`, `-Claude`, `-Help` / `--project`, etc.). Documented in `README.md`, `README-ES.md`, and `docs/MULTI_AGENT_SETUP.md`.
+
+### Changed
+
+- **`install.ps1`** — Cross-platform hardening: pack root resolved at script scope (not inside a function, so `$MyInvocation` stays correct); Windows PowerShell 5.1–safe paths (`Join-Path` two-arg only, no `$IsWindows`); `~` expansion for `-Project`; project directory validated with `Get-Item`; nested paths for templates and IDE skill roots; UTF-8 console only on Windows.
 
 ## [3.3.0] — 2026-04-10
 

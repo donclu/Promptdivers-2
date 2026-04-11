@@ -9,6 +9,8 @@
 #   ./install.sh --cursor           Install to Cursor only (~/.cursor/skills/)
 #   ./install.sh --claude           Install to Claude Code only (~/.claude/skills/)
 #   ./install.sh --help             Show this message
+#
+# Windows / PowerShell: use install.ps1 (same flags as --project / --cursor / --claude).
 
 set -euo pipefail
 

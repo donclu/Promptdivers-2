@@ -79,6 +79,15 @@ cd promptdivers
 
 The script auto-detects your IDE (Claude Code, Cursor, or both) and installs the three skills globally. That's it.
 
+**Windows / PowerShell:** `install.sh` is **Bash** — it does not run in PowerShell. Use [`install.ps1`](install.ps1) instead (same flags: `-Project`, `-Cursor`, `-Claude`, `-Help`):
+
+```powershell
+cd path\to\promptdivers
+pwsh -File .\install.ps1
+```
+
+If execution is blocked: `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`. You can also use **Git Bash** or **WSL** and run `./install.sh` as on Linux.
+
 **Bootstrap a project at the same time:**
 ```bash
 ./install.sh --project /path/to/your-project
@@ -214,7 +223,7 @@ Full signal grid: [protocols/tactical-signals.md](protocols/tactical-signals.md)
 ```
 promptdivers/
 ├── Banner.png                     ← repo banner (README hero)
-├── install.sh                     ← start here
+├── install.sh / install.ps1       ← start here (Bash / PowerShell)
 ├── FIRST_MISSION.md               ← new to IDE assistants? read this first
 ├── README.md / README-ES.md       ← you are here · guía en español
 ├── AGENTS.md                      ← canonical project brief (dogfood)

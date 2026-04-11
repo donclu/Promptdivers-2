@@ -16,6 +16,20 @@ These two layers are **independent**. You can use the context without the skills
 
 ---
 
+## Windows / PowerShell
+
+The main installer [`install.sh`](../install.sh) requires **Bash** (Git Bash, WSL, macOS, or Linux). On Windows, if you only have **PowerShell**, use [`install.ps1`](../install.ps1) from the pack root — same behavior (auto-detect Cursor / Claude / Windsurf, optional `-Project` bootstrap):
+
+```powershell
+cd path\to\promptdivers
+pwsh -File .\install.ps1
+pwsh -File .\install.ps1 -Project C:\path\to\your-project
+```
+
+If you see a script execution error, run once: `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`
+
+---
+
 ## Claude Code / Cowork
 
 ### Project context
