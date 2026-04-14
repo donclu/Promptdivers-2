@@ -6,7 +6,7 @@
 
 ## What is the Democracy Officer
 
-In the Helldivers universe, **Democracy Officers** ensure that Super Earth's values are upheld in the field. In agent work, this is a **meta-audit**: checking whether the Promptdivers framework itself is being followed — not just the code.
+In the Helldivers-inspired **metaphor** of this framework, a “Democracy Officer” is the role that ensures Super Earth's values are upheld in the field. In agent work, this is a **meta-audit**: checking whether the Promptdivers framework itself is being followed — not just the code.
 
 ---
 

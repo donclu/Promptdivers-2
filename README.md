@@ -6,7 +6,7 @@
 
 ### *Managed democracy for AI-assisted development*
 
-[![Version](https://img.shields.io/badge/version-3.3.0-brightgreen?style=flat-square)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-3.3.1-brightgreen?style=flat-square)](CHANGELOG.md)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 [![IDE](https://img.shields.io/badge/IDE-Claude%20Code%20%7C%20Cursor-purple?style=flat-square)](docs/MULTI_AGENT_SETUP.md)
 [![Fronts](https://img.shields.io/badge/fronts-3%20active-red?style=flat-square)](docs/factions-and-objectives.md)
@@ -229,6 +229,7 @@ promptdivers/
 ├── AGENTS.md                      ← canonical project brief (dogfood)
 ├── CLAUDE.md                      ← Claude Code stub → points to AGENTS.md
 ├── QUICK_REFERENCE.md             ← one-page field cheat sheet
+├── GALACTIC_WAR_MAP.md            ← dogfood terrain map (pack status)
 ├── PROJECT_LOG.md                 ← session log for this repo
 ├── VERSION / CHANGELOG.md         ← semver history
 ├── LICENSE / CONTRIBUTING.md / SECURITY.md
@@ -237,7 +238,7 @@ promptdivers/
 ├── squads/                        ← playbooks A–D
 ├── protocols/                     ← signals, escalation, debrief, more
 ├── skills/                        ← 3 bundled skills (orchestrator, pelican, signals)
-├── missions/                      ← 9 guided tutorial missions
+├── missions/                      ← 8 guided tutorial missions (+ index)
 ├── scripts/                       ← health-check.sh and tooling
 └── templates/                     ← project-log, galactic-war-map, intel-dossier
 ```

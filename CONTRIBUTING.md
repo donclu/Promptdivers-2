@@ -26,6 +26,7 @@ This pack **dogfoods** Promptdivers on itself:
 - After **significant** changes, update [`CHANGELOG.md`](CHANGELOG.md) and bump [`VERSION`](VERSION) when cutting a release.  
 - Append a session to [`PROJECT_LOG.md`](PROJECT_LOG.md) and refresh the **HANDOFF_JSON** block so the next session (human or assistant) can resume.  
 - To publish a release: follow the **Releasing** steps at the bottom of [`CHANGELOG.md`](CHANGELOG.md) (`git tag`, push tags).
+- Release checklist: see [`RELEASING.md`](RELEASING.md).
 
 ## Public repository checklist (before pushing or going public)
 

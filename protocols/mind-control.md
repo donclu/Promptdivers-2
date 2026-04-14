@@ -6,7 +6,7 @@
 
 ## What is mind control
 
-In Helldivers, the Illuminate can **mind-control** your squad members — they fight for the enemy while looking like allies. In agent work, **mind control** happens when:
+In the *Helldivers*-inspired fiction of this framework, “mind control” is a metaphor: a squadmate appears friendly but acts for the enemy. In agent work, **mind control** happens when:
 
 - The agent produces output that **looks correct** but is **logically wrong** — confident hallucination.
 - Generated code **compiles and passes tests** but does the **wrong thing** (silent logic errors).

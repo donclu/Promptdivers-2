@@ -58,7 +58,7 @@ header() {
 # ─────────────────────────────────────────────
 
 printf "\n${BOLD}${CYAN}╔══════════════════════════════════════════════╗${NC}\n"
-printf "${BOLD}${CYAN}║  📋 PROMPTDIVERS 2 — DEMOCRACY HEALTH CHECK ║${NC}\n"
+printf "${BOLD}${CYAN}║   📋 PROMPTDIVERS — DEMOCRACY HEALTH CHECK  ║${NC}\n"
 printf "${BOLD}${CYAN}╚══════════════════════════════════════════════╝${NC}\n"
 printf "\nProject: ${BOLD}%s${NC}\n" "$(cd "$PROJECT_ROOT" && pwd)"
 
@@ -148,7 +148,8 @@ header "3. Session Hygiene"
 
 if [ -f "$PROJECT_ROOT/PROJECT_LOG.md" ]; then
   # Check mission_status
-  LAST_STATUS=$(grep -o '"mission_status":\s*"[^"]*"' "$PROJECT_ROOT/PROJECT_LOG.md" 2>/dev/null | tail -1 | sed 's/.*"\([^"]*\)"/\1/')
+  # grep returns exit code 1 when no matches; under `set -e` + `pipefail` we must tolerate that case.
+  LAST_STATUS=$( (grep -o '"mission_status":\s*"[^"]*"' "$PROJECT_ROOT/PROJECT_LOG.md" 2>/dev/null || true) | tail -1 | sed 's/.*"\([^"]*\)"/\1/')
   if [ -n "$LAST_STATUS" ]; then
     case "$LAST_STATUS" in
       GREEN) check "Last mission status" "pass" "$LAST_STATUS" ;;

@@ -52,7 +52,7 @@
 
 ## Cooldown / limits
 
-- Call **before** any orbital stratagem. Orbital without smoke is reckless.
+- Promptdivers safety rule: call **before** any orbital stratagem. Orbital without smoke is reckless.
 - One branch per mission focus. Don't create 5 branches in one session.
 - Human must approve branch name.
 

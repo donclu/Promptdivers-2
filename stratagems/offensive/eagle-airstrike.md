@@ -44,7 +44,7 @@
 ## Cooldown / limits
 
 - **Max 4 files.** If the list grows, this is no longer an airstrike — it's a barrage. Upgrade to Orbital Barrage or Squad B.
-- Can be called **multiple times** in a session (unlike orbital stratagems).
+- Promptdivers rule: can be called **multiple times** in a session. If you find yourself chaining many airstrikes across a wide area, upgrade to an orbital (Squad B).
 - Pairs well with **Shield Generator** (add tests after the strike).
 
 ---

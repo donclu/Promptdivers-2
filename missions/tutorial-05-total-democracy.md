@@ -203,7 +203,7 @@ mission_status: 🟢 GREEN (resolved) or 🟡 YELLOW (mitigated, follow-up neede
 
 ## The meta-lesson
 
-In Helldivers, TOTAL DEMOCRACY missions are chaotic. Everyone drops at once. Friendly fire is frequent. But the objective is clear and the team converges on it.
+In the Helldivers-inspired metaphor of this framework, TOTAL DEMOCRACY missions are chaotic. Everyone drops at once. Friendly fire is frequent. But the objective is clear and the team converges on it.
 
 In software, production incidents work the same way. The Promptdivers framework doesn't make incidents disappear — it gives you **a common protocol so everyone knows their role**, even when things are on fire.
 

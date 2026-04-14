@@ -6,7 +6,7 @@
 
 ## What is reinforcement
 
-In Helldivers, when a teammate dies, you **call in a reinforcement** — a new pod drops from orbit. In agent work, **reinforcement** means:
+In the Helldivers-inspired metaphor of this framework, when a teammate goes down you “call in a reinforcement” — a new pod drops. In agent work, **reinforcement** means:
 
 - Spawning a **second agent session** to work in parallel with the first.
 - Bringing in a **different model/nave** for a task the current one can't handle.
@@ -99,6 +99,14 @@ For: [incoming agent/session]
 - Not defining **DO NOT TOUCH** zones — see `protocols/friendly-fire.md`.
 - Assuming reinforcement agents have **the same context** — they don't. Always send a briefing.
 - Using reinforcement when the problem is **unclear scope** — that's Squad A, not more agents.
+- Reinforcing when you need a **human decision** — use SOS instead of multiplying confusion.
+
+---
+
+## When to use PRD (Parallel Drop) vs RNF
+
+- Use **RNF** when you already have a clean two-way split (one reinforcement is enough).
+- Use **PRD** (`stratagems/support/parallel-drop.md`) when the planet has **multiple active missions/fronts** and you need an explicit ownership map + sync discipline.
 
 ---
 

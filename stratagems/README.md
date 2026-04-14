@@ -2,7 +2,7 @@
 
 ## *Call it in. Hit the mark. Spread democracy.*
 
-> In Helldivers, stratagems are **concrete actions** you call in on the battlefield — not abstract ideas. Promptdivers stratagems work the same way: each one is a **defined procedure** with a trigger, a scope, and a result.
+> In the *Helldivers*-inspired metaphor of this framework, stratagems are **concrete call-ins** — not abstract ideas. Promptdivers stratagems work the same way: each one is a **defined procedure** with a trigger, a scope, and a result.
 
 **Quick field card:** [QUICK_REFERENCE.md](../QUICK_REFERENCE.md) (stratagem loadout section).
 
@@ -56,6 +56,7 @@ Like the game, you don't bring *every* stratagem to *every* mission. Pick what f
 | [Reinforce](support/reinforce.md) | `RNF` | Request another agent/session in parallel |
 | [Resupply](support/resupply.md) | `RSP` | Refresh context: re-read AGENTS.md + logs |
 | [SOS Beacon](support/sos-beacon.md) | `SOS` | Escalate to human with structured evidence |
+| [Parallel Drop](support/parallel-drop.md) | `PRD` | Multi-mission planet work: split ownership + run RNF safely |
 | [Hellpod](support/hellpod.md) | `HPD` | Bootstrap file from template/pattern |
 | [Intel Dossier](support/intel-dossier.md) | `IDR` | Structured research and intelligence gathering |
 | [Prompt Forge](support/prompt-forge.md) | `PFG` | Design, test, and iterate AI prompts |

@@ -2,9 +2,7 @@
 
 ## *Read the map before you drop. Every time.*
 
-> In Helldivers you check the galactic war map before selecting your planet: enemy density,
-> active operations, liberated sectors. In Promptdivers you do the same before picking a squad
-> and a ship.
+> In the Helldivers-inspired metaphor of this framework, you check the war map before you drop. In Promptdivers you do the same before picking a squad and a ship.
 
 **When to run:** at the start of any session; before filling `NEXT_MISSION.md`; whenever the
 human says `status` or `debrief` and no planet state is in context.
@@ -27,6 +25,19 @@ Priority order:
 3. `AGENTS.md` — "Known issues / technical debt" section.
 4. If none exists: run **Squad D → THE SENTINEL** health check, or ask the human for a quick
    verbal SITREP.
+
+---
+
+## Planet vs missions (multi-mission operations)
+
+Promptdivers treats a **planet** as a shared state (threats + hottest sector) and a **mission** as a scoped objective slice that advances liberation.
+
+- **Planet state** lives in `GALACTIC_WAR_MAP.md` + `PROJECT_LOG.md` (threat index, debt, open tasks).
+- **Missions** can be queued and executed as primary/secondary/tertiary without “changing planets”.
+  - Use `templates/next-mission.template.md` during planning.
+  - Persist the queue in `HANDOFF_JSON.missions_queued` (see `templates/project-log.template.md`).
+
+Parallel work is allowed when the mission can be split into **non-overlapping ownership** zones. Use RNF (Reinforce) + DO NOT TOUCH to avoid friendly fire (`protocols/reinforce.md`, `protocols/friendly-fire.md`).
 
 ---
 

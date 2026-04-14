@@ -79,6 +79,27 @@ Production crisis or human says TOTAL DEMOCRACY?
 
 ---
 
+## Solo vs help (token economy)
+
+Use the lightest call that unblocks progress:
+
+```text
+SOLO (stay in-thread)  → clear next step, ≤5 files, no major unknowns
+RNF Reinforce          → needs parallelism (draft vs apply, or explore vs execute)
+SOS SOS Beacon         → blocked and need a human decision, access, or missing info
+ESCALATE               → high-risk / policy / security / scope contract change
+```
+
+Rule of thumb: **blocked = SOS**, **wide but clear = RNF**, **dangerous = ESCALATE**.
+
+Optional paste into your brief: `TOKEN_BUDGET: LOW | MED | HIGH`  
+Interpretation: LOW = minimal text + proof only; MED = balanced; HIGH = thorough exploration + richer reports.
+
+Optional paste into your brief: `PARALLELISM: OFF | 2_AGENTS | 3_AGENTS`  
+Interpretation: OFF = solo only; 2/3 = allow RNF splits with explicit ownership + sync points. Use `PRD` (Parallel Drop) when the planet has multiple active missions/fronts.
+
+---
+
 ## Stratagem loadout (pick what fits your mission)
 
 Full codex: [`stratagems/README.md`](stratagems/README.md). Invoke by name in chat.
@@ -102,6 +123,7 @@ Full codex: [`stratagems/README.md`](stratagems/README.md). Invoke by name in ch
   RNF  Reinforce                 — request parallel agent session
   RSP  Resupply                  — refresh context (re-read AGENTS.md + logs)
   SOS  SOS Beacon                — structured escalation to human
+  PRD  Parallel Drop             — coordinate multi-mission planet work (ownership + RNF)
   HPD  Hellpod                   — bootstrap file from project pattern
   IDR  Intel Dossier             — structured research and intelligence gathering
   PFG  Prompt Forge              — design, test, and iterate AI prompts

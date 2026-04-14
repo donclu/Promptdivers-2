@@ -38,7 +38,7 @@ Avoid implying there are twelve separate products—there are **twelve named hat
 
 **Default anchor role** for any project brief: **THE AUTHENTIC** (see [`AGENTS.md`](../AGENTS.md)).
 
-## Strategem four (high level)
+## Stratagem four (high level)
 
 For quick planning, the four slots are often summarized as:
 

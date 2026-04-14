@@ -2,6 +2,11 @@
 
 Promptdivers uses a **Helldivers-style** picture of the battlefield. It is a **metaphor**: it helps teams classify work and tone, not replace real threat models or incident response.
 
+### Accuracy policy (Helldivers references)
+
+- Treat any Helldivers terms here as **tone and metaphor**, not a claim of official lore or game mechanics.
+- If a section needs a “rule”, express it as a **Promptdivers rule** (internal doctrine), not as “how the game works”.
+
 ---
 
 ## The real objective: gain ground for Super Earth

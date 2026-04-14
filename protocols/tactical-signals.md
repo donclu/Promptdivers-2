@@ -110,9 +110,9 @@ o7 🎯 ON TARGET — will edit only routes/login.ts and lib/session.ts
 
 ---
 
-## Why this matches the game
+## Why this matches the game (metaphor)
 
-| In Helldivers | In Promptdivers |
+| In Helldivers (metaphor) | In Promptdivers |
 |---------------|-----------------|
 | Ping wheel / short comms | Situation markers + keywords |
 | Voice for complex callouts | Long-form chat or doc when needed |

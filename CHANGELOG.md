@@ -9,11 +9,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- **`install.ps1`** — PowerShell installer for Windows (and `pwsh` elsewhere); mirrors `install.sh` (`-Project`, `-Cursor`, `-Claude`, `-Help` / `--project`, etc.). Documented in `README.md`, `README-ES.md`, and `docs/MULTI_AGENT_SETUP.md`.
+- (nothing yet)
 
 ### Changed
 
-- **`install.ps1`** — Cross-platform hardening: pack root resolved at script scope (not inside a function, so `$MyInvocation` stays correct); Windows PowerShell 5.1–safe paths (`Join-Path` two-arg only, no `$IsWindows`); `~` expansion for `-Project`; project directory validated with `Get-Item`; nested paths for templates and IDE skill roots; UTF-8 console only on Windows.
+- (nothing yet)
+
+## [3.3.1] — 2026-04-14
+
+### Added
+
+- **`install.ps1`** — PowerShell installer for Windows (and `pwsh` elsewhere); mirrors `install.sh` (`-Project`, `-Cursor`, `-Claude`, `-Help` / `--project`, etc.). Documented in `README.md`, `README-ES.md`, and `docs/MULTI_AGENT_SETUP.md`.
+- **Dogfood files:** `PROJECT_LOG.md` and `GALACTIC_WAR_MAP.md` now ship in the pack root for self-audit continuity.
+- **Cursor rule:** `.cursor/rules/promptdivers-2.mdc` restored to the repository.
+
+### Changed
+
+- **Lore safety:** rephrased “in Helldivers…” lines to explicitly mark them as framework metaphor; any “rules” are now expressed as Promptdivers doctrine.
+- **`scripts/health-check.sh`** — fixed `set -euo pipefail` early-exit when `mission_status` was absent; updated banner to “Promptdivers”.
+- **`README.md`** — repo tree now reflects current tutorial count (8 + index).
 
 ## [3.3.0] — 2026-04-10
 

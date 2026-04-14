@@ -30,12 +30,27 @@ LEVEL 5 — OPERATION TOTAL DEMOCRACY
 - Validator finds regression outside agreed scope.
 - Security or PII involved.
 
+### SOS vs RNF vs ESCALATE (fast choice)
+
+Use the smallest call that restores progress and governance:
+
+- **SOS** when you are **blocked** on a *human-only* decision: access, permissions, business intent, scope contract, or “we need you to pick A vs B”.
+- **RNF (Reinforce)** when you are blocked by **parallel capacity**: the work is wide but can be split into owned paths with a clear sync point.
+- **ESCALATE (levels)** when the task becomes **high-risk** (security/data loss), crosses contracts, or cannot be safely completed with the current squad level.
+
 ### Level 2 → Level 3 (activate B)
 
 - Defense auditor: “not surgical.”
 - Multiple failing tests from one underlying issue.
 - DB schema / migration involved.
 - Surgical fix created a **larger** problem.
+
+### Multi-front guidance (same planet)
+
+When multiple fronts are active on the same planet:
+
+- **Slice by front** (Terminids vs Automatons vs Illuminate) only when each slice can own files with minimal overlap.
+- Otherwise keep one mission active and queue the rest in `missions_queued` (do not context-switch mid-flight).
 
 ### Level 3 → Level 4
 

@@ -55,6 +55,8 @@ Paste a compact machine-friendly blob for the next agent (optional but recommend
   "squad_files_used": ["squads/squad-c-surgical.md"],
   "model_used": "claude-sonnet",
   "model_rationale": "one line — why this ship was chosen",
+  "token_budget": "LOW",
+  "parallelism": "OFF",
   "planet_status": {
     "active_fronts": ["Terminids"],
     "hottest_sector": "src/auth/",

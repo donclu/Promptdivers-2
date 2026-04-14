@@ -6,7 +6,7 @@
 
 ## What is friendly fire
 
-In Helldivers, you can (and will) hit your squadmates. In agent work, **friendly fire** happens when:
+In the Helldivers-inspired metaphor of this framework, you can (and will) hit your squadmates. In agent work, **friendly fire** happens when:
 
 - An agent **reverts or overwrites** changes another agent just made.
 - Two agents edit the **same file** without coordination, causing merge conflicts.
