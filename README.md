@@ -27,10 +27,17 @@ Promptdivers is a **portable framework** for AI-assisted development: Markdown d
 
 Inspired by *Helldivers 2* — squads, stratagems, three fronts, escalation ladders — applied to how you run **assisted** coding work in real projects.
 
-**Bundled skills (three — enough for the full loop):**
+**Bundled skills (core + support):**
+
+Core (enough for the full loop):
 - `promptdivers-orchestrator` — routing + multi-domain hints + model fleet
 - `promptdivers-tactical-signals` — pings and situation markers
 - `promptdivers-pelican` — debrief / handoff scoring
+
+Support (optional, Helldivers-flavored operators):
+- `promptdivers-orbital-control` — parallelism + token budget planning (RNF/PRD)
+- `promptdivers-ministry-of-truth` — claim integrity (no invented canon/APIs; evidence-first)
+- `promptdivers-stratagem-terminal` — choose loadouts fast; point to the right stratagem docs
 
 > **New here?** → [FIRST_MISSION.md](FIRST_MISSION.md) — onboarding for people new to IDE assistants.
 
@@ -237,7 +244,7 @@ promptdivers/
 ├── stratagems/                    ← 24 concrete invokable actions
 ├── squads/                        ← playbooks A–D
 ├── protocols/                     ← signals, escalation, debrief, more
-├── skills/                        ← 3 bundled skills (orchestrator, pelican, signals)
+├── skills/                        ← bundled skills (core + support)
 ├── missions/                      ← 8 guided tutorial missions (+ index)
 ├── scripts/                       ← health-check.sh and tooling
 └── templates/                     ← project-log, galactic-war-map, intel-dossier

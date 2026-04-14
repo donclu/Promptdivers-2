@@ -27,7 +27,14 @@ if (-not [string]::IsNullOrWhiteSpace($PSScriptRoot)) {
 }
 
 $SkillsSrc = Join-Path $PackDir 'skills'
-$SkillNames = @('promptdivers-orchestrator', 'promptdivers-pelican', 'promptdivers-tactical-signals')
+$SkillNames = @(
+    'promptdivers-orchestrator',
+    'promptdivers-pelican',
+    'promptdivers-tactical-signals',
+    'promptdivers-orbital-control',
+    'promptdivers-ministry-of-truth',
+    'promptdivers-stratagem-terminal'
+)
 
 # UTF-8 output on Windows consoles (helps emoji); harmless if it fails in CI
 try {

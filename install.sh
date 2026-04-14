@@ -18,7 +18,14 @@ PACK_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 readonly PACK_DIR
 SKILLS_SRC="${PACK_DIR}/skills"
 readonly SKILLS_SRC
-SKILLS=(promptdivers-orchestrator promptdivers-pelican promptdivers-tactical-signals)
+SKILLS=(
+  promptdivers-orchestrator
+  promptdivers-pelican
+  promptdivers-tactical-signals
+  promptdivers-orbital-control
+  promptdivers-ministry-of-truth
+  promptdivers-stratagem-terminal
+)
 readonly SKILLS
 
 GREEN='\033[0;32m'
