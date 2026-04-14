@@ -6,6 +6,9 @@
 #   ./install.sh                    Auto-detect IDEs, install skills globally
 #   ./install.sh --project <dir>    Copy AGENTS.md, CLAUDE.md, QUICK_REFERENCE.md into <dir>
 #                                   and create PROJECT_LOG.md from template if missing
+#   ./install.sh --project <dir> --vendor-framework
+#                                   Vendor the full pack into <dir>/.framework-promptdivers2/
+#                                   and install root stubs (AGENTS.md / CLAUDE.md / QUICK_REFERENCE.md)
 #   ./install.sh --cursor           Install to Cursor only (~/.cursor/skills/)
 #   ./install.sh --claude           Install to Claude Code only (~/.claude/skills/)
 #   ./install.sh --help             Show this message
@@ -47,6 +50,10 @@ if [[ "${1:-}" == "--help" ]]; then
 
   ./install.sh                  Auto-detect IDEs, install skills globally
   ./install.sh --project <dir>  Also bootstrap AGENTS.md + CLAUDE.md + QUICK_REFERENCE.md into <dir>, and create PROJECT_LOG.md from template
+  ./install.sh --project <dir> --vendor-framework
+                               Vendor the full pack into <dir>/.framework-promptdivers2/ and install root stubs
+  ./install.sh --project <dir> --vendor-framework --framework-dir <name>
+                               Override the vendored framework directory name
   ./install.sh --cursor         Install to Cursor only (~/.cursor/skills/)
   ./install.sh --claude         Install to Claude Code only (~/.claude/skills/)
   ./install.sh --help           Show this message
@@ -58,6 +65,8 @@ fi
 PROJECT_DIR=""
 FORCE_CURSOR=false
 FORCE_CLAUDE=false
+VENDOR_FRAMEWORK=false
+FRAMEWORK_DIR_NAME=".framework-promptdivers2"
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -67,6 +76,15 @@ while [[ $# -gt 0 ]]; do
         exit 1
       fi
       PROJECT_DIR="$2"
+      shift 2
+      ;;
+    --vendor-framework) VENDOR_FRAMEWORK=true; shift ;;
+    --framework-dir)
+      if [[ $# -lt 2 || -z "${2:-}" ]]; then
+        fail "--framework-dir requires a non-empty directory name"
+        exit 1
+      fi
+      FRAMEWORK_DIR_NAME="$2"
       shift 2
       ;;
     --cursor)  FORCE_CURSOR=true; shift ;;
@@ -90,6 +108,42 @@ install_skills() {
       ok "${ide_name} → ${dest}/${skill}"
     else
       fail "Skill not found: ${src}"
+    fi
+  done
+}
+
+vendor_framework() {
+  local project_dir="$1"
+  local framework_dir_name="$2"
+  local local_framework
+  local_framework="${project_dir}/${framework_dir_name}"
+
+  mkdir -p "${local_framework}"
+  header "📦 Vendoring framework → ${local_framework}"
+
+  for p in AGENTS.md CLAUDE.md QUICK_REFERENCE.md VERSION CHANGELOG.md README.md README-ES.md FIRST_MISSION.md \
+           docs missions protocols scripts squads stratagems templates skills .cursor .github; do
+    if [[ -e "${PACK_DIR}/${p}" ]]; then
+      cp -R "${PACK_DIR}/${p}" "${local_framework}/"
+    fi
+  done
+  ok "Vendored Promptdivers pack into ${framework_dir_name}/"
+
+  for src in project-agents.stub.template.md project-claude.stub.template.md project-quick-reference.stub.template.md; do
+    if [[ -f "${PACK_DIR}/templates/${src}" ]]; then
+      local dest
+      case "$src" in
+        project-agents.stub.template.md) dest="AGENTS.md" ;;
+        project-claude.stub.template.md) dest="CLAUDE.md" ;;
+        project-quick-reference.stub.template.md) dest="QUICK_REFERENCE.md" ;;
+        *) dest="${src/project-/}"; dest="${dest/.stub.template.md/.md}" ;;
+      esac
+      if [[ -f "${project_dir}/${dest}" ]]; then
+        warn "${dest} already exists in ${project_dir} — skipping (delete first to overwrite)"
+      else
+        cp "${PACK_DIR}/templates/${src}" "${project_dir}/${dest}"
+        ok "Created ${dest} (stub) → ${project_dir}/"
+      fi
     fi
   done
 }
@@ -132,16 +186,20 @@ if [[ -n "${PROJECT_DIR}" ]]; then
     exit 1
   fi
 
-  for f in AGENTS.md CLAUDE.md QUICK_REFERENCE.md; do
-    if [[ -f "${PACK_DIR}/${f}" ]]; then
-      if [[ -f "${PROJECT_DIR}/${f}" ]]; then
-        warn "${f} already exists in ${PROJECT_DIR} — skipping (delete first to overwrite)"
-      else
-        cp "${PACK_DIR}/${f}" "${PROJECT_DIR}/"
-        ok "Copied ${f} → ${PROJECT_DIR}/"
+  if [[ "$VENDOR_FRAMEWORK" == true ]]; then
+    vendor_framework "${PROJECT_DIR}" "${FRAMEWORK_DIR_NAME}"
+  else
+    for f in AGENTS.md CLAUDE.md QUICK_REFERENCE.md; do
+      if [[ -f "${PACK_DIR}/${f}" ]]; then
+        if [[ -f "${PROJECT_DIR}/${f}" ]]; then
+          warn "${f} already exists in ${PROJECT_DIR} — skipping (delete first to overwrite)"
+        else
+          cp "${PACK_DIR}/${f}" "${PROJECT_DIR}/"
+          ok "Copied ${f} → ${PROJECT_DIR}/"
+        fi
       fi
-    fi
-  done
+    done
+  fi
 
   if [[ ! -f "${PROJECT_DIR}/PROJECT_LOG.md" ]]; then
     cp "${PACK_DIR}/templates/project-log.template.md" "${PROJECT_DIR}/PROJECT_LOG.md"

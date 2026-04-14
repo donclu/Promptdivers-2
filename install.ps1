@@ -58,6 +58,10 @@ function Show-InstallHelp {
 
   $($exe) -File ./install.ps1              Auto-detect IDEs, install skills globally
   $($exe) -File ./install.ps1 -Project .   Bootstrap AGENTS.md + CLAUDE + QUICK_REFERENCE + PROJECT_LOG
+  $($exe) -File ./install.ps1 -Project . -VendorFramework
+                                   Vendor the full pack into .framework-promptdivers2/ and install root stubs
+  $($exe) -File ./install.ps1 -Project . -VendorFramework -FrameworkDir .framework-promptdivers2
+                                   Override the vendored framework directory name
   $($exe) -File ./install.ps1 -Cursor      Cursor only (~/.cursor/skills)
   $($exe) -File ./install.ps1 -Claude      Claude Code only (~/.claude/skills)
   $($exe) -File ./install.ps1 -Help        This message
@@ -75,6 +79,8 @@ function Show-InstallHelp {
 $ProjectDir = ''
 $ForceCursor = $false
 $ForceClaude = $false
+$VendorFramework = $false
+$FrameworkDirName = '.framework-promptdivers2'
 
 $raw = @($args)
 $i = 0
@@ -90,6 +96,20 @@ while ($i -lt $raw.Count) {
             exit 1
         }
         $ProjectDir = [string]$raw[$i + 1].Trim()
+        $i += 2
+        continue
+    }
+    if ($a -in @('--vendor-framework', '-VendorFramework')) {
+        $VendorFramework = $true
+        $i++
+        continue
+    }
+    if ($a -in @('--framework-dir', '-FrameworkDir')) {
+        if ($i + 1 -ge $raw.Count -or [string]::IsNullOrWhiteSpace($raw[$i + 1])) {
+            Write-PromptFail '-FrameworkDir / --framework-dir requires a non-empty directory name'
+            exit 1
+        }
+        $FrameworkDirName = [string]$raw[$i + 1].Trim()
         $i += 2
         continue
     }
@@ -136,6 +156,44 @@ function Install-SkillsTo {
         }
         Copy-Item -LiteralPath $src -Destination $dest -Recurse -Force
         Write-PromptOk "${IdeLabel} → $dest"
+    }
+}
+
+function Vendor-FrameworkToProject {
+    param([string]$ProjectRoot, [string]$FrameworkDirName)
+
+    $frameworkRoot = Join-Path $ProjectRoot $FrameworkDirName
+    Ensure-Directory -Path $frameworkRoot
+    Write-PromptHeader \"📦 Vendoring framework → $frameworkRoot\"
+
+    $paths = @(
+        'AGENTS.md','CLAUDE.md','QUICK_REFERENCE.md','VERSION','CHANGELOG.md','README.md','README-ES.md','FIRST_MISSION.md',
+        'docs','missions','protocols','scripts','squads','stratagems','templates','skills','.cursor','.github'
+    )
+    foreach ($p in $paths) {
+        $src = Join-Path $PackDir $p
+        if (Test-Path -LiteralPath $src) {
+            Copy-Item -LiteralPath $src -Destination $frameworkRoot -Recurse -Force
+        }
+    }
+    Write-PromptOk "Vendored Promptdivers pack into $FrameworkDirName/"
+
+    $stubMap = @{
+        'project-agents.stub.template.md' = 'AGENTS.md'
+        'project-claude.stub.template.md' = 'CLAUDE.md'
+        'project-quick-reference.stub.template.md' = 'QUICK_REFERENCE.md'
+    }
+    foreach ($k in $stubMap.Keys) {
+        $stubSrc = Join-Path (Join-Path $PackDir 'templates') $k
+        if (Test-Path -LiteralPath $stubSrc -PathType Leaf) {
+            $dest = Join-Path $ProjectRoot $stubMap[$k]
+            if (Test-Path -LiteralPath $dest) {
+                Write-PromptWarn "$($stubMap[$k]) already exists in $ProjectRoot — skipping (delete first to overwrite)"
+            } else {
+                Copy-Item -LiteralPath $stubSrc -Destination $dest -Force
+                Write-PromptOk "Created $($stubMap[$k]) (stub) → $ProjectRoot/"
+            }
+        }
     }
 }
 
@@ -225,15 +283,19 @@ if (-not [string]::IsNullOrWhiteSpace($ProjectDir)) {
         exit 1
     }
 
-    foreach ($f in @('AGENTS.md', 'CLAUDE.md', 'QUICK_REFERENCE.md')) {
-        $src = Join-Path $PackDir $f
-        if (Test-Path -LiteralPath $src -PathType Leaf) {
-            $dest = Join-Path $proj $f
-            if (Test-Path -LiteralPath $dest) {
-                Write-PromptWarn "$f already exists in $proj — skipping (delete first to overwrite)"
-            } else {
-                Copy-Item -LiteralPath $src -Destination $dest -Force
-                Write-PromptOk "Copied $f → $proj/"
+    if ($VendorFramework) {
+        Vendor-FrameworkToProject -ProjectRoot $proj -FrameworkDirName $FrameworkDirName
+    } else {
+        foreach ($f in @('AGENTS.md', 'CLAUDE.md', 'QUICK_REFERENCE.md')) {
+            $src = Join-Path $PackDir $f
+            if (Test-Path -LiteralPath $src -PathType Leaf) {
+                $dest = Join-Path $proj $f
+                if (Test-Path -LiteralPath $dest) {
+                    Write-PromptWarn "$f already exists in $proj — skipping (delete first to overwrite)"
+                } else {
+                    Copy-Item -LiteralPath $src -Destination $dest -Force
+                    Write-PromptOk "Copied $f → $proj/"
+                }
             }
         }
     }

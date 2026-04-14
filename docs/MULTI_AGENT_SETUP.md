@@ -91,6 +91,22 @@ The rule tells Cursor to load `AGENTS.md` and the squads. Edit `AGENTS.md` for p
 **Option B — full file**  
 Copy `AGENTS.md` to your project root. Cursor will pick it up if you add it to `.cursor/rules/` with `alwaysApply: true`.
 
+---
+
+## Option B (vendored framework per project)
+
+For large teams or long-lived repos, you may want the full Promptdivers pack **inside** the project (so the doctrine is versioned with the code). Use the installer to vendor it into:
+
+- `.framework-promptdivers2/`
+
+From the pack root:
+
+```bash
+./install.sh --project your-project --vendor-framework
+```
+
+This writes project-root stubs (`AGENTS.md`, `CLAUDE.md`, `QUICK_REFERENCE.md`) that point to `.framework-promptdivers2/` for squads/protocols/stratagems/docs.
+
 ### Skills
 
 **Global (all projects):**

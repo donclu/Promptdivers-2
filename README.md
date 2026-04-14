@@ -102,6 +102,14 @@ If execution is blocked: `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`. 
 
 This copies `AGENTS.md`, `CLAUDE.md`, `QUICK_REFERENCE.md`, and a blank `PROJECT_LOG.md` into your project.
 
+**Vendor the full framework into the project (Option B, recommended for large teams):**
+
+```bash
+./install.sh --project /path/to/your-project --vendor-framework
+```
+
+This creates `.framework-promptdivers2/` inside your project with the full Promptdivers pack (docs, squads, protocols, stratagems, templates) and installs project-root stubs that point to it.
+
 Manual install and IDE-specific setup → [docs/MULTI_AGENT_SETUP.md](docs/MULTI_AGENT_SETUP.md)
 
 ---
