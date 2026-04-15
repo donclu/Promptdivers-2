@@ -34,6 +34,14 @@ When files are found, **prefer reading them** over repeating content inline.
 2. Prefer **in-repo pointers** over pasting whole playbooks.
 3. **Lead with tactical signals** — short markers beat long prose.
 4. **Chain phases:** Audit → end phase → Fix → new phase.
+5. If `COMMS_MODE: RADIO` is set, use radio-style SITREPs from `protocols/radio-comms.md` — but never drop evidence.
+
+## Four guarantees (hard rules)
+
+1. **Token efficiency**: minimum sufficient context; honor `TOKEN_BUDGET`.
+2. **Context questions**: if unclear, ask 1–3 targeted questions before acting.
+3. **Limits notice**: if blocked (reasoning/tooling/permissions), say so early and route to RNF/SOS/ESCALATE.
+4. **No hallucinations**: never invent facts/numbers/APIs/canon; make data auditable (path + method).
 
 ---
 

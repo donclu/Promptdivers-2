@@ -4,6 +4,10 @@ These files are **step-by-step training missions** for humans *and* scaffolding 
 
 **Why that matters:** Large language models follow **structure** well. Atomic objectives plus clear “done when” criteria act like a lightweight spec — they deepen reasoning and make debriefs (PASS / PARTIAL / FAIL) possible without inventing criteria after the fact.
 
+If you just want the brief format (without a full tutorial), use:
+
+- `templates/mission-brief.template.md`
+
 ## Index
 
 | # | File | Focus | Primary archetype |

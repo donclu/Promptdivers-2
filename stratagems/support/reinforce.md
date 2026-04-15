@@ -23,29 +23,13 @@
 
 ---
 
-## Steps
+## Canonical protocol
 
-1. **Produce a HANDOFF block** for the reinforcement agent:
-   ```markdown
-   ## REINFORCE REQUEST
-   From: [CODENAME]
-   Time: [timestamp]
+This stratagem is an **action card**. The canonical procedure lives in:
 
-   ### Context for reinforcement
-   - AGENTS.md: [path]
-   - Current mission: [description]
-   - Your assignment: [specific scope]
-   - DO NOT TOUCH: [files the primary agent is working on]
+- `protocols/reinforce.md`
 
-   ### Coordination
-   - Primary agent is working on: [files/modules]
-   - You are working on: [files/modules]
-   - Sync point: [when both should report back]
-   ```
-2. **Human opens a new session** with the reinforcement briefing.
-3. **Both agents report** via tactical signals when reaching the sync point.
-4. **Primary agent merges** results or flags conflicts.
-5. **Log:** `Stratagem: RNF — reinforcement called for [reason]. Split: [description]`.
+Use that protocol for the full split/briefing/merge steps and anti-patterns.
 
 ---
 

@@ -33,7 +33,7 @@ This is **not** a defect in the code — it's a coordination failure between age
 2. **One writer per file at a time.** If two roles need the same file, sequence them — never parallel.
 3. **Squad B batches respect boundaries.** Each batch owns its files exclusively.
 4. **Autocannon runs after, not during.** Don't format files while someone is still editing them.
-5. **Reinforce protocol** (see `stratagems/support/reinforce.md`) requires defining conflict zones upfront.
+5. **Reinforce protocol** (see `protocols/reinforce.md`) requires defining conflict zones upfront.
 
 ---
 

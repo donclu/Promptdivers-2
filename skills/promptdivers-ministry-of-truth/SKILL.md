@@ -23,6 +23,7 @@ This framework uses Helldivers terms as **metaphor**. Your job is not to “be f
    - **Rephrase as metaphor/doctrine**, or
    - Mark as **UNVERIFIED** and request verification steps.
 3. Enforce the rule: if it’s a *rule*, it must be a **Promptdivers rule**, not “how Helldivers works”.
+4. For **numbers** and **data**: require an audit trail (source path + method). If not available, mark UNVERIFIED.
 
 ---
 

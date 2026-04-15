@@ -86,3 +86,27 @@ Running log for humans and agents. Append new sessions at the **bottom**.
 
 *Promptdivers — memory is a weapon.*
 
+---
+
+## Session: 2026-04-15 — Self-audit + onboarding brief + accuracy policy
+
+### Summary
+- Added a pack **self-audit** checklist and linked it from field docs.
+- Added a **mission brief template** to make “first 10 minutes” copy/paste deterministic.
+- Implemented **DEBT-001** with a compact accuracy/metaphor policy; tightened wording that could read as game-canon.
+- Reduced duplication by making Reinforce stratagem an **action card** pointing to canonical `protocols/reinforce.md`.
+
+### Decisions
+- Canonical governance lives in `protocols/`; `stratagems/` are thin action cards pointing back to protocols when overlap grows.
+
+### Files / areas
+- `protocols/pack-self-audit.md` — new dogfooding checklist
+- `protocols/accuracy-policy.md` — new metaphor/canon accuracy policy (DEBT-001)
+- `templates/mission-brief.template.md` — new brief template
+- `FIRST_MISSION.md`, `missions/README.md` — onboarding pointers
+- `QUICK_REFERENCE.md` — link to self-audit
+- `protocols/tactical-signals.md`, `protocols/friendly-fire.md`, `stratagems/support/reinforce.md` — consistency + de-duplication
+
+### DEBT
+- [x] DEBT-001 — accuracy policy shipped (`protocols/accuracy-policy.md`)
+

@@ -2,7 +2,7 @@
 
 ## *Pings before paragraphs*
 
-In *Helldivers 2*, squads often mix languages on voice and text, but **most coordination is short**: pings, emotes, single words, and shared map markers. Everyone understands **“reinforce here”** faster than a speech.
+In the Helldivers-inspired **metaphor** of this framework, squads coordinate with short pings: emotes, single words, and shared markers. Everyone understands **“reinforce here”** faster than a speech.
 
 Promptdivers uses the same idea for **humans ↔ agents ↔ subagents**:
 

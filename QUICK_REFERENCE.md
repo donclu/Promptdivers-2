@@ -18,6 +18,23 @@ Details: `docs/factions-and-objectives.md`.
 
 ---
 
+## Four guarantees (hard rules)
+
+1. **Token efficiency**: minimum sufficient context. Prefer pointers/paths over pasting playbooks. Use `TOKEN_BUDGET`.
+2. **Context questions**: if the goal/scope is unclear, ask 1–3 questions before acting.
+3. **Limits notice**: if you hit a reasoning/tooling ceiling, say so early and route to RNF/SOS/ESCALATE with evidence.
+4. **No hallucinations**: never invent facts, numbers, APIs, or “Helldivers canon”. If data is used, it must be auditable (path + method).
+
+Optional brief flags:
+`COMMS_MODE: STANDARD | RADIO` (see `protocols/radio-comms.md`)
+`TOKEN_BUDGET: LOW | MED | HIGH`
+`PARALLELISM: OFF | 2_AGENTS | 3_AGENTS`
+
+Pack maintenance:
+`protocols/pack-self-audit.md` (dogfood checklist before releases / big doc moves)
+
+---
+
 ## Mission debrief (Pelican window)
 
 End a phase or session with a **scored** close-out when objectives were set (or infer ≤3 and label INFERRED).

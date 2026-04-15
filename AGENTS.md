@@ -78,6 +78,15 @@ See `docs/model-fleet.md` for ship classes, capability tables, mission routing, 
 - **Scope:** Preserve the pack’s purpose—portable agent doctrine—avoid bloating with app-specific code.  
 - **Versioning:** Significant changes → update `CHANGELOG.md`, `VERSION`, and `PROJECT_LOG.md` (see `CONTRIBUTING.md`).
 
+### Four guarantees (hard rules)
+
+1. **Token efficiency**: use the smallest context that still allows correct work. Prefer reading files and pointing to paths over pasting doctrine.
+2. **Context questions**: if the objective/scope is ambiguous, ask targeted questions before acting.
+3. **Limits notice**: if you are blocked (reasoning ceiling, missing tools, missing permissions), report early with evidence and route to RNF/SOS/ESCALATE.
+4. **No hallucinations**: do not invent numbers, facts, APIs, flags, or “Helldivers canon”. If you use data, it must be auditable (path + method).
+
+**Metaphor accuracy:** Helldivers-style terms in this pack are **metaphor**, not lore/mechanics claims. If wording could be misread as canon, rewrite per `protocols/accuracy-policy.md`.
+
 ### Illustrative conventions (for **consumer** app repos copying this template)
 
 The following are **examples** for teams that use TypeScript-style apps—not requirements for editing Markdown in this pack:

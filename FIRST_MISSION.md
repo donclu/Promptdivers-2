@@ -89,6 +89,13 @@ Open your IDE (Claude Code, Cursor, etc.) and say:
 
 The agent activates THE SCOUT, reads your files, and comes back with an INTEL report: what it found, what's concerning, what the terrain looks like. No changes made — just recon.
 
+### 3.5 Paste a mission brief (copy/paste template)
+
+If you want the agent to behave like a trained operative immediately, paste a brief with objective criteria and scope boundaries:
+
+- Template: [`templates/mission-brief.template.md`](templates/mission-brief.template.md)
+- Scored close-out: [`protocols/mission-debrief.md`](protocols/mission-debrief.md)
+
 ### 4. Use tactical signals
 
 The agent will signal its status like a squad mate:

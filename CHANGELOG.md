@@ -9,11 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- (nothing yet)
+- `protocols/pack-self-audit.md` — dogfooding checklist for pack consistency (sources-of-truth, links, flags, onboarding).
+- `protocols/accuracy-policy.md` — metaphor vs canon accuracy policy (DEBT-001).
+- `templates/mission-brief.template.md` — copy/paste mission brief template (flags + objectives + evidence).
 
 ### Changed
 
-- (nothing yet)
+- `QUICK_REFERENCE.md` — links to the pack self-audit checklist.
+- `missions/README.md` and `FIRST_MISSION.md` — onboarding now points to the mission brief template.
+- `stratagems/support/reinforce.md` — converted to an action card pointing to canonical `protocols/reinforce.md`.
+- `protocols/friendly-fire.md` — points to canonical `protocols/reinforce.md`.
+- `protocols/tactical-signals.md` — tightened wording to keep Helldivers references explicitly metaphor-only.
 
 ## [3.3.1] — 2026-04-14
 
