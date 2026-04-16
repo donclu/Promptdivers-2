@@ -86,6 +86,7 @@ After a long session, a structured **handoff** beats pasting the whole chat into
 ☐ Mission type identified (A/B/C/D)
 ☐ Only relevant files attached or named
 ☐ AGENTS.md referenced instead of retyping stack
+☐ If using `promptdivers-orchestrator`: run the Token Gate (normalize prompt → decide DIRECT vs orchestrator minimum)
 ☐ For B: batch boundary explicit
 ☐ For C: “do not touch” list explicit
 ☐ If objectives were stated: end with debrief (`protocols/mission-debrief.md`) or keyword `debrief` / `extract`

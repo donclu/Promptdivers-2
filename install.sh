@@ -122,7 +122,7 @@ vendor_framework() {
   header "📦 Vendoring framework → ${local_framework}"
 
   for p in AGENTS.md CLAUDE.md QUICK_REFERENCE.md VERSION CHANGELOG.md README.md README-ES.md FIRST_MISSION.md \
-           docs missions protocols scripts squads stratagems templates skills .cursor .github; do
+           docs missions protocols scripts squads stratagems templates skills experiments .cursor .github; do
     if [[ -e "${PACK_DIR}/${p}" ]]; then
       cp -R "${PACK_DIR}/${p}" "${local_framework}/"
     fi

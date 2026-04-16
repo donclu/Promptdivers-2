@@ -168,7 +168,7 @@ function Vendor-FrameworkToProject {
 
     $paths = @(
         'AGENTS.md','CLAUDE.md','QUICK_REFERENCE.md','VERSION','CHANGELOG.md','README.md','README-ES.md','FIRST_MISSION.md',
-        'docs','missions','protocols','scripts','squads','stratagems','templates','skills','.cursor','.github'
+        'docs','missions','protocols','scripts','squads','stratagems','templates','skills','experiments','.cursor','.github'
     )
     foreach ($p in $paths) {
         $src = Join-Path $PackDir $p

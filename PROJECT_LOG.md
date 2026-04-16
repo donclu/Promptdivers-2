@@ -110,3 +110,36 @@ Running log for humans and agents. Append new sessions at the **bottom**.
 ### DEBT
 - [x] DEBT-001 — accuracy policy shipped (`protocols/accuracy-policy.md`)
 
+---
+
+## Session: 2026-04-15 — Orchestrator Token Gate + Ministry phrasing
+
+### Summary
+- Added a **Token Gate** to `promptdivers-orchestrator`: always **normalize a normal user prompt** into a compact brief, then decide **DIRECT vs orchestrator minimum** to reduce token burn.
+- When recommending aborting orchestrator, the skill now asks for explicit consent using the **Ministry of Truth** phrasing (abort vs “vamos con todo” override).
+- Documented the Token Gate as a checklist item in `docs/prompt-economics.md`.
+
+### Decisions
+- Treat “orchestrator” as **opt-in by value**: normalize first, then escalate only when ambiguity/risk/complexity justify it.
+
+### Files / areas
+- `skills/promptdivers-orchestrator/SKILL.md`
+- `docs/prompt-economics.md`
+
+---
+
+## Session: 2026-04-15 — Industrial sales dirty-data A/B (artifact-first)
+
+### Summary
+- Added an **end-to-end dirty data experiment** for industrial machinery sales (construction/mining), designed for **A (normal) vs B (orchestrator)** prompt comparisons.
+- Delivered a reproducible pipeline: **generate → profile → clean/quarantine → plots/dashboard**, plus report/audit/recommendation templates.
+- Documented the A/B comparison criteria in a single markdown artifact.
+- Hardened auditability: **physical CSV line heuristics** + **pandas row reconciliation**, richer **numeric parse diagnostics**, **`run_all.py`**, template **`render_templates.py`**, pinned **`requirements.txt`**, and an **A/B scorecard** template.
+- Updated **vendoring installers** (`install.sh`, `install.ps1`) to include `experiments/` in the framework copy.
+
+### Files / areas
+- `experiments/industrial-sales-data-quality/` (scripts + templates)
+- `install.sh`, `install.ps1` (vendor copy list)
+- `PROJECT_LOG.md` (this entry)
+
+

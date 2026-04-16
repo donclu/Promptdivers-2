@@ -36,6 +36,33 @@ When files are found, **prefer reading them** over repeating content inline.
 4. **Chain phases:** Audit → end phase → Fix → new phase.
 5. If `COMMS_MODE: RADIO` is set, use radio-style SITREPs from `protocols/radio-comms.md` — but never drop evidence.
 
+### Token Gate (default behavior)
+
+Most humans will write a **normal prompt** first. Your job is to **reorder it into a compact brief** and only then decide whether “full orchestrator mode” is worth the token cost.
+
+**Order of operations:**
+
+1. **Normalize the prompt (always).** Rewrite the user's prompt into a compact structured brief (6–12 lines max) with:
+   - Goal (1 line)
+   - Constraints (2–4 bullets)
+   - Inputs/context available (1–3 bullets)
+   - Output shape requested (1–2 bullets)
+   - “Unknowns” (0–3 bullets, only if blocking)
+2. **Gate decision (fast).** Evaluate in **3 bullets**:
+   - Ambiguity (low/medium/high)
+   - Risk (low/medium/high) — privacy / irreversible ops / prod impact
+   - Complexity (low/medium/high) — more than ~3 real steps or multi-area work
+3. **If all low:** recommend aborting orchestrator and continue in **DIRECT** mode.
+4. **If any medium/high:** proceed with **orchestrator minimum** (not the full doctrine).
+
+**Consent override (must ask when recommending abort):**
+
+If you recommend aborting orchestrator, ask the user this exact question and honor the answer:
+
+> **"El Ministerio de la Verdad solicita abortar misión, la supertierra te necesita por lo que enviaremos a un escuadrón de bajo nivel. ¿Ok, estoy de acuerdo / No estoy de acuerdo, vamos con todo!?"**
+
+If the user chooses “vamos con todo”, proceed with orchestrator anyway.
+
 ## Four guarantees (hard rules)
 
 1. **Token efficiency**: minimum sufficient context; honor `TOKEN_BUDGET`.
@@ -228,6 +255,10 @@ Then load **humanizer**.
 ## On activation
 
 0. **Planet check (pre-drop).** If `GALACTIC_WAR_MAP.md` exists in the project, read it. Otherwise check `PROJECT_LOG.md` or `AGENTS.md` debt section. Identify active fronts (Terminids / Automatons / Illuminate), hottest sector, and threat level. Derive squad + nave recommendation. Fill the "Planet status" block in `NEXT_MISSION.md` if one is being written. If no planet state exists: assume UNEXPLORED terrain → Squad A. See `protocols/pre-drop.md` for full procedure.
+0.5. **Token Gate.** Before loading any squad playbook or additional skills, run the Token Gate:
+   - Normalize the user's prompt into a compact brief.
+   - Decide DIRECT vs orchestrator minimum.
+   - If recommending abort, ask for consent using the Ministry of Truth message (and honor override).
 1. Classify the archetype (consult / recon / audit / build / data / visual / direct / write / hybrid).
 2. Select nave per routing table or AGENTS.md declaration.
 3. Say one line: next file or skill to load.
