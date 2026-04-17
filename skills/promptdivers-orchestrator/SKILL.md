@@ -40,6 +40,13 @@ When files are found, **prefer reading them** over repeating content inline.
 
 Most humans will write a **normal prompt** first. Your job is to **reorder it into a compact brief** and only then decide whether “full orchestrator mode” is worth the token cost.
 
+**Short / ambiguous prompts (≤6 words or no explicit object):**
+Before normalizing, ask **one** targeted clarifying question. Do not assume scope.
+Examples that require a question first:
+- “hazlo completo” → ask: “¿Completo = (a) ejecutar pipeline, (b) solo audit/RECON, (c) ejecutar + commit?”
+- “ejecútalo” / “termínalo” → ask: “¿Ejecutar scripts y validar outputs, o solo revisar estado?”
+- “ciclo completo” → see Execution keywords below.
+
 **Order of operations:**
 
 1. **Normalize the prompt (always).** Rewrite the user's prompt into a compact structured brief (6–12 lines max) with:
@@ -54,6 +61,9 @@ Most humans will write a **normal prompt** first. Your job is to **reorder it in
    - Complexity (low/medium/high) — more than ~3 real steps or multi-area work
 3. **If all low:** recommend aborting orchestrator and continue in **DIRECT** mode.
 4. **If any medium/high:** proceed with **orchestrator minimum** (not the full doctrine).
+
+**Artifact output size:**
+Produced artifacts (reports, handoffs, JSONs) follow the same Token Gate rule — minimum sufficient content. Default to **slim** (≤50 lines). Expand only if the human asks for full detail or `TOKEN_BUDGET: HIGH` is set.
 
 **Consent override (must ask when recommending abort):**
 
@@ -115,6 +125,23 @@ QA, PR review, monitoring, pre-deploy?
 Production crisis or TOTAL DEMOCRACY?
   → Operation Total Democracy — all squads
 ```
+
+### Execution keywords (interpret as RUN, not RECON)
+
+The following phrases signal the human wants **real execution**, not just audit or analysis.
+When detected, default scope = run scripts + validate outputs + fix blockers + commit if asked.
+
+```
+"ciclo completo"           → Generate → Run → Validate → Fix → Report → Commit
+"hazlo completo"           → Same as ciclo completo
+"ejecútalo" / "córrelo"    → Run the identified pipeline or script end-to-end
+"termínalo"                → Complete whatever is staged/pending (check PROJECT_LOG for open tasks)
+"corre todo"               → run_all equivalent; all phases in sequence
+"full cycle" / "end-to-end" → (English equivalents of ciclo completo)
+```
+
+If the object of execution is still ambiguous after detecting the keyword, ask **one** question
+to confirm scope before starting. Do not default silently to RECON.
 
 ---
 

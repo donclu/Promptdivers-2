@@ -113,7 +113,20 @@ If a duplicated section is more than ~15–25 lines, prefer converting it into a
 
 ---
 
-## 7) Close-out (log the result)
+## 7) Script delivery QA (minimum before commit)
+
+Before committing any executable script (Python, Bash, PowerShell) as a pack artifact:
+
+- **Syntax check:** `python -m py_compile script.py` (or `bash -n script.sh`) passes with no errors.
+- **Environment check:** Script runs in the pinned environment declared in `requirements.txt` (or equivalent). If the pack ships new library versions, re-run existing scripts against them.
+- **API surface check:** Any use of third-party library methods (e.g., pandas `str.startswith()`, `groupby()`) is verified against the pinned version — not the latest upstream docs.
+- **Smoke test:** At minimum, `--help` or a `--dry-run` flag confirms the CLI interface is intact. If the script has no CLI, a minimal unit test or inline assertion confirms core behavior.
+
+If a script cannot meet these checks before commit, mark it `[DRAFT]` in the filename and note it in `PROJECT_LOG.md` under `DEBT`.
+
+---
+
+## 8) Close-out (log the result)
 
 Record:
 
