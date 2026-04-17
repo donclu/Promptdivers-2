@@ -1,0 +1,14 @@
+{
+  "rows_read": 64442,
+  "rows_clean": 63318,
+  "rows_quarantine": 795,
+  "date_parse_fail": 2207,
+  "unit_price_parse_fail": 588,
+  "qty_parse_fail": 576,
+  "invoice_id_missing": 678,
+  "invoice_id_dupe": 117,
+  "country_branch_mismatch": 0,
+  "sku_mismatch_service": 0,
+  "sku_mismatch_parts": 0,
+  "sku_mismatch_machine": 0
+}

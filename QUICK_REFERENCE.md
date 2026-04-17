@@ -62,6 +62,7 @@ Bundled skill: `skills/promptdivers-pelican/SKILL.md` (triggers: `debrief`, `ext
 | **DIRECT** | Priorities, NEXT_MISSION, handoffs |
 | **WRITE** | Human-facing prose — calibration → humanizer |
 | **LAUNCH-WEB** | Campaign landing / microsite / splash — brief → copy → design Phase 0 → static ship → deploy |
+| **ONBOARD** | First contact — orientation (Tier 3) + domain Boot Camp + calibration |
 
 Full map: `docs/super-earth-operating-model.md` · Calibration: `docs/onboarding-calibration.md`.  
 Tutorial index: `missions/README.md` (copy-paste missions that scaffold model reasoning).
@@ -144,6 +145,8 @@ Full codex: [`stratagems/README.md`](stratagems/README.md). Invoke by name in ch
   HPD  Hellpod                   — bootstrap file from project pattern
   IDR  Intel Dossier             — structured research and intelligence gathering
   PFG  Prompt Forge              — design, test, and iterate AI prompts
+  ELD  Echelon Ladder            — budget reasoning: @low→@max, gates, stop at lowest sufficient rung
+  ORT  Boot Camp / Induction     — domain drill for new operatives (protocols/induction.md)
 
 🦅 EAGLE — fast strikes (reusable)
   E5K  Eagle 500kg               — delete confirmed dead code
@@ -176,6 +179,15 @@ THE VALIDATOR   — “Only the agreed files?” Yes → CONFIRM. No → ESCALAT
 THE MARKSMAN    — Diagnose → root cause → minimal fix → test. Single-threaded.
 THE SCRIBE      — PROJECT_LOG + changelog + brief updates to AGENTS.md when stack shifts.
 THE TACTICIAN   — Prioritized backlog + NEXT_MISSION recommendation.
+THE INSTRUCTOR  — Domain Boot Camp drills for novices. Requires Elite/Legend clearance.
+
+BRIDGE CREW (invoked per trigger, not per turn — see docs/bridge-crew.md):
+  THE NAVIGATOR       → knowledge/ freshness + RECON pre-drop
+  THE QUARTERMASTER   → skill loading + registry
+  THE CHRONICLER      → experience/ log on session close
+  THE FUTURIST        → NEXT_MISSION projection on save/extract
+  THE DEMOCRACY OFFICER → feedback ledger + integrity + TOTAL DEMOCRACY
+  THE INSTRUCTOR      → induction curricula + Boot Camp drills
 ```
 
 ---
@@ -193,6 +205,14 @@ TOTAL DEMOCRACY   → Level 5 — all squads
 scope check       → In-scope vs out-of-scope
 debt              → List DEBT-xxx
 abort             → Stop + rollback if safe
+orient            → Run orientation protocol — Tier 1/2/3 per context (protocols/orientation.md)
+onboard           → Tier 3 orientation + Boot Camp induction for a domain (ONBOARD archetype)
+induct            → Run domain Boot Camp — 4 phases, graduation gate (protocols/induction.md)
+calibrate         → Prime knowledge/ store before first live mission (docs/calibration-protocol.md)
+promote           → Trigger promotion review — Rookie/Veteran/Elite/Legend (protocols/promotion.md)
+boot camp         → Synonym for induct — phases 1–4 + democracy officer sign-off
+shadow            → Replay tagged operational events for training (Layer 4)
+AUTHORIZE SENIOR  → One-session Elite caps override (no permanent level change)
 ```
 
 ---
@@ -242,7 +262,7 @@ CLASS A  (heavy cruisers) — deep reasoning, large context
   gemini-pro/1.5        AUDIT full repos (1M ctx), DATA+docs, video/audio
 
 CLASS B  (frigates) — fast iteration, low cost
-  claude-haiku          Squad C, CONSULT quick, ping loops, Squad D review
+  claude-haiku          Squad C, CONSULT quick, ping loops, Squad D review, Echelon rung 0
   gpt-4o-mini           First-pass audit, structured extract
   gemini-flash          Rapid image check, fast SITREP
 
@@ -251,12 +271,28 @@ CLASS C  (local / private)
   codestral/deepseek    Code-only Forge work
 ```
 
+**Reasoning tier aliases** (append to model name in fleet declarations and `HANDOFF_JSON`):
+```text
+@low     cheap + fast — classify, lookup, template fill (Haiku or thinking OFF)
+@medium  default — plan + execute with moderate reasoning (Sonnet standard)
+@high    deep — trade-off analysis, multi-constraint, difficult audits (Sonnet/Opus + thinking)
+@max     extreme — last rung only; novel reasoning the lower tiers could not produce (Opus max)
+
+Routing rule: if the answer is in knowledge/, use @low.
+              if the answer is a plan over known facts, use @medium.
+              if weighing valid options, use @high.
+              if no lower rung solved it, use @max.
+Full cross-provider map: docs/reasoning-tiers.md
+```
+
 **Declare in `AGENTS.md` stack:**
 ```text
-Model (nave):  <model>    ← default
-Model fast:    <model>    ← Squad C + iteration
-Model vision:  <model>    ← multimodal tasks
-Model local:   <model>    ← private payloads
+Model (nave):    claude-sonnet@medium  ← default
+Model fast:      claude-haiku@low      ← Squad C, Echelon rung 0
+Model deep:      claude-opus@high      ← Squad B Forge, complex audits
+Model ceiling:   claude-opus@max       ← last resort, Echelon rung 3 only
+Model vision:    gpt-4o@medium         ← multimodal tasks
+Model local:     mistral-7b (ollama)   ← private payloads
 ```
 
 **In NEXT_MISSION + HANDOFF_JSON:** always record `nave` and a one-line `model_rationale` when the choice is non-obvious.

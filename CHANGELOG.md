@@ -13,6 +13,42 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `protocols/accuracy-policy.md` — metaphor vs canon accuracy policy (DEBT-001).
 - `templates/mission-brief.template.md` — copy/paste mission brief template (flags + objectives + evidence).
 
+## [3.4.0] — 2026-04-17
+
+### Added — Echelon Framework (agent lifecycle + budget reasoning)
+
+**Core framework files:**
+- `AGENT_PROFILE.md` — 8-point service record index (Knowledge / Skills / Experience / Aspirations / Doctrine / Feedback Ledger / Operating Limits / Network).
+- `ORIENTATION.md` — pre-drop briefing for new operatives (root-level, consumer-facing).
+- `stratagems/support/echelon-ladder.md` (`ELD`) — 4-rung reasoning ladder (@low→@max) with JSON-contract gates and cost economics.
+- `docs/reasoning-tiers.md` — `@low/@medium/@high/@max` alias map across Claude, OpenAI, Gemini, Grok, Qwen.
+- `docs/calibration-protocol.md` — 6-phase project priming procedure (domain scan → knowledge seed → expiry policy).
+- `docs/bridge-crew.md` — 6 support roles (THE NAVIGATOR, THE QUARTERMASTER, THE CHRONICLER, THE FUTURIST, THE DEMOCRACY OFFICER, THE INSTRUCTOR) with triggers and activation phrases.
+- `docs/agent-job-families.md` — 6 operative archetypes (JF-1 to JF-6) with default tiers, pre-load skills, induction domains, and tenure paths.
+- `docs/skill-registry.md` — canonical skill × job-family × tenure matrix (THE QUARTERMASTER's manifest).
+- `protocols/orientation.md` — first-hour protocol with 4 tiers (Emergency / Standard / Full / Onboarding) and keyword triggers.
+- `protocols/induction.md` — Boot Camp graduation protocol: 4 training phases (Vocabulary / Facts / Rules / Shadowing), gates, failure handling, graduation ceremony.
+- `protocols/promotion.md` — clearance ladder (Rookie / Veteran / Elite / Legend), promotion criteria, demotion triggers, `AUTHORIZE SENIOR` escape hatch.
+
+**Knowledge & experience store:**
+- `knowledge/README.md` — schema for structured fact store (static / dynamic / derived, source, confidence, expiry).
+- `knowledge/terminids-front-ops.yaml` — example knowledge domain (Terminids front, pack-canonical metahpor).
+- `experience/README.md` — 4-domain experience structure (operational / learned / integrity / quality).
+- `experience/operational/`, `experience/learned/`, `experience/integrity/`, `experience/quality/` — scaffolded with example entries.
+
+**Induction system:**
+- `induction/README.md` — how to use the curriculum system.
+- `induction/_template/` — reusable domain template: `curriculum.md`, `glossary.yaml`, `quiz.yaml`, 3 exercises.
+
+**Tutorials:**
+- `missions/tutorial-09-new-agent-onboarding.md` — ONBOARD archetype end-to-end: Tier 3 orientation → calibration → Boot Camp graduation → session close.
+- `missions/tutorial-10-echelon-experiment.md` (`EXP-001`) — empirical demonstration: @low+framework vs @medium+no-framework on 3 tasks.
+
+### Changed
+
+- `QUICK_REFERENCE.md` — added `ELD` and `ORT` to stratagem table; added `ONBOARD` mission archetype; added `@low/@medium/@high/@max` tier aliases to fleet section; added THE INSTRUCTOR + Bridge Crew callout to roles; added 8 lifecycle keywords (`orient`, `onboard`, `induct`, `calibrate`, `promote`, `boot camp`, `shadow`, `AUTHORIZE SENIOR`).
+- `AGENTS.md` — fleet template updated to `@tier` notation (e.g. `claude-sonnet@medium`); added `Model deep` and `Model ceiling` lines; added cross-reference to `docs/reasoning-tiers.md`.
+
 ### Changed
 
 - `QUICK_REFERENCE.md` — links to the pack self-audit checklist.

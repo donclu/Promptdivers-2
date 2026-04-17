@@ -1,0 +1,53 @@
+# Feedback ledger — append-only.
+# Captures corrections, confirmations, and boundaries from the human.
+# Democracy Officer appends here at `save` / `extract` / on any explicit human correction.
+# Never delete entries — mark superseded with `status: superseded_by: <id>`.
+
+entries:
+
+  - id: INT-001
+    date: 2026-04-17
+    type: correction
+    rule: "Never invent game-canon claims; Helldivers terminology is metaphor only"
+    why: >
+      Accuracy policy (protocols/accuracy-policy.md) binds the pack. Inventing
+      mechanics produces an Illuminate-risk surface: unreviewed output that
+      looks authoritative.
+    how_to_apply: >
+      When writing pack docs, any phrase that could be read as a game-mechanics
+      claim must be softened to metaphor or cited to the source.
+    source_turn: "calibration — baseline rule imported from protocols/accuracy-policy.md"
+    status: active
+
+  - id: INT-002
+    date: 2026-04-17
+    type: boundary
+    rule: "No commits or pushes without explicit human instruction"
+    why: >
+      Listed in AGENTS.md §operational-permissions. Non-negotiable default
+      across all squads.
+    how_to_apply: >
+      Any write to git (commit, push, rebase, tag) requires a direct human
+      order in the turn, not a past approval.
+    source_turn: "calibration — baseline rule imported from AGENTS.md"
+    status: active
+
+  - id: INT-003
+    date: 2026-04-17
+    type: confirmation
+    rule: "Low-tier rung planning before heavy-tier execution is the right default"
+    why: >
+      Non-obvious call — bundled planning into a @low rung rather than letting
+      @medium plan and execute. Human confirmed this was correct for the
+      Squad-B-ORB-001 mission shape.
+    how_to_apply: >
+      Apply on Squad B and Squad C missions with >2 files. See
+      experience/learned/why-low-rung-planning-saves-heavy-rung-cost.md.
+    source_turn: "Squad-B-ORB-001 debrief"
+    status: active
+
+# When adding a new entry:
+# 1. Use the next INT-NNN id.
+# 2. One of: correction | confirmation | boundary.
+# 3. Always include `why` — a rule without a why is noise.
+# 4. Democracy Officer reviews the ledger at every extract for drift.

@@ -1,0 +1,72 @@
+# Example knowledge domain file.
+# Metaphor: Terminids = bugs/defects in a consumer repo (per AGENTS.md theater of war).
+# This file is illustrative — replace values with real project data when adopting the pack.
+
+domain: terminids-front-ops
+updated: 2026-04-17
+source_authority: "PROJECT_LOG.md + CHANGELOG.md of the consuming repo"
+expiry_policy: "re-verify dynamic facts every sprint close; static on major version bumps"
+
+# ─────────────────────────────────────────────
+# STATIC — facts that do not change over time
+# ─────────────────────────────────────────────
+static:
+  - key: terminid_priority_targets
+    value: ["runtime_bugs", "regressions", "data_corruption"]
+    source: "AGENTS.md §theater-of-war (this pack)"
+    confidence: high
+    note: "Defined in pack doctrine; not a game-canon claim."
+
+  - key: squad_b_golden_rule
+    value: "THE FORGE and THE EXECUTOR must not be the same agent in one run"
+    source: "CLAUDE.md + squads/squad-b-artillery.md"
+    confidence: high
+
+  - key: accuracy_policy_binding
+    value: true
+    source: "protocols/accuracy-policy.md"
+    confidence: high
+    note: "All facts here must carry source + date."
+
+# ─────────────────────────────────────────────
+# DYNAMIC — facts scoped to a time/region
+# ─────────────────────────────────────────────
+dynamic:
+  - key: terminids_eliminated
+    scope: { year: 2026, quarter: 1 }
+    value: 0
+    unit: defects_closed
+    source: "placeholder — fill from CHANGELOG.md of the consuming repo"
+    confidence: low
+    observed: 2026-04-17
+
+  - key: terminid_reappearance_count
+    scope: { year: 2026, quarter: 1 }
+    value: 0
+    unit: regressions
+    source: "placeholder — fill from git log --grep='regression'"
+    confidence: low
+    observed: 2026-04-17
+
+  - key: hot_zone_sectors
+    scope: { year: 2026, quarter: 2 }
+    value: []
+    source: "placeholder — populate from current [DEBT-xxx] entries in AGENTS.md"
+    confidence: low
+    observed: 2026-04-17
+
+# ─────────────────────────────────────────────
+# DERIVED — computed, never declared by hand
+# ─────────────────────────────────────────────
+derived:
+  - key: terminid_reappearance_rate
+    expression: "terminid_reappearance_count@{year,quarter} / terminids_eliminated@{year,quarter}"
+    computed_by: validator
+    last_computed: null
+    note: "A rising rate signals scaffolding debt — route to Squad D for quality audit."
+
+  - key: sector_heat_index
+    expression: "count(hot_zone_sectors) * weight_from_AGENTS_debt_severity"
+    computed_by: echelon-rung-1
+    last_computed: null
+    note: "Used by the Tactician to order NEXT_MISSION priorities."

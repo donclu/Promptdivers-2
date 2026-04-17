@@ -22,6 +22,7 @@ This repository is a documentation and template pack. Releases are still importa
 
 3. **Health check**
    - Run `./scripts/health-check.sh .` and review any 🔴/🟡 items.
+   - **Reasoning tiers:** Open `docs/reasoning-tiers.md` and check `last_verified` date. If older than 90 days, re-verify each provider column against current official API docs. Update `needs_verify` markers and bump `last_verified`. Provider APIs rename parameters frequently — stale entries violate the accuracy policy.
 
 4. **Tagging**
    - Create a git tag `vX.Y.Z` matching `VERSION`.

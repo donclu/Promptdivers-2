@@ -1,0 +1,313 @@
+{
+  "shape": {
+    "rows": 64442,
+    "cols": 10
+  },
+  "columns": [
+    "invoice_id",
+    "invoice_date",
+    "country",
+    "branch_code",
+    "customer_id",
+    "customer_name",
+    "line_type",
+    "sku_or_service_code",
+    "qty_or_hours",
+    "unit_price"
+  ],
+  "csv_physical": {
+    "file_path": "/Users/donclu/Documents/GitHub/Promptdivers-2/dirty_industrial_sales.csv",
+    "bytes": 6736316,
+    "lines_total": 65001,
+    "lines_body": 65000,
+    "lines_empty_body": 0,
+    "field_sep_comma": 64700,
+    "field_sep_semicolon": 175,
+    "field_sep_tab": 539,
+    "comma_fields_ne10": 1269,
+    "estimated_bad_lines": 1269
+  },
+  "csv_reconcile": {
+    "physical_body_lines": 65000,
+    "pandas_rows_read": 64442,
+    "pandas_minus_physical": -558,
+    "estimated_dropped_rows": 558,
+    "estimated_bad_lines_heuristic": 1269
+  },
+  "col_profile": {
+    "invoice_id": {
+      "nulls": 678,
+      "empty_or_ws": 678,
+      "nunique": 63694,
+      "invisibles_rows": 159,
+      "mojibake_rows": 0
+    },
+    "invoice_date": {
+      "nulls": 299,
+      "empty_or_ws": 299,
+      "nunique": 1235
+    },
+    "country": {
+      "nulls": 327,
+      "empty_or_ws": 327,
+      "nunique": 8
+    },
+    "branch_code": {
+      "nulls": 329,
+      "empty_or_ws": 329,
+      "nunique": 12,
+      "invisibles_rows": 0,
+      "mojibake_rows": 0
+    },
+    "customer_id": {
+      "nulls": 329,
+      "empty_or_ws": 329,
+      "nunique": 8996
+    },
+    "customer_name": {
+      "nulls": 329,
+      "empty_or_ws": 329,
+      "nunique": 897,
+      "invisibles_rows": 1592,
+      "mojibake_rows": 166
+    },
+    "line_type": {
+      "nulls": 329,
+      "empty_or_ws": 329,
+      "nunique": 3
+    },
+    "sku_or_service_code": {
+      "nulls": 329,
+      "empty_or_ws": 329,
+      "nunique": 12,
+      "invisibles_rows": 0,
+      "mojibake_rows": 0
+    },
+    "qty_or_hours": {
+      "nulls": 450,
+      "empty_or_ws": 450,
+      "nunique": 30
+    },
+    "unit_price": {
+      "nulls": 455,
+      "empty_or_ws": 455,
+      "nunique": 55573
+    }
+  },
+  "unit_price_summary": {
+    "count": 63854,
+    "min": -2500.0,
+    "max": 89017013.0,
+    "mean": 437926.9438871487,
+    "std": 3817310.997363032,
+    "q01": 12.0,
+    "q05": 55.0295,
+    "q50": 10407.435,
+    "q95": 801381.8979999999,
+    "q99": 1738762.7000000197,
+    "iqr": 263078.215,
+    "tukey_outliers": 6674,
+    "tukey_lo": -394427.0925,
+    "tukey_hi": 657885.7675000001
+  },
+  "unit_price_flags": {
+    "negatives": 215,
+    "zeros": 197
+  },
+  "qty_or_hours_summary": {
+    "count": 63866,
+    "min": -3.0,
+    "max": 200.0,
+    "mean": 9.395973600977046,
+    "std": 14.135275853049867,
+    "q01": 0.5,
+    "q05": 0.75,
+    "q50": 7.0,
+    "q95": 24.0,
+    "q99": 40.0,
+    "iqr": 9.0,
+    "tukey_outliers": 2090,
+    "tukey_lo": -10.5,
+    "tukey_hi": 25.5
+  },
+  "qty_or_hours_flags": {
+    "negatives": 252,
+    "zeros": 227
+  },
+  "invoice_date_range": {
+    "min": "2025-01-01",
+    "max": "2026-05-16"
+  },
+  "parsed": {
+    "unit_price": {
+      "parsed_ok": 63854,
+      "parsed_fail": 588,
+      "had_percent": 114,
+      "had_scientific": 0,
+      "had_unit_suffix": 276,
+      "had_o_substitution": 0,
+      "mixed_separator_suspect": 0
+    },
+    "qty_or_hours": {
+      "parsed_ok": 63866,
+      "parsed_fail": 576,
+      "had_percent": 122,
+      "had_scientific": 0,
+      "had_unit_suffix": 257,
+      "had_o_substitution": 495,
+      "mixed_separator_suspect": 0
+    },
+    "invoice_date": {
+      "parsed_ok": 62235,
+      "parsed_fail": 2207
+    }
+  },
+  "top_country": [
+    {
+      "value": "CL",
+      "count": 10809
+    },
+    {
+      "value": "PE",
+      "count": 10732
+    },
+    {
+      "value": "US",
+      "count": 10715
+    },
+    {
+      "value": "CO",
+      "count": 10705
+    },
+    {
+      "value": "AR",
+      "count": 10582
+    },
+    {
+      "value": "MX",
+      "count": 10570
+    },
+    {
+      "value": "",
+      "count": 327
+    },
+    {
+      "value": "91",
+      "count": 1
+    },
+    {
+      "value": "633.21",
+      "count": 1
+    }
+  ],
+  "top_branch_code": [
+    {
+      "value": "CO-MED-01",
+      "count": 5444
+    },
+    {
+      "value": "CL-SCL-01",
+      "count": 5429
+    },
+    {
+      "value": "US-HOU-01",
+      "count": 5400
+    },
+    {
+      "value": "CL-ANT-01",
+      "count": 5380
+    },
+    {
+      "value": "PE-ARE-01",
+      "count": 5374
+    },
+    {
+      "value": "PE-LIM-02",
+      "count": 5358
+    },
+    {
+      "value": "MX-MEX-01",
+      "count": 5316
+    },
+    {
+      "value": "US-MIA-01",
+      "count": 5315
+    },
+    {
+      "value": "AR-CBA-01",
+      "count": 5310
+    },
+    {
+      "value": "AR-BUE-01",
+      "count": 5272
+    }
+  ],
+  "top_line_type": [
+    {
+      "value": "SERVICE",
+      "count": 21615
+    },
+    {
+      "value": "MACHINE",
+      "count": 21435
+    },
+    {
+      "value": "PARTS",
+      "count": 21063
+    },
+    {
+      "value": "",
+      "count": 329
+    }
+  ],
+  "top_sku_or_service_code": [
+    {
+      "value": "SV-INSPECT-02",
+      "count": 5457
+    },
+    {
+      "value": "EXC-320D",
+      "count": 5434
+    },
+    {
+      "value": "SV-MAINT-03",
+      "count": 5427
+    },
+    {
+      "value": "SV-ONSITE-08",
+      "count": 5422
+    },
+    {
+      "value": "WHL-950H",
+      "count": 5380
+    },
+    {
+      "value": "DRL-D45KS",
+      "count": 5356
+    },
+    {
+      "value": "PART-HYD-07",
+      "count": 5354
+    },
+    {
+      "value": "SV-TRAIN-01",
+      "count": 5309
+    },
+    {
+      "value": "PART-ENG-99",
+      "count": 5306
+    },
+    {
+      "value": "BLD-D6R",
+      "count": 5265
+    }
+  ],
+  "coherence": {
+    "country_branch_mismatch": 0,
+    "sku_mismatch": {
+      "service_bad": 0,
+      "parts_bad": 0,
+      "machine_bad": 0
+    }
+  }
+}

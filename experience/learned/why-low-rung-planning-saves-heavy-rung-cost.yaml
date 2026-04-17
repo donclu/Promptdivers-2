@@ -1,0 +1,16 @@
+# Machine-readable sidecar for the prose lesson of the same name.
+# Purpose: a low-tier rung can match `applies_when` without reading the prose.
+
+topic: low-rung-planning-saves-heavy-rung-cost
+rule: "Run Echelon rungs 0 and 1 before committing @high or @max to a task"
+applies_when:
+  squads: [B, C]
+  missions: [BUILD-BACKEND, BUILD-WEB, CONSULT-long-brief]
+  scope_threshold_files: 2
+do_not_apply_when:
+  - "single-turn CONSULT with knowledge/ lookup answer"
+  - "Squad D pass-through review"
+  - "TOTAL DEMOCRACY / emergency"
+confidence: medium     # 1 worked example so far — raise to high after 5+ confirmations
+source_events:
+  - experience/operational/2026-04-17-squad-b-orb-001-hot-zone.yaml

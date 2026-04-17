@@ -58,13 +58,16 @@ Model fallback:  any — pack is model-agnostic; see docs/model-fleet.md
 **Fleet note for consuming projects:** copy the block below into your own `AGENTS.md` stack and fill in:
 
 ```
-Model (nave):    claude-sonnet        ← default for deep work / Squad A–B
-Model fast:      claude-haiku         ← Squad C, quick iterations, ping loops
-Model vision:    gpt-4o / gemini      ← tasks with images / multimodal docs
-Model local:     mistral-7b (ollama)  ← privacy-sensitive payloads
+Model (nave):    claude-sonnet@medium  ← default for deep work / Squad A–B
+Model fast:      claude-haiku@low      ← Squad C, quick iterations, Echelon rung 0
+Model deep:      claude-opus@high      ← Squad B Forge, complex audits
+Model ceiling:   claude-opus@max       ← last resort / Echelon rung 3 only
+Model vision:    gpt-4o@medium         ← tasks with images / multimodal docs
+Model local:     mistral-7b (ollama)   ← privacy-sensitive payloads
 ```
 
-See `docs/model-fleet.md` for ship classes, capability tables, mission routing, and Illuminate-risk rules.
+Tier aliases (`@low` / `@medium` / `@high` / `@max`) are Promptdivers-canonical.
+Cross-provider mapping: `docs/reasoning-tiers.md`. Ship classes: `docs/model-fleet.md`.
 
 ---
 
