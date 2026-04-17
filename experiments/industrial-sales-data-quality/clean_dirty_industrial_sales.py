@@ -92,7 +92,9 @@ def parse_dates_messy(series: pd.Series) -> pd.Series:
 def validate_country_branch(country: pd.Series, branch: pd.Series) -> pd.Series:
     c = strip_invisibles(country).str.upper()
     b = strip_invisibles(branch).str.upper()
-    return b.str.startswith(c + "-")
+    # Extract country prefix from branch code and compare
+    b_country = b.str.extract(r'^([^-]+)', expand=False)
+    return b_country == c
 
 
 def validate_line_type_sku(line_type: pd.Series, sku: pd.Series) -> Tuple[pd.Series, Dict[str, pd.Series]]:

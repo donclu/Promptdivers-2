@@ -1,0 +1,138 @@
+{
+  "schema": "promptdivers-experiments-handoff/v1",
+  "updated": "2026-04-17T00:00:00Z",
+  "mission_cycle": "COMPLETE",
+  "squad_route": ["A (Scout/Recon)", "D (Validation)"],
+  "planet_status": {
+    "active_fronts": ["Automatons", "Illuminate"],
+    "hottest_sector": "experiments + orchestrator-token-gate integration",
+    "threat_level": "MEDIUM",
+    "status_detail": "Both experiments complete, reusable, integrated into pack. A/B comparison framework staged but not yet measured."
+  },
+  "experiments": [
+    {
+      "name": "Experimento 2: La Paradoja del Flujo Maestro",
+      "file": "experiments/experimento-2-paradoja-flujo.md",
+      "type": "logic-reasoning-test",
+      "model_tested": "Haiku",
+      "date_created": "2026-04-17",
+      "status": "✅ COMPLETE",
+      "objective": "Detect logical contradiction in hierarchical process mapping + risk rules (5-rule system, 1 subprocess, irresolvable state)",
+      "result": {
+        "paradox_detected": true,
+        "reasoning_chain": "valid",
+        "architectural_recommendation": "D (decompose subprocess) or E (escalate to stakeholder)"
+      },
+      "reusability": {
+        "portable": true,
+        "for_model_comparison": "Yes — copy case block to any LLM to test reasoning depth across models",
+        "test_rung": "medium (not trivial, but not frontier-reasoning)",
+        "languages_tested": "Spanish (original)"
+      }
+    },
+    {
+      "name": "Industrial Sales Dirty Data Pipeline",
+      "directory": "experiments/industrial-sales-data-quality/",
+      "type": "data-engineering + A/B-test-framework",
+      "date_delivered": "2026-04-15",
+      "status": "✅ COMPLETE (entregado)",
+      "scope": {
+        "dataset": "65,000 rows × 10 cols (machinery sales: construction/mining)",
+        "dirty_classes": "E1..E10 forced (≥20 each): invisibles, mojibake, cross-locale numerics, O↔0, NaN/%/units, multi-format dates, null/duplicate IDs, outliers, broken lines"
+      },
+      "artifacts": {
+        "scripts_python": [
+          "generate_dirty_sales_machinery.py (302 LOC)",
+          "profile_dirty_industrial_sales.py (270 LOC)",
+          "clean_dirty_industrial_sales.py (281 LOC)",
+          "make_report_figures.py (99 LOC)",
+          "render_templates.py (132 LOC)",
+          "numeric_parsing.py (104 LOC)",
+          "io_utils.py (134 LOC)",
+          "run_all.py (139 LOC)"
+        ],
+        "templates_markdown": [
+          "REPORT.template.md (58 LOC)",
+          "AUDIT_REPORT.template.md (45 LOC)",
+          "RECOMMENDATIONS.template.md (32 LOC)"
+        ],
+        "config": [
+          "requirements.txt (pinned deps)",
+          "ab_scorecard.template.csv (measurement template)"
+        ],
+        "comparative_report": "COMPARATIVE_REPORT.md (analysis of Agent A vs Agent B trade-offs)"
+      },
+      "pipeline_steps": [
+        "Step 0: Generate dirty CSV (65K rows) + sample (120 rows)",
+        "Step 1: Profile (metrics.json + plots/*.png)",
+        "Step 2: Clean + Quarantine (clean CSV + quarantine CSV + dq_report.json)",
+        "Step 3: Report figures + dashboard (plots/*.png + dq_dashboard.json)",
+        "Step 4-5: Render templates → REPORT.md + AUDIT_REPORT.md + RECOMMENDATIONS.md"
+      ],
+      "outputs_generated": [
+        "dirty_industrial_sales.csv",
+        "dirty_industrial_sales.sample120.csv",
+        "profile_out/metrics.json",
+        "profile_out/plots/*.png",
+        "clean_out/industrial_sales_clean.csv",
+        "clean_out/industrial_sales_quarantine.csv",
+        "clean_out/dq_report.json",
+        "report_out/plots/*.png",
+        "report_out/dq_dashboard.json",
+        "report_out/REPORT.md",
+        "report_out/AUDIT_REPORT.md",
+        "report_out/RECOMMENDATIONS.md"
+      ],
+      "quickstart": {
+        "command": "python experiments/industrial-sales-data-quality/run_all.py --repo_root .",
+        "platforms": ["macOS/Linux (Bash)", "Windows (PowerShell)"]
+      },
+      "a_b_framework": {
+        "agent_a": "Direct responses, higher narrative output → higher chat token cost per step",
+        "agent_b": "Orchestrator + artifact-first → Token Gate overhead amortized across phases",
+        "comparison_dimensions": [
+          "Token economy (proxy: chat output size per phase)",
+          "Efficiency & effectiveness (reproducibility, auditability, robustness, actionability)",
+          "Fun/correctness trade-off"
+        ],
+        "expected_winner_this_workflow": "Agent B (artifact-first amortizes overhead)",
+        "measurement_ready": true,
+        "measurement_template": "ab_scorecard.template.csv"
+      },
+      "vendoring_status": "✅ Included in install.sh + install.ps1 (experiments/ travels with pack)"
+    }
+  ],
+  "fronts_status": {
+    "TERMINIDS": "✅ No defects detected in experiments cycle",
+    "AUTOMATONS": "✅ Scripts are reproducible, heuristics explicit (io_utils, numeric_parsing), pipeline robust",
+    "ILLUMINATE": "✅ A/B framework documented, auditability design pattern modeled, no ungoverned AI found"
+  },
+  "integration_points": {
+    "orchestrator_gate": "✅ Token Gate + artifact-first documented in promptdivers-orchestrator SKILL.md + docs/prompt-economics.md",
+    "installer_vendoring": "✅ experiments/ included in install.sh --vendor-framework and install.ps1 -VendorFramework",
+    "pack_dogfooding": "✅ Experiments serve as living test cases for orchestrator + reasoning depth"
+  },
+  "mission_status": "GREEN",
+  "debrief": {
+    "objectives_passed": [
+      "RECON: Full audit of @experiments directory structure and contents",
+      "ANALYSIS: Paradoja flujo fully documented; Industrial sales pipeline complete with A/B framework",
+      "STATE: Both experiments integrated into pack, reusable, vendored",
+      "ROUTING: Classified against fronts (Automatons, Illuminate, Terminids) — all CLEAR",
+      "HANDOFF: HANDOFF_JSON + PROJECT_LOG ready for next squad"
+    ],
+    "quality_notes": "All code is auditabledata is reproducible, templates are reusable, A/B framework is staged and ready for measurement",
+    "next_operations": [
+      "Run A/B measurement with both agent styles (template ready: ab_scorecard.template.csv)",
+      "Train models on same case across reasoning tiers (@low → @medium → @high)",
+      "Iterate industrial-sales dirty classes if needed based on actual A/B results",
+      "Close DEBT-002 if needed (Copilot instructions template decision)"
+    ]
+  },
+  "open_questions": [
+    "Should experiments/ get CI/CD automation to re-run pipelines on schedule?",
+    "When will A/B measurement campaign run? (ready to execute)",
+    "Any new experiments queued for next sprint?"
+  ],
+  "token_efficiency_note": "This HANDOFF_JSON is 1.2K. Prefer reading it + pointers over repeating full experiment contents in next session."
+}

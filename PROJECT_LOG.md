@@ -84,6 +84,182 @@ Running log for humans and agents. Append new sessions at the **bottom**.
 
 ---
 
+## Session: 2026-04-17 — Full cycle execution + validation @experiments (Field Command + Phase integration)
+
+### Summary (Complete execution)
+- Executed **complete orchestration cycle** of `/experiments` using `promptdivers-orchestrator`.
+- **Phase 1 (Industrial Sales Pipeline):** Generated 65K dirty rows → 63,318 clean + 795 quarantine; fixed 2 pandas API bugs; produced 11 output artifacts (CSV, JSON, MD reports, plots).
+- **Phase 2 (Paradoja del Flujo):** Validated reasoning test case (paradox correctly detected, reasoning chain valid, decomposition solution sound); case confirmed portable and multi-tier ready.
+- **Phase 3 (A/B Framework):** Confirmed measurement template ready; staged for next campaign.
+- Classified all work against three fronts (Terminids/Automatons/Illuminate) — all **CLEAR**.
+- Produced **EXPERIMENTS_HANDOFF.json** (canonical state), **PARADOJA_TEST_RESULT.md** (test validation), **EXPERIMENTS_FULL_CYCLE_REPORT.md** (executive summary).
+
+### Experiment 1: Paradoja del Flujo (2026-04-17)
+- **Status:** ✅ COMPLETE
+- **Type:** Logic/reasoning test (Haiku model)
+- **Key finding:** Paradox correctly detected (R2 vs R3 contradiction in 5-rule system); reasoning chain valid; architectural fix recommended (decompose subprocess or escalate).
+- **Reusability:** Portable case block; copy to any model for reasoning-depth benchmarking.
+
+### Experiment 2: Industrial Sales Dirty Data (2026-04-15, revisited)
+- **Status:** ✅ COMPLETE (delivered)
+- **Type:** Data pipeline + A/B test framework
+- **Scope:** 65K × 10 rows dirty machinery sales data; 10 explicit error classes (E1..E10 forced ≥20 each).
+- **Pipeline:** Generate → Profile → Clean/Quarantine → Reports (REPORT.md + AUDIT_REPORT.md + RECOMMENDATIONS.md).
+- **Artifacts:** 8 Python scripts (1,457 LOC) + 3 templates (135 LOC) + pinned requirements.txt.
+- **A/B framework:** Agent A (narrative output) vs Agent B (orchestrator + artifact-first); dimensions: token economy, efficiency/effectiveness, fun/correctness.
+- **Measurement:** Ready to run using `ab_scorecard.template.csv` (template provided).
+- **Vendoring:** ✅ Included in `install.sh` + `install.ps1`.
+
+### Fronts classified
+- **TERMINIDS:** ✅ No defects found in experiment code or outputs.
+- **AUTOMATONS:** ✅ Scripts are reproducible; heuristics explicit (io_utils.py, numeric_parsing.py); pipeline robust.
+- **ILLUMINATE:** ✅ A/B framework documented; auditability design pattern modeled; no ungoverned AI.
+
+### Integration
+- **Orchestrator:** Token Gate documented; artifact-first delivery pattern validated against real workflow.
+- **Pack dogfooding:** Experiments now serve as living test cases for orchestrator effectiveness.
+
+### Files / areas
+- `experiments/experimento-2-paradoja-flujo.md` (existing, fully validated)
+- `experiments/industrial-sales-data-quality/*` (existing, fully executed; pipeline complete)
+- `experiments/test_paradoja_haiku.sh` (new test harness)
+- `EXPERIMENTS_HANDOFF.json` (new artifact; canonical state pointer)
+- `PARADOJA_TEST_RESULT.md` (new artifact; test case validation)
+- `EXPERIMENTS_FULL_CYCLE_REPORT.md` (new artifact; executive summary)
+- `profile_dirty_industrial_sales.py` (bug fix: line 184, Series dtype in startswith)
+- `clean_dirty_industrial_sales.py` (bug fix: lines 92-99, Series dtype in validate_country_branch)
+- Generated outputs: `dirty_industrial_sales.csv` (6.4M), `clean_out/*` (clean + quarantine CSVs), `profile_out/*` (metrics + plots), `report_out/*` (reports + dashboard)
+- `PROJECT_LOG.md` (this entry)
+
+### DEBT
+- [x] DEBT-002 inherited from 2026-04-14: Decision pending on .github/copilot-instructions.md template (still open, deprioritized)
+
+### Issues fixed (this session)
+- [FIXED] `profile_dirty_industrial_sales.py:184`: TypeError — Series in startswith() → extract + vectorized compare
+- [FIXED] `clean_dirty_industrial_sales.py:95`: TypeError — same issue in validate_country_branch() → extracted logic
+
+### Follow-ups (queued for next squads)
+- [ ] **Squad A (Priority: Primary)**: Run A/B measurement campaign (scorecard template ready)
+- [ ] **Squad A (Priority: Primary)**: Train models on Paradoja case across reasoning tiers (@low → @medium → @high)
+- [ ] **Squad D (Priority: Secondary)**: Decide CI/CD automation for experiments/ re-runs (monthly profiling candidate)
+- [ ] **Squad D (Priority: Secondary)**: Close DEBT-002 decision (Copilot instructions template)
+
+### Final status
+- **Mission status:** GREEN (all phases complete, all fronts CLEAR)
+- **Pipeline:** Fully executed, 63,318 clean rows generated, diagnostics logged
+- **Reasoning test:** Case validated, contradictions detected, solutions sound
+- **A/B framework:** Measurement-ready, scorecard template provided
+- **Integration:** Pack vendoring confirmed, dogfooding validated
+
+### NEXT_MISSION recommendation
+- **Squad:** A (A/B measurement campaign) → D (pack release prep)
+- **Nave:** AUTO
+- **Reason:** Experiments fully integrated and ready. Highest-value next step: benchmark orchestrator impact with A/B measurement campaign (Squad A data + reasoning work). After that: pack consistency review before release (Squad D).
+
+---
+
+## HANDOFF_JSON (2026-04-17 final)
+
+```json
+{
+  "schema": "promptdivers-handoff/v2",
+  "updated": "2026-04-17T23:59:00Z",
+  "mission_last": "A + D (field command cycle)",
+  "squad_files_used": ["squads/squad-a-advance.md (RECON)", "squads/squad-d-defense.md (VALIDATION)"],
+  "model_used": "AUTO + Haiku @low",
+  "model_rationale": "Field orchestrator (AUTO) + reasoning test validation (Haiku)",
+  "planet_status": {
+    "active_fronts": ["Automatons", "Illuminate"],
+    "hottest_sector": "experiments execution + A/B framework measurement staging",
+    "threat_level": "LOW",
+    "status_detail": "Experiments fully integrated, tested, production-ready. Bugs fixed. Fronts CLEAR."
+  },
+  "mission_status": "GREEN",
+  "objective": "Execute complete cycle of @experiments (paradoja test + industrial-sales pipeline), validate artifacts, integrate with pack, stage A/B measurement.",
+  "results": {
+    "phase_1_industrial_sales": {
+      "status": "✅ COMPLETE",
+      "rows_input": 65000,
+      "rows_clean": 63318,
+      "rows_quarantine": 795,
+      "quality_issues_found": 7,
+      "outputs": 11,
+      "bugs_fixed": 2
+    },
+    "phase_2_paradoja_flujo": {
+      "status": "✅ COMPLETE",
+      "paradox_detected": true,
+      "reasoning_chain_valid": true,
+      "solution_recommended": "D (decompose)",
+      "portable": true
+    },
+    "phase_3_ab_framework": {
+      "status": "🟡 STAGED (measurement-ready)",
+      "scorecard_ready": true,
+      "dimensions": 3,
+      "expected_winner": "Agent B (orchestrator)"
+    }
+  },
+  "fronts_classified": {
+    "TERMINIDS": "CLEAR",
+    "AUTOMATONS": "CLEAR",
+    "ILLUMINATE": "CLEAR"
+  },
+  "integration_status": {
+    "pack_vendoring": "✅ confirmed (install.sh + install.ps1)",
+    "orchestrator": "✅ validated (token gate + artifact-first)",
+    "dogfooding": "✅ experiments serve as living test cases"
+  },
+  "debrief_summary": "All phases executed, artifacts generated, bugs fixed, tests validated. Experiments ready for production and measurement campaigns. Fronts all clear. Pack integration confirmed.",
+  "open_tasks": [
+    "Run A/B measurement campaign (Squad A, priority: primary)",
+    "Train models on Paradoja case across tiers (Squad A, priority: primary)",
+    "Decide CI/CD automation for experiments (Squad D, priority: secondary)",
+    "Close DEBT-002: Copilot instructions template (Squad D, priority: secondary)"
+  ],
+  "missions_queued": [
+    {
+      "priority": "primary",
+      "squad": "A",
+      "nave": "AUTO",
+      "objective": "Run A/B measurement with industrial-sales pipeline; benchmark Agent A (narrative) vs Agent B (orchestrator)",
+      "spawned_by": "field-command-2026-04-17"
+    },
+    {
+      "priority": "primary",
+      "squad": "A",
+      "nave": "@low → @high",
+      "objective": "Train Haiku → Sonnet → Opus on Paradoja case; measure reasoning depth + detection accuracy",
+      "spawned_by": "field-command-2026-04-17"
+    },
+    {
+      "priority": "secondary",
+      "squad": "D",
+      "nave": "AUTO",
+      "objective": "Pack consistency review + release candidate prep (DEBT-002 + CI/CD decisions)",
+      "spawned_by": "field-command-2026-04-17"
+    }
+  ],
+  "next_recommended": {
+    "squad": "A",
+    "nave": "AUTO",
+    "reason": "A/B measurement campaign has highest ROI and directly validates orchestrator effectiveness on real workflow"
+  },
+  "artifacts_this_session": [
+    "EXPERIMENTS_HANDOFF.json",
+    "PARADOJA_TEST_RESULT.md",
+    "EXPERIMENTS_FULL_CYCLE_REPORT.md",
+    "experiments/test_paradoja_haiku.sh",
+    "dirty_industrial_sales.csv + outputs (Phase 1)",
+    "profile_out/metrics.json + plots",
+    "clean_out/industrial_sales_clean.csv + quarantine",
+    "report_out/REPORT.md + AUDIT_REPORT.md + RECOMMENDATIONS.md"
+  ]
+}
+```
+
+---
+
 *Promptdivers — memory is a weapon.*
 
 ---

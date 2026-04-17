@@ -181,7 +181,9 @@ def main():
     if "country" in df.columns and "branch_code" in df.columns:
         country = strip_invisibles(df["country"])
         branch = strip_invisibles(df["branch_code"])
-        coherence["country_branch_mismatch"] = int((~branch.str.startswith(country + "-")).sum())
+        # Extract country prefix from branch code and compare
+        branch_country = branch.str.extract(r'^([^-]+)', expand=False)
+        coherence["country_branch_mismatch"] = int((branch_country != country.astype(str)).sum())
 
     if "line_type" in df.columns and "sku_or_service_code" in df.columns:
         lt = strip_invisibles(df["line_type"])
