@@ -81,6 +81,8 @@ From whichever source you found, extract:
 Cross-check against `AGENTS.md` `Model (nave)` declaration — use the project default unless
 mission requirements justify a different class.
 
+This recommendation is a target, not a self-executing switch — see [`../docs/claude-code-model-execution.md`](../docs/claude-code-model-execution.md) for what actually has to happen (subagent call, `Workflow` phase, or human `/model`) to realize it.
+
 ---
 
 ### 5. Output: Planet status block

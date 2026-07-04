@@ -81,6 +81,8 @@ Phase 6 — LEDGERS OPEN      : initialize integrity + quality ledgers
 2. Pick tier aliases per [`./reasoning-tiers.md`](./reasoning-tiers.md). Declare which alias maps to which real provider parameter.
 3. Record in `AGENT_PROFILE.md` pillar 2 (Skills) the preferred model per skill.
 
+> **Declaring a nave/tier here does not execute it.** See [`./claude-code-model-execution.md`](./claude-code-model-execution.md) for the actual mechanism (subagent `model`, `Workflow` `model`+`effort`, or human `/model`).
+
 > ⚠️ **Do not assume** `@medium` on one provider ≈ `@medium` on another. The
 > mapping belongs in `reasoning-tiers.md` and must ship a `last_verified`
 > date.

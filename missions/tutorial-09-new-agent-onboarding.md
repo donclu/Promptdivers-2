@@ -13,7 +13,7 @@
 
 **Archetype:** ONBOARD
 **Squad:** A (terrain unknown at start)
-**Nave:** `claude-sonnet@medium` (orientation) → `claude-haiku@low` (rung 0 drills)
+**Nave:** `claude-sonnet@medium` (orientation) → `claude-haiku@low` (rung 0 drills) — a real switch here means a new subagent/session on the other model, not the same thread narrating a change; see `../docs/claude-code-model-execution.md`.
 **Bridge Crew:** THE AUTHENTIC (runs orientation), THE INSTRUCTOR (runs Boot Camp), THE DEMOCRACY OFFICER (gates + ledger), THE NAVIGATOR (primes knowledge/)
 
 > **Prerequisite:** Boot Camp Phase 1–3 require an `induction/<domain>/` curriculum to exist.

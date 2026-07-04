@@ -25,6 +25,8 @@ In the Helldivers-inspired metaphor of this framework, when a teammate goes down
 | Speed: parallel work would finish faster | Parallel: independent modules in separate sessions |
 | Model limitation: current nave can't do vision/code/prose | Swap: different model for specific phase |
 
+In Claude Code, a "swap" is a separate subagent/`Workflow` call carrying the new `model` — not the current thread claiming to run differently. See `../docs/claude-code-model-execution.md`.
+
 ---
 
 ## Protocol

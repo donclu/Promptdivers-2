@@ -591,7 +591,23 @@ New `docs/claude-code-model-execution.md` — the main finding is that Claude Co
 - `CHANGELOG.md`, `PROJECT_LOG.md` (conflict resolution only — no new content invented beyond reordering/relabeling)
 
 ### Mission Status
-- 🟡 YELLOW — conflicts resolved and staged; merge commit itself not yet made (needs explicit go-ahead per this pack's own "never commit without instruction" rule).
+- 🟢 GREEN — merge concluded (commit `0890a57`) by the human via GitHub Desktop.
+
+---
+
+## Session: 2026-07-04 (cont. 2) — Cross-link sweep after the v3.5.0 merge
+
+### Summary
+- The v3.5.0 merge brought in content that hadn't been checked against the "declaration vs mechanism" gap yet. Ran a recon pass (Explore agent) across 15 candidate files that mention `nave`/tier and weren't part of the original fix.
+- **7 genuine gaps found and fixed**, one line each, same pattern as before (pointer to `docs/claude-code-model-execution.md`, no restated doctrine): `protocols/pre-drop.md`, `docs/super-earth-operating-model.md`, `docs/agent-job-families.md` (one file-level note instead of repeating it in all 6 job-family tables), `docs/calibration-protocol.md`, `AGENT_PROFILE.md`, `missions/tutorial-09-new-agent-onboarding.md`, `protocols/reinforce.md`.
+- **8 files checked and left alone** (passing mentions, not instructions implying a switch): `ORIENTATION.md`, `docs/agent-ecosystem-integration.md`, `docs/SKILLS_AND_EXTENSIONS.md`, `skills/promptdivers-stratagem-terminal/SKILL.md`, `NEXT_MISSION.md`, `protocols/mission-debrief.md`, `protocols/democracy-officer.md`, `protocols/radio-comms.md`.
+- Caught one recon error before applying: the agent suggested `../../docs/...` for the `missions/` file; correct depth is `../docs/...` (one level up, not two) — verified by directory structure before editing.
+
+### Files / areas
+- `protocols/pre-drop.md`, `docs/super-earth-operating-model.md`, `docs/agent-job-families.md`, `docs/calibration-protocol.md`, `AGENT_PROFILE.md`, `missions/tutorial-09-new-agent-onboarding.md`, `protocols/reinforce.md`
+
+### Mission Status
+- 🟢 GREEN — cross-link sweep complete. This should be the last round of this specific fix; further passes on it would be diminishing returns for a support-tooling repo (see `Herramientas/_LEEME.md`: don't over-polish the tool itself).
 
 ---
 

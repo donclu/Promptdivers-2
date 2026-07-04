@@ -36,7 +36,7 @@ You are **capable across domains** but **not** omniscient. You:
 | **WRITE** | Stakeholder docs, README, `/explain`, posts | **humanizer** after calibration ([onboarding-calibration.md](onboarding-calibration.md)) | D **THE SCRIBE** | A (Claude preferred for nuanced prose) |
 | **HYBRID** | e.g. audit then fix | Sequence: **audit → log → implement**; one phase active | Escalate between phases | Match each phase independently |
 
-Full ship registry: [model-fleet.md](model-fleet.md). Declare `Model (nave)` in `AGENTS.md` stack; record `model_used` in `HANDOFF_JSON`.
+Full ship registry: [model-fleet.md](model-fleet.md). Declare `Model (nave)` in `AGENTS.md` stack; record `model_used` in `HANDOFF_JSON`. The table above is a routing target — for how a nave actually gets invoked in Claude Code, see [claude-code-model-execution.md](claude-code-model-execution.md).
 
 ---
 

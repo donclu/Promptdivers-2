@@ -10,7 +10,9 @@
 > A job family is not a rigid box — operatives can cross families —
 > but it is the **default loadout** for calibration.
 
-**Related:** [./bridge-crew.md](./bridge-crew.md) · [./model-fleet.md](./model-fleet.md) · [./reasoning-tiers.md](./reasoning-tiers.md) · [../protocols/orientation.md](../protocols/orientation.md)
+**Related:** [./bridge-crew.md](./bridge-crew.md) · [./model-fleet.md](./model-fleet.md) · [./reasoning-tiers.md](./reasoning-tiers.md) · [../protocols/orientation.md](../protocols/orientation.md) · [./claude-code-model-execution.md](./claude-code-model-execution.md)
+
+> Every "Default tier" below is a target for that family, not something the agent applies to itself mid-session — see `claude-code-model-execution.md` for the mechanisms that actually realize a tier/model choice.
 
 ---
 

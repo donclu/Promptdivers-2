@@ -57,6 +57,8 @@ preferred_model:
   echelon-ladder:       "mixed — each rung declares its own tier"
 ```
 
+> `preferred_model` is a preference to hand to a subagent/`Workflow` call or a human `/model` switch — not something the running agent applies to itself. See `docs/claude-code-model-execution.md`.
+
 ## 3. Experience
 # [SERVICE RECORD]
 
