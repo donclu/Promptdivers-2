@@ -65,6 +65,24 @@ cp -r path/to/promptdivers/skills/promptdivers-tactical-signals ~/.claude/skills
 
 After installing, the skills appear as commands in Claude Code and Cowork. Trigger them by name or use the keywords in each skill's description.
 
+### Slash commands (deterministic keyword trigger)
+
+Skills trigger on fuzzy description-matching — good for "does this phrase sound like a mission," bad for guaranteeing the human keyword table in `QUICK_REFERENCE.md` (`status`, `save`, `debrief`, `escalate`, `orient`, `promote`, …) actually fires every time. `.claude/commands/*.md` in this pack turns each of those keywords into a real, deterministically-invocable command (`/status`, `/save`, `/debrief`, …).
+
+Project-local (recommended — keeps it scoped to projects that vendor this pack):
+```bash
+mkdir -p your-project/.claude/commands
+cp path/to/promptdivers/.claude/commands/*.md your-project/.claude/commands/
+```
+
+Global (all projects — only if you're fine with `/status`, `/save`, etc. being reserved names everywhere):
+```bash
+mkdir -p ~/.claude/commands
+cp path/to/promptdivers/.claude/commands/*.md ~/.claude/commands/
+```
+
+If a consuming project already has commands with the same names, either merge manually or copy into a namespaced subfolder (e.g. `.claude/commands/promptdivers/`) if your Claude Code version supports namespacing — check current docs, this pack ships them flat.
+
 ### Session log (optional but recommended)
 
 ```bash

@@ -100,6 +100,8 @@ WRITE prose            → Claude A + humanizer
 
 Declare nave in `AGENTS.md` stack. Log `model_used` + `model_rationale` in `HANDOFF_JSON` when the choice is non-obvious. Never switch models silently.
 
+**Mechanism, not just declaration.** The main thread cannot swap its own model mid-turn — a nave/rung choice only becomes real through one of: (a) spawning an `Agent` (subagent) call with an explicit `model`, (b) a `Workflow` script's `agent()` call with `model`+`effort` (gated — needs explicit opt-in or a skill/mission that licenses it, e.g. PRD or Squad B), or (c) the human running `/model` on the main thread. If a mission plan says "Forge on Opus, Executor on Sonnet" but never spawns two separate calls, that plan hasn't executed yet — it's still doctrine. Full breakdown: `docs/claude-code-model-execution.md`.
+
 ---
 
 ## Mission tree (inline — use squad files when available)

@@ -34,6 +34,8 @@
 **THE FORGE and THE EXECUTOR are different agents (or different sessions) for the same Mission B run.**  
 Same agent doing both tends to waste context and amplify mistakes.
 
+**Claude Code note:** this is not just a role-play convention — make it two literal tool calls. THE FORGE is one `Agent` (or `Workflow` `agent()`) call with `model: "opus"` and draft-only instructions; THE EXECUTOR is a **separate** call, typically `model: "sonnet"`, that only applies the drafts. One thread narrating both roles in the same context does not satisfy this rule. See [`docs/claude-code-model-execution.md`](../docs/claude-code-model-execution.md).
+
 ---
 
 ## Turn 1 — THE AUTHENTIC (activation prompt)

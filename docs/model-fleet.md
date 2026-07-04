@@ -120,6 +120,10 @@ You can switch models between phases without breaking doctrine:
 
 If the model switch is forced by a tool limitation (e.g., MCP not available in that host), log it as a **CONSTRAINT** in the session block.
 
+### Claude Code: how the switch actually happens
+
+The steps above describe *when* to declare a new nave. They do not, by themselves, cause a real model change — the running agent cannot swap its own model mid-turn. In Claude Code specifically, three concrete mechanisms exist (subagent `model` param, `Workflow` per-phase `model`/`effort`, human-run `/model`) and only one of them is human-only. See **[claude-code-model-execution.md](claude-code-model-execution.md)** for the full mapping — including which mechanism fits Squad B, RNF, PRD, and the Echelon Ladder.
+
 ---
 
 ## Illuminate risk: ungoverned model selection

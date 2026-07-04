@@ -104,6 +104,8 @@ Paste a compact machine-friendly blob for the next agent (optional but recommend
 `planet_status` captures the pre-drop terrain read (optional; omit when no GALACTIC_WAR_MAP exists).
 `missions_queued` is the mission queue; `priority` values: `primary`, `secondary`, `tertiary`. `spawned_by` links sub-missions to the mission that revealed them. Add queue items during the mission whenever new work surfaces; do not break the active mission to start them. `next_recommended` is a shortcut to the first queued item — keep for backward compatibility, omit when `missions_queued` is provided. `objectives`, `mission_status`, `debrief_summary`, `model_used`, `model_rationale` are optional; omit for tiny sessions.
 
+`model_used`/`model_rationale` record the nave chosen; for how nave and echelon actually change what runs, see `docs/claude-code-model-execution.md`.
+
 ---
 
 *Promptdivers — memory is a weapon.*

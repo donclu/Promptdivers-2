@@ -12,6 +12,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `protocols/pack-self-audit.md` — dogfooding checklist for pack consistency (sources-of-truth, links, flags, onboarding).
 - `protocols/accuracy-policy.md` — metaphor vs canon accuracy policy (DEBT-001).
 - `templates/mission-brief.template.md` — copy/paste mission brief template (flags + objectives + evidence).
+- `.claude/commands/*.md` (18 files) — the full human keyword table (`status`, `save`, `debrief`, `extract`, `handoff`, `escalate`, `total-democracy`, `scope-check`, `debt`, `abort`, `orient`, `onboard`, `induct`, `boot-camp`, `calibrate`, `promote`, `shadow`, `authorize-senior`) as real Claude Code slash commands — deterministic invocation instead of relying only on fuzzy keyword recognition in free text. Install instructions in `docs/MULTI_AGENT_SETUP.md`.
+- `docs/claude-code-model-execution.md` — maps "nave" (model) and "echelon rung" (`@low`–`@max`) to the three mechanisms that actually change what model/effort runs in Claude Code: subagent `model` param, `Workflow` per-phase `model`/`effort` (gated), and human-run `/model`. Closes the gap where the fleet doctrine was declarative only.
+
+### Changed
+
+- `docs/model-fleet.md`, `docs/reasoning-tiers.md`, `squads/squad-b-artillery.md`, `stratagems/support/reinforce.md`, `stratagems/support/parallel-drop.md`, `stratagems/support/echelon-ladder.md`, `skills/promptdivers-orchestrator/SKILL.md` — added short "Claude Code mechanism" notes cross-linking to `docs/claude-code-model-execution.md` so nave/rung declarations point at a concrete tool call instead of only prose.
+- `AGENTS.md`, `QUICK_REFERENCE.md` — human keyword table now notes the Claude Code slash-command equivalents.
 
 ## [3.4.0] — 2026-04-17
 

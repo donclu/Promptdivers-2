@@ -67,6 +67,8 @@ PARTIAL — switched mid-mission (context exceeded); switch logged
 FAIL    — sensitive dataset sent to cloud model without permission → Illuminate risk
 ```
 
+**Verify, don't just trust the label.** "PASS — ran on declared nave" needs evidence of an actual mechanism: a subagent (`Agent`) call with that `model`, a `Workflow` phase with that `model`/`effort`, or a human `/model` switch — not just a sentence claiming it. A claimed switch with no such call behind it is UNVERIFIED, not PASS. See `docs/claude-code-model-execution.md`.
+
 ---
 
 ## Stratagem map (failure routing)

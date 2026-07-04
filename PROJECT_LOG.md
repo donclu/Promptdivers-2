@@ -406,4 +406,68 @@ Running log for humans and agents. Append new sessions at the **bottom**.
 
 ---
 
+## 2026-07-04 — Claude Code coupling: slash commands + real model-switch mechanism
+
+**Objective:** two gaps flagged in an external review — (1) the human keyword table depends on fuzzy free-text recognition, (2) the "nave"/echelon fleet doctrine is declarative prose with no path to an actual model switch in Claude Code.
+
+**Part A — Slash commands (`.claude/commands/`, 18 files):**
+One command per keyword in the human keyword table (`status`, `save`, `debrief`, `extract`, `handoff`, `escalate`, `total-democracy`, `scope-check`, `debt`, `abort`, `orient`, `onboard`, `induct`, `boot-camp`, `calibrate`, `promote`, `shadow`, `authorize-senior`). Each is a short pointer to the canonical protocol file, not a copy of it (token-efficiency rule honored). Install path documented in `docs/MULTI_AGENT_SETUP.md`. `AGENTS.md` / `QUICK_REFERENCE.md` keyword tables now note the command equivalents.
+
+**Part B — Real model-switch mechanism:**
+New `docs/claude-code-model-execution.md` — the main finding is that Claude Code has exactly three levers that actually change what model/effort executes: (1) a subagent (`Agent` tool) call's `model` param, (2) a `Workflow` script's per-call `model` + `effort` (gated on explicit opt-in), (3) human-run `/model` on the main thread. Everything else in `AGENTS.md`'s fleet block is a label for humans, not a self-executing instruction — the running agent cannot swap its own model mid-turn. Cross-linked from `docs/model-fleet.md`, `docs/reasoning-tiers.md`, `squads/squad-b-artillery.md`, `stratagems/support/{reinforce,parallel-drop,echelon-ladder}.md`, and `skills/promptdivers-orchestrator/SKILL.md` (the actually-loaded skill).
+
+### Files / areas
+- `.claude/commands/*.md` (new, 18 files)
+- `docs/claude-code-model-execution.md` (new)
+- `docs/model-fleet.md`, `docs/reasoning-tiers.md`, `docs/MULTI_AGENT_SETUP.md`, `docs/SKILLS_AND_EXTENSIONS.md`
+- `squads/squad-b-artillery.md`, `stratagems/support/reinforce.md`, `stratagems/support/parallel-drop.md`, `stratagems/support/echelon-ladder.md`
+- `skills/promptdivers-orchestrator/SKILL.md`
+- `AGENTS.md`, `QUICK_REFERENCE.md`, `CHANGELOG.md`
+
+### Fronts Status
+- **ILLUMINATE:** ✅ improved — fleet doctrine no longer implies a model change the agent can't actually perform; commands reduce reliance on the model "guessing" a keyword was said.
+
+### DEBT
+- [ ] `docs/claude-code-model-execution.md` marked `last_verified: 2026-07-04` for exact tool/param names — re-check against current Claude Code docs on next pack audit (same discipline as `reasoning-tiers.md`'s provider map).
+- [ ] Command names are flat under `.claude/commands/` — no namespacing; document a collision workaround if a consuming project already owns e.g. `/status`.
+
+### Mission Status
+- 🟢 GREEN — both parts shipped; not yet committed (awaiting maintainer review).
+
+---
+
+## 2026-07-04 (cont.) — Squad B dogfood test + skill corrections + Claude Code install
+
+**Objective:** verify the Forge≠Executor mechanism actually holds with two real `Agent` tool calls, then extend yesterday's model-execution fix to the remaining bundled skills, then install the corrected skills where Claude Code actually loads them from.
+
+**Squad B test (real, not simulated):**
+- THE AUTHENTIC (scope): 3 templates under `templates/` don't yet point to `docs/claude-code-model-execution.md`, so new projects bootstrapping from this pack today wouldn't inherit yesterday's fix.
+- THE FORGE (`Agent`, `model: opus`, draft-only): read all 3 files, correctly inferred that `project-agents.stub.template.md` uses the vendored `.framework-promptdivers2/` path prefix (different from the other two templates' bare `docs/` paths) and drafted anchor/insert pairs accordingly. No files touched.
+- THE EXECUTOR (`Agent`, `model: sonnet`, apply-only): applied all 3 inserts exactly as drafted.
+- THE AUDITOR (this session): `git diff` confirmed scope — exactly the 3 intended files, exactly the 3 intended one-line insertions, no drive-by changes. **APPROVED.**
+- **Result:** the two-call Forge/Executor pattern held end-to-end on a real (if small) task. Not yet stress-tested on a large multi-batch refactor — that's the next honest test if this pattern needs more confidence.
+
+**Skill corrections (beyond `promptdivers-orchestrator`, fixed earlier):**
+- `promptdivers-orbital-control` — the skill that decides SOLO vs RNF vs PRD now states plainly that `2_AGENTS` = plain `Agent` calls (no gate) but `3_AGENTS`/PRD needs the `Workflow` tool and its opt-in gate; previously it could recommend `3_AGENTS` with no path to actually run it.
+- `promptdivers-pelican` — "PASS on declared nave" now requires evidence of an actual mechanism call, not just a claim.
+- `promptdivers-tactical-signals` — the "model switch" SITREP example now notes a main-thread self-switch claim needs `/model` or a subagent/`Workflow` call behind it.
+- `promptdivers-ministry-of-truth` — added "claimed nave/rung switch with no mechanism behind it" as a high-risk trigger; this is exactly the class of unverified claim this skill exists to catch.
+
+**Claude Code install:**
+- `~/.claude/skills/` did not exist for this user — only `~/.cursor/skills/` had 3 of the 6 bundled skills (Cursor, not Claude Code). Created `~/.claude/skills/` and installed all 6 corrected skill folders (`promptdivers-orchestrator`, `promptdivers-pelican`, `promptdivers-tactical-signals`, `promptdivers-orbital-control`, `promptdivers-ministry-of-truth`, `promptdivers-stratagem-terminal`).
+
+### Files / areas
+- `templates/project-agents.stub.template.md`, `templates/next-mission.template.md`, `templates/project-log.template.md`
+- `skills/promptdivers-orbital-control/SKILL.md`, `skills/promptdivers-pelican/SKILL.md`, `skills/promptdivers-tactical-signals/SKILL.md`, `skills/promptdivers-ministry-of-truth/SKILL.md`
+- `~/.claude/skills/*` (new, outside repo — global Claude Code install)
+
+### DEBT
+- [ ] `.cursor/skills/promptdivers-*` (3 folders) are now stale relative to the repo source — not updated this round since the ask was scoped to Claude Code; revisit if Cursor is still in active use.
+- [ ] Squad B pattern only verified on a 3-file, low-risk doc change — a real multi-batch code refactor would be a stronger test.
+
+### Mission Status
+- 🟢 GREEN — Squad B test passed audit; 4 skills corrected; 6 skills installed to `~/.claude/skills/`. Not committed (awaiting maintainer review).
+
+---
+
 *Promptdivers — memory is a weapon.*

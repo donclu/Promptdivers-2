@@ -194,6 +194,8 @@ BRIDGE CREW (invoked per trigger, not per turn — see docs/bridge-crew.md):
 
 ## Human keywords
 
+Claude Code: also installed as real commands (`/status`, `/save`, …) — see `.claude/commands/` + `docs/MULTI_AGENT_SETUP.md`. Free-text keyword recognition (below) remains the fallback for IDEs without a commands mechanism.
+
 ```text
 status            → SITREP / checkpoint
 save              → Log + handoff (+ memory if configured); if objectives were tracked, include debrief per protocols/mission-debrief.md

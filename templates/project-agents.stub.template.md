@@ -19,6 +19,8 @@ CI/CD:
 Model (nave):
 ```
 
+> How nave/echelon actually change what runs: `.framework-promptdivers2/docs/claude-code-model-execution.md`
+
 ## Permissions
 
 - May do:

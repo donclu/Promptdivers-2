@@ -87,6 +87,8 @@ description: >
 🚨 ALERT — sensitive data sent to cloud model — verify AGENTS.md permissions
 ```
 
+Note: on the **main thread**, "switching nave" is only real if a human ran `/model`, or if the switch actually happened inside a spawned subagent/`Workflow` call. A SITREP claiming a self-switch with neither behind it is a narrated switch, not a real one — see `docs/claude-code-model-execution.md`.
+
 ---
 
 *Promptdivers — o7*

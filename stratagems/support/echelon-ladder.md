@@ -243,6 +243,10 @@ Every mission executed with `ELD` must log:
 - If both are hit before mission ends: emit ESCALATE to the human, do not silently stop.
 - Always write one `experience/operational/` event per mission regardless of outcome.
 
+## Claude Code mechanism
+
+Each rung is one `Workflow` `agent()` call with the rung's `model`/`effort` (rung 0 → `haiku`/`low`, rung 3 → `opus`/`max`). The **gate between rungs should be deterministic script code** (schema checks, checklist booleans) wherever possible, not another model call — that's what keeps the ladder's cost economics real instead of just adding more LLM turns. This needs the `Workflow` tool, which only fires on explicit opt-in; on a single `Agent` call (no `Workflow`) you only control `model`, not rung/`effort`, so the ladder collapses to picking a nave per attempt rather than true staged escalation. Full mapping: [`../../docs/claude-code-model-execution.md`](../../docs/claude-code-model-execution.md).
+
 ---
 
 *"Every rung climbed is a signal the rung below was not enough. Listen to the signal; do not drown it."*

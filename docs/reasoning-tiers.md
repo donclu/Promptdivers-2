@@ -25,6 +25,8 @@
 @max     — extreme. Reserved for irreducible reasoning; last rung of the ladder.
 ```
 
+**Claude Code specifically:** the alias is not self-enforcing. On the main conversation thread, `@tier` is only realized if the human runs `/model` (or the harness already picked that tier) — the agent cannot dial its own reasoning depth mid-turn just by citing the alias. Rung control *is* mechanically real inside a `Workflow` script's `agent()` calls (`effort: 'low'|'medium'|'high'|'xhigh'|'max'`), and *not* exposed on the plain `Agent` (subagent) tool, which only picks `model`. See [claude-code-model-execution.md](claude-code-model-execution.md) for the full breakdown before assuming an alias in `AGENTS.md` is doing anything on its own.
+
 Rule of thumb:
 
 - If the answer is in `knowledge/`, use `@low`.

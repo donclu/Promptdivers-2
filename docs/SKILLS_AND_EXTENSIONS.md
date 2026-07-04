@@ -62,6 +62,8 @@ All three bundled skills carry **multi-domain capability libraries** (web/UI, da
 
 These are thin wrappers or specs beyond the bundled orchestrator.
 
+**Update:** for Claude Code, `promptdivers-handoff` and `promptdivers-escalation` below are now largely covered by real slash commands instead of new skills — see [`.claude/commands/`](../.claude/commands/) and [`MULTI_AGENT_SETUP.md`](MULTI_AGENT_SETUP.md) § Slash commands. Skills are description-triggered (fuzzy); commands are exact (`/handoff`, `/escalate`, `/debt`, …). Prefer the command for anything the human types as a fixed keyword; keep a skill only where free-text phrasing genuinely needs to be recognized.
+
 ### 2. `promptdivers-squad-a` … `promptdivers-squad-d` (or one `promptdivers-squads` skill)
 
 **Triggers:** match squad names and mission types.

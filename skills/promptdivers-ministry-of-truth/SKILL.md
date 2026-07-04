@@ -54,4 +54,5 @@ After:
 - Named APIs/flags/options not present in repo docs
 - Gameplay-mechanics statements (cooldowns, damage, unlock rules) used as if factual
 - Cross-file claims without search evidence
+- “Switched nave to X” / “running at @high now” with no subagent, `Workflow` call, or human `/model` invocation behind it — a claimed model/rung switch is a factual claim like any other; it needs the same evidence bar (see `docs/claude-code-model-execution.md`)
 

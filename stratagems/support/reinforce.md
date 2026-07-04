@@ -47,6 +47,10 @@ Use that protocol for the full split/briefing/merge steps and anti-patterns.
 - Always define **DO NOT TOUCH** zones — two agents editing the same file = Friendly Fire.
 - If the split is unclear, this is actually a Squad B job — escalate instead.
 
+## Claude Code mechanism
+
+RNF with 2 agents = two `Agent` tool calls issued together (each can carry its own `model`); this needs no special opt-in. If the split needs more than 2 agents, staged phases, or per-agent `effort` control, that's `PRD` territory and requires the `Workflow` tool, which is gated — see [`docs/claude-code-model-execution.md`](../../docs/claude-code-model-execution.md).
+
 ---
 
 *"Reinforce — democracy is a team sport."*

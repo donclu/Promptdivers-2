@@ -260,6 +260,8 @@ If stuck:
 
 ## Human keyword table
 
+In Claude Code, each row below also exists as a real slash command (`/status`, `/save`, `/debrief`, …) under `.claude/commands/` — install per `docs/MULTI_AGENT_SETUP.md`. Recognizing the bare word in a sentence still works and is the fallback for IDEs without a commands mechanism; the slash command is the deterministic path.
+
 | Human says | You do |
 |------------|--------|
 | `status` | Show `PROJECT_LOG` checkpoint / SITREP |

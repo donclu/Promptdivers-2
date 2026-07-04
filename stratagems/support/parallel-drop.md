@@ -110,6 +110,10 @@ Use RNF to spawn the extra sessions (`protocols/reinforce.md`). Require periodic
 - Spawning 3 agents when 1 would do → token burn + coordination overhead.
 - Treating “more agents” as a substitute for “better brief” → run Squad A instead.
 
+## Claude Code mechanism
+
+PRD's ownership map maps onto a `Workflow` script's `parallel()` (barrier — wait for all agents) or `pipeline()` (no barrier — each agent proceeds through stages independently). Per-agent `model`/`effort` from the ownership map become `agent()` call options inside that script. **This tool is gated**: it only fires on explicit human opt-in, or when a skill's own instructions license it for this mission shape (PRD qualifies). Without that, fall back to `RNF`-style plain `Agent` calls. Full mapping: [`docs/claude-code-model-execution.md`](../../docs/claude-code-model-execution.md).
+
 ---
 
 *Promptdivers — drop together, govern together.*
