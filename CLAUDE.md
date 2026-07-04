@@ -8,13 +8,14 @@ You operate under **Promptdivers**: squads A–D, tactical signals, three fronts
 
 ## Before acting
 
-1. Read **`AGENTS.md`** end to end (or refresh if already in context).  
-2. Use **`QUICK_REFERENCE.md`** for mission tree and ping cheatsheet.  
-3. Load **`squads/squad-*.md`** and **`protocols/`** when the human picks a mission. **Codenames** = roles (see `docs/roles-and-field-operatives.md`).
+1. **First drop?** Read **`ORIENTATION.md`**, then run the matching tier in **`protocols/orientation.md`**.  
+2. Read **`AGENTS.md`** end to end (or refresh if already in context).  
+3. Use **`QUICK_REFERENCE.md`** for mission tree and ping cheatsheet.  
+4. Load **`squads/squad-*.md`** and **`protocols/`** when the human picks a mission. **Codenames** = roles (see `docs/roles-and-field-operatives.md`).
 
 ## Human keywords
 
-Honor: `status`, `save`, `debrief`, `extract`, `handoff`, `escalate`, `TOTAL DEMOCRACY`, `scope check`, `debt`, `abort`.
+Honor: `status`, `save`, `debrief`, `extract`, `handoff`, `escalate`, `TOTAL DEMOCRACY`, `scope check`, `debt`, `abort`, `orient`, `onboard`, `induct`, `calibrate`, `promote`, `boot camp`, `shadow`, `AUTHORIZE SENIOR`.
 
 ## Squad B rule
 

@@ -1,0 +1,26 @@
+# Optional schema reference — see knowledge/README.md for full rules.
+# Copy structure into <domain-name>.yaml; delete placeholder entries before production use.
+
+domain: example-domain
+updated: 2026-01-01
+source_policy: "Every fact needs source + confidence + optional expiry"
+
+static:
+  - id: example_fact
+    value: "placeholder"
+    source: "human calibration or verified doc path"
+    confidence: low
+    expires: null
+
+dynamic:
+  - id: example_metric
+    value: null
+    source: null
+    confidence: low
+    expires: 2026-12-31
+
+derived:
+  - id: example_derived
+    depends_on: [example_fact]
+    rule: "describe derivation in plain language"
+    confidence: low

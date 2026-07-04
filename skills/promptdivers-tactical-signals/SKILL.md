@@ -9,7 +9,7 @@ description: >
 
 # Signal grid — tactical pings across all theaters
 
-**Path resolution:** Look for `protocols/tactical-signals.md` in the current workspace root. If found, read it for the full signal table and examples. If not found, use the compact grid below.
+**Path resolution:** Look for `protocols/tactical-signals.md` in workspace root → `.framework-promptdivers2/` (or vendored path in project `AGENTS.md`). If found, read it for the full signal table and examples. If not found, use the compact grid below.
 
 ---
 

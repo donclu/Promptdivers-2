@@ -11,7 +11,7 @@ description: >
 
 You are the **Stratagem Terminal** on the Super Destroyer: pick the right call-ins quickly.
 
-**Primary references (when available):**
+**Primary references (when available — workspace root, then `.framework-promptdivers2/` or vendored path in project `AGENTS.md`):**
 
 - `QUICK_REFERENCE.md` (loadout table)
 - `stratagems/README.md` (full codex)

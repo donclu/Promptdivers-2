@@ -87,3 +87,10 @@ logs/
 # Optional local scratch (never commit)
 scratch/
 local/
+
+# ── Experiment pipeline outputs (regenerate: experiments/industrial-sales-data-quality/run_all.py)
+/dirty_industrial_sales.csv
+/dirty_industrial_sales.sample120.csv
+/clean_out/
+/profile_out/
+/report_out/

@@ -6,7 +6,7 @@
 
 ### *Managed democracy for AI-assisted development*
 
-[![Version](https://img.shields.io/badge/version-3.3.1-brightgreen?style=flat-square)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-3.5.0-brightgreen?style=flat-square)](CHANGELOG.md)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 [![IDE](https://img.shields.io/badge/IDE-Claude%20Code%20%7C%20Cursor-purple?style=flat-square)](docs/MULTI_AGENT_SETUP.md)
 [![Fronts](https://img.shields.io/badge/fronts-3%20active-red?style=flat-square)](docs/factions-and-objectives.md)
@@ -26,6 +26,18 @@
 Promptdivers is a **portable framework** for AI-assisted development: Markdown doctrine (squads, protocols, stratagems), **IDE skills** that teach assistants *when* to load *what*, and templates (`AGENTS.md`, logs, missions). Your **AI assistant in the IDE** (Claude Code, Cursor, etc.) is the runtime; **this repo** is the playbook it follows.
 
 Inspired by *Helldivers 2* — squads, stratagems, three fronts, escalation ladders — applied to how you run **assisted** coding work in real projects.
+
+### Echelon lifecycle (v3.4+)
+
+Beyond squads and stratagems, the pack ships an **agent lifecycle** for any project:
+
+- [`ORIENTATION.md`](ORIENTATION.md) — pre-drop briefing for new operatives
+- [`AGENT_PROFILE.md`](AGENT_PROFILE.md) — service record index (knowledge, skills, experience, clearance)
+- [`protocols/orientation.md`](protocols/orientation.md) · [`protocols/induction.md`](protocols/induction.md) · [`protocols/promotion.md`](protocols/promotion.md)
+- [`stratagems/support/echelon-ladder.md`](stratagems/support/echelon-ladder.md) — budget reasoning (@low → @max)
+- [`docs/calibration-protocol.md`](docs/calibration-protocol.md) · [`docs/bridge-crew.md`](docs/bridge-crew.md) · [`docs/agent-job-families.md`](docs/agent-job-families.md)
+
+Tutorial walkthrough: [`missions/tutorial-09-new-agent-onboarding.md`](missions/tutorial-09-new-agent-onboarding.md).
 
 **Bundled skills (core + support):**
 
@@ -241,6 +253,8 @@ promptdivers/
 ├── install.sh / install.ps1       ← start here (Bash / PowerShell)
 ├── FIRST_MISSION.md               ← new to IDE assistants? read this first
 ├── README.md / README-ES.md       ← you are here · guía en español
+├── ORIENTATION.md                 ← pre-drop briefing (Echelon lifecycle)
+├── AGENT_PROFILE.md               ← operative service record index
 ├── AGENTS.md                      ← canonical project brief (dogfood)
 ├── CLAUDE.md                      ← Claude Code stub → points to AGENTS.md
 ├── QUICK_REFERENCE.md             ← one-page field cheat sheet
@@ -248,14 +262,17 @@ promptdivers/
 ├── PROJECT_LOG.md                 ← session log for this repo
 ├── VERSION / CHANGELOG.md         ← semver history
 ├── LICENSE / CONTRIBUTING.md / SECURITY.md
-├── docs/                          ← operating model, model fleet, IDE setup
-├── stratagems/                    ← 24 concrete invokable actions
+├── docs/                          ← operating model, model fleet, bridge crew, job families
+├── induction/                     ← Boot Camp curricula per domain
+├── knowledge/                     ← structured fact store
+├── experience/                    ← operational / learned / integrity / quality memory
+├── stratagems/                    ← 24+ concrete invokable actions
 ├── squads/                        ← playbooks A–D
-├── protocols/                     ← signals, escalation, debrief, more
+├── protocols/                     ← orientation, induction, promotion, signals, debrief, more
 ├── skills/                        ← bundled skills (core + support)
-├── missions/                      ← 8 guided tutorial missions (+ index)
+├── missions/                      ← 10 guided tutorial missions (+ index)
 ├── scripts/                       ← health-check.sh and tooling
-└── templates/                     ← project-log, galactic-war-map, intel-dossier
+└── templates/                     ← project-log, galactic-war-map, agent-profile, intel-dossier
 ```
 
 ---

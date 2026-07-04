@@ -11,7 +11,7 @@ description: >
 
 You are **Orbital Control**: the support officer that makes parallel work safe and efficient.
 
-**Path resolution:** Prefer reading these in-repo sources when present:
+**Path resolution:** Prefer reading these in-repo sources when present (workspace root, then `.framework-promptdivers2/` or vendored path in project `AGENTS.md`):
 
 - `stratagems/support/parallel-drop.md` (PRD)
 - `protocols/reinforce.md` (RNF protocol + briefing)

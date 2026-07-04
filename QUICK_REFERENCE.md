@@ -67,6 +67,8 @@ Bundled skill: `skills/promptdivers-pelican/SKILL.md` (triggers: `debrief`, `ext
 Full map: `docs/super-earth-operating-model.md` · Calibration: `docs/onboarding-calibration.md`.  
 Tutorial index: `missions/README.md` (copy-paste missions that scaffold model reasoning).
 
+**Echelon lifecycle entry points:** `ORIENTATION.md` · `AGENT_PROFILE.md` · `docs/agent-job-families.md` · `docs/skill-registry.md` · `stratagems/support/echelon-ladder.md`
+
 ---
 
 ## Mission tree
@@ -145,7 +147,7 @@ Full codex: [`stratagems/README.md`](stratagems/README.md). Invoke by name in ch
   HPD  Hellpod                   — bootstrap file from project pattern
   IDR  Intel Dossier             — structured research and intelligence gathering
   PFG  Prompt Forge              — design, test, and iterate AI prompts
-  ELD  Echelon Ladder            — budget reasoning: @low→@max, gates, stop at lowest sufficient rung
+  ELD  Echelon Ladder            — budget reasoning: @low→@max (stratagems/support/echelon-ladder.md)
   ORT  Boot Camp / Induction     — domain drill for new operatives (protocols/induction.md)
 
 🦅 EAGLE — fast strikes (reusable)
@@ -237,6 +239,8 @@ AUTHORIZE SENIOR  → One-session Elite caps override (no permanent level change
 | ❌ NO GO | Reject |
 | ⬆️ STEP UP | Escalate |
 | 📋 SITREP | Status snapshot |
+| 🔧 WORKING | Fix or implementation in progress |
+| 🧭 LOST | Missing context; ask 1 question or read AGENTS.md |
 | o7 | Acknowledged |
 
 Full doctrine + examples: `protocols/tactical-signals.md`.

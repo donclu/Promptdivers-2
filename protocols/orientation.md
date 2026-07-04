@@ -9,7 +9,7 @@
 > cause friendly fire on day one. Full domain mastery comes from induction
 > (`induction/<domain>/`). Orientation only gets you safe to operate.
 
-**Related:** [../ORIENTATION.md](../ORIENTATION.md) · [../AGENT_PROFILE.md](../AGENT_PROFILE.md) · [./induction.md](./induction.md) · [../docs/bridge-crew.md](../docs/bridge-crew.md)
+**Related:** [../ORIENTATION.md](../ORIENTATION.md) · [../AGENT_PROFILE.md](../AGENT_PROFILE.md) · [./induction.md](./induction.md) · [./pre-drop.md](./pre-drop.md) · [../docs/bridge-crew.md](../docs/bridge-crew.md)
 
 ---
 
@@ -103,14 +103,14 @@ Steps:
 - [ ] Read `induction/<domain>/curriculum.md` for each active domain.
 - [ ] Complete at least Layer 1 (vocabulary) and Layer 2 (foundational facts) of induction.
 - [ ] Pass induction Layer 1 quiz before proceeding.
-- [ ] Set `tenure_level: novice` in `AGENT_PROFILE.md` pillar 7.
+- [ ] Set `tenure_level: rookie` in `AGENT_PROFILE.md` pillar 7.
 - [ ] Set `max_echelon_rung` per job family probation limit.
 - [ ] THE DEMOCRACY OFFICER logs the onboarding event in `experience/operational/`.
 
 After reading, emit:
 ```
 [THE AUTHENTIC] — Orientation Tier 3 complete. Onboarding event logged.
-Novice status activated. Rung ceiling: <N>.
+Rookie status activated. Rung ceiling: <N>.
 First mission must be Squad C or CONSULT.
 ```
 
@@ -134,7 +134,8 @@ If the human says any of the following, run the matching tier:
 
 | Human says | Run tier |
 |---|---|
-| `status`, `resume`, `continue` | Tier 1 |
+| `status` | Short SITREP from `PROJECT_LOG` / handoff; run planet check per `protocols/pre-drop.md` only if no planet state is in context |
+| `resume`, `continue` | Tier 1 (same as `status` for returning sessions) |
 | `new session`, `brief me`, `orient` | Tier 2 |
 | `onboard`, `first session`, `new project` | Tier 3 |
 | `TOTAL DEMOCRACY`, crisis signal | Tier 0 |

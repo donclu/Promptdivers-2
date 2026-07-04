@@ -40,7 +40,9 @@
 
 ---
 
-## Ecosystem skills (extend the pack)
+## Ecosystem skills (external — not shipped in `skills/`)
+
+These skills are **optional extensions**. Install separately to your IDE skills path (`~/.cursor/skills/`, `~/.claude/skills/`, etc.). They are listed here for routing and tenure rules only.
 
 | Skill | Mission tags | Min clearance | Default tier | JF fit | Notes |
 |---|---|---|---|---|---|
@@ -57,7 +59,6 @@
 | **pptx** | WRITE, presentations | Rookie | `@low` | JF-4 | Output only |
 | **pdf** | DATA, RECON, WRITE | Rookie | `@low` | JF-2, JF-4 | Extraction only; do not use for reasoning |
 | **xlsx** | DATA, finance, analysis | Rookie | `@medium` | JF-2 | Load for any spreadsheet-primary task |
-| **humanizer** | see above | — | — | — | duplicate entry for grep convenience |
 
 ---
 

@@ -167,8 +167,9 @@ function Vendor-FrameworkToProject {
     Write-PromptHeader \"📦 Vendoring framework → $frameworkRoot\"
 
     $paths = @(
-        'AGENTS.md','CLAUDE.md','QUICK_REFERENCE.md','VERSION','CHANGELOG.md','README.md','README-ES.md','FIRST_MISSION.md',
-        'docs','missions','protocols','scripts','squads','stratagems','templates','skills','experiments','.cursor','.github'
+        'AGENTS.md','CLAUDE.md','QUICK_REFERENCE.md','ORIENTATION.md','AGENT_PROFILE.md','VERSION','CHANGELOG.md','README.md','README-ES.md','FIRST_MISSION.md',
+        'docs','missions','protocols','scripts','squads','stratagems','templates','skills','experiments','induction','knowledge','experience','.cursor','.github',
+        'install.sh','install.ps1'
     )
     foreach ($p in $paths) {
         $src = Join-Path $PackDir $p
@@ -286,17 +287,45 @@ if (-not [string]::IsNullOrWhiteSpace($ProjectDir)) {
     if ($VendorFramework) {
         Vendor-FrameworkToProject -ProjectRoot $proj -FrameworkDirName $FrameworkDirName
     } else {
-        foreach ($f in @('AGENTS.md', 'CLAUDE.md', 'QUICK_REFERENCE.md')) {
-            $src = Join-Path $PackDir $f
-            if (Test-Path -LiteralPath $src -PathType Leaf) {
-                $dest = Join-Path $proj $f
+        $stubMap = @{
+            'project-agents.stub.template.md' = 'AGENTS.md'
+            'project-claude.stub.template.md' = 'CLAUDE.md'
+            'project-quick-reference.stub.template.md' = 'QUICK_REFERENCE.md'
+        }
+        foreach ($k in $stubMap.Keys) {
+            $stubSrc = Join-Path (Join-Path $PackDir 'templates') $k
+            if (Test-Path -LiteralPath $stubSrc -PathType Leaf) {
+                $dest = Join-Path $proj $stubMap[$k]
                 if (Test-Path -LiteralPath $dest) {
-                    Write-PromptWarn "$f already exists in $proj — skipping (delete first to overwrite)"
+                    Write-PromptWarn "$($stubMap[$k]) already exists in $proj — skipping (delete first to overwrite)"
                 } else {
-                    Copy-Item -LiteralPath $src -Destination $dest -Force
-                    Write-PromptOk "Copied $f → $proj/"
+                    Copy-Item -LiteralPath $stubSrc -Destination $dest -Force
+                    Write-PromptOk "Created $($stubMap[$k]) (stub) → $proj/"
                 }
             }
+        }
+
+        $profileTpl = Join-Path (Join-Path $PackDir 'templates') 'agent-profile.template.md'
+        $profileDest = Join-Path $proj 'AGENT_PROFILE.md'
+        if ((Test-Path -LiteralPath $profileTpl -PathType Leaf) -and -not (Test-Path -LiteralPath $profileDest)) {
+            Copy-Item -LiteralPath $profileTpl -Destination $profileDest -Force
+            Write-PromptOk 'Created AGENT_PROFILE.md from template'
+        }
+
+        foreach ($dir in @('knowledge', 'experience')) {
+            $srcDir = Join-Path $PackDir $dir
+            $destDir = Join-Path $proj $dir
+            if ((Test-Path -LiteralPath $srcDir -PathType Container) -and -not (Test-Path -LiteralPath $destDir)) {
+                Copy-Item -LiteralPath $srcDir -Destination $destDir -Recurse -Force
+                Write-PromptOk "Created ${dir}/ scaffold from pack"
+            }
+        }
+
+        $orientSrc = Join-Path $PackDir 'ORIENTATION.md'
+        $orientDest = Join-Path $proj 'ORIENTATION.md'
+        if ((Test-Path -LiteralPath $orientSrc -PathType Leaf) -and -not (Test-Path -LiteralPath $orientDest)) {
+            Copy-Item -LiteralPath $orientSrc -Destination $orientDest -Force
+            Write-PromptOk "Copied ORIENTATION.md → $proj/"
         }
     }
 
