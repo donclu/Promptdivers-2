@@ -4,8 +4,9 @@
 
 > In the Helldivers-inspired metaphor of this framework, you check the war map before you drop. In Promptdivers you do the same before picking a squad and a ship.
 
-**When to run:** at the start of any session; before filling `NEXT_MISSION.md`; whenever the
-human says `status` or `debrief` and no planet state is in context.
+**When to run:** at the start of any session; before filling `NEXT_MISSION.md`; when the human says `debrief` and no planet state is in context.
+
+**Keyword `status`:** emit a short SITREP from `PROJECT_LOG` / latest handoff. Run the full planet check below only when no planet state exists in context or the human asks for a planet check explicitly.
 
 **Related:** [`templates/galactic-war-map.template.md`](../templates/galactic-war-map.template.md) ·
 [`templates/next-mission.template.md`](../templates/next-mission.template.md) ·
@@ -51,7 +52,8 @@ From whichever source you found, extract:
 | **Active fronts** | Terminids (bugs/defects) · Automatons (brittle scripts/CI) · Illuminate (ungoverned AI) |
 | **Threat level** | LOW / MEDIUM / HIGH / CRITICAL — take the highest active threat |
 | **Campaign score** | % liberation (nice to have; skip if time-constrained) |
-| **Progression level** | Cadet → Helldiver → Skull Admiral → Super Earth Hero |
+| **Progression level** | **Operative clearance** (canonical): Rookie → Veteran → Elite → Legend — see `protocols/promotion.md` and `AGENT_PROFILE.md` pillar 7 |
+| **Health score label** | **Gamification only** (from `scripts/health-check.sh`): Cadet → Helldiver → Skull Admiral → Super Earth Hero — not the same as operative clearance |
 
 ---
 

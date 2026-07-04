@@ -140,15 +140,9 @@ cp -r path/to/promptdivers/skills/promptdivers-orchestrator your-project/.cursor
 
 ## GitHub Copilot (VS Code)
 
-1. Create `.github/copilot-instructions.md` in your repo:
-   ```markdown
-   This project uses Promptdivers agent doctrine.
-   Read AGENTS.md at the project root before coding.
-   Mission routing is in QUICK_REFERENCE.md.
-   Squad playbooks are in squads/.
-   ```
-2. Copy `AGENTS.md` to your project root.
-3. Skills are not natively supported by Copilot — paste the relevant squad section directly into `copilot-instructions.md` when needed.
+1. **Optional:** copy `templates/copilot-instructions.template.md` from the pack to `.github/copilot-instructions.md` in your repo (customize as needed). The pack ships a template only — Copilot instructions are not required for Promptdivers.
+2. Copy `AGENTS.md` to your project root (or use `install.sh --project` / `--vendor-framework`).
+3. Skills are not natively supported by Copilot — paste the relevant squad section from `squads/` into `copilot-instructions.md` when needed.
 
 ---
 

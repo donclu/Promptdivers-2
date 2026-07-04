@@ -16,11 +16,12 @@ Running log for humans and agents. Append new sessions at the **bottom**.
 
 ### Summary
 - Added a PowerShell installer (`install.ps1`) so Windows/PowerShell users can install skills without needing Bash.
-- Added `/explain` audit artifacts for the pack review.
 - Documented Windows install path in `README.md`, `README-ES.md`, and `docs/MULTI_AGENT_SETUP.md`.
 - Dogfooded the pack against itself: added `GALACTIC_WAR_MAP.md`, shipped `.cursor/rules/promptdivers-2.mdc`, and aligned “Helldivers” phrasing to explicit metaphor (no invented canon).
 - Release hygiene prepared for `3.3.1` (VERSION/README badge/CHANGELOG) and added `RELEASING.md`.
 - Added **parallelism doctrine** for “one planet, multiple missions”: `PRD` (Parallel Drop), `PARALLELISM` budget, and guidance for SOS vs RNF vs ESCALATE when blocked vs wide vs high-risk.
+
+Note: an `explain/` audit folder was drafted in-session but **never committed** to git.
 
 ### Decisions
 - Keep `install.sh` as the canonical Bash path; `install.ps1` mirrors behavior for PowerShell.
@@ -30,7 +31,6 @@ Running log for humans and agents. Append new sessions at the **bottom**.
 - `install.ps1` — PowerShell installer
 - `install.sh` — pointer for Windows users
 - `README.md`, `README-ES.md`, `docs/MULTI_AGENT_SETUP.md`, `CHANGELOG.md`
-- `explain/` — audit artifacts
 
 ### DEBT
 - [DEBT-001] Add a short “accuracy policy” for Helldivers naming (metaphor vs canon) and run a consistency sweep focused on game naming.
@@ -63,7 +63,7 @@ Running log for humans and agents. Append new sessions at the **bottom**.
   "debrief_summary": "Windows install is unblocked (install.ps1) + pack dogfoods itself (GALACTIC_WAR_MAP, Cursor rule). Remaining follow-ups: Copilot instructions template, lore naming sweep in revisa.json.",
   "open_tasks": [
     "Add optional .github/copilot-instructions.md template (or document why it is omitted)",
-    "Lore audit `revisa.json` against a conservative ‘metaphor only’ policy (avoid asserting canonicity/mechanics)"
+    "Lore audit helldivers reference data — moved to docs/helldivers-metaphor-reference.json with accuracy disclaimer (2026-07-03)"
   ],
   "missions_queued": [
     {
@@ -392,7 +392,7 @@ Running log for humans and agents. Append new sessions at the **bottom**.
 
 ### DEBT
 - [x] R1–R4 improvements shipped (resolved evaluation findings)
-- [ ] DEBT-002 still pending (Copilot instructions template — deprioritized)
+- [ ] DEBT-002 still pending (Copilot instructions template — **closed 2026-07-03** in v3.5.0)
 
 ### Next Missions Queued
 - [ ] A/B benchmark: Haiku vs Sonnet on production tasks
@@ -403,6 +403,113 @@ Running log for humans and agents. Append new sessions at the **bottom**.
 ### Mission Status
 - **Improvements:** 🟢 GREEN (all shipped, tested in usage)
 - **Experimento 5:** 🟢 GREEN (5 phases complete, hypothesis validated, recommendations ready)
+
+---
+
+## Session: 2026-04-17 — Echelon Framework 3.4.0 drop (retroactive log)
+
+### Summary
+- Shipped **Echelon lifecycle**: orientation, agent profile, induction, promotion, bridge crew, job families, calibration, knowledge/experience stores, Echelon Ladder stratagem, tutorials 09–10.
+- Commit: `6c00329` ("Update") — ~4.6k lines; documented in `CHANGELOG.md` `[3.4.0]` but not logged here until 2026-07-03 consolidation.
+
+### Files / areas
+- `ORIENTATION.md`, `AGENT_PROFILE.md`, `protocols/{orientation,induction,promotion}.md`
+- `docs/{bridge-crew,agent-job-families,calibration-protocol,reasoning-tiers,skill-registry}.md`
+- `induction/`, `knowledge/`, `experience/`, `stratagems/support/echelon-ladder.md`
+- `missions/tutorial-09-new-agent-onboarding.md`, `missions/tutorial-10-echelon-experiment.md`
+
+### Follow-ups (addressed in 3.5.0)
+- Echelon cluster was not wired into install path or core entry docs — fixed in v3.5.0.
+
+---
+
+## Session: 2026-05-08 — Repo hygiene (retroactive log)
+
+### Summary
+- Removed accidentally committed `.venv_experiments/` from git; updated `.gitignore`.
+- Commit: `a90683e` ("ae").
+
+---
+
+## Session: 2026-07-03 — Portable agent model (v3.5.0)
+
+### Summary
+- Executed consolidation plan: integrate Echelon into core entry points, fix installers + skill path resolution for vendored projects, unify keyword/progression contracts, close DEBT-002, relocate lore reference JSON, release `3.5.0`.
+
+### Objectives (debrief)
+| Objective | Result |
+|-----------|--------|
+| Echelon visible from AGENTS/README/CLAUDE/missions index | PASS |
+| Installers vendor/copy Echelon + bootstrap consumer stubs | PASS |
+| Skills resolve `.framework-promptdivers2/` | PASS |
+| Unified `status` + full keyword table + rookie clearance | PASS |
+| DEBT-002 Copilot template + lore reference relocation | PASS |
+| Health-check Echelon checks + vendor smoke test | PASS |
+
+### Files / areas
+- Core: `AGENTS.md`, `CLAUDE.md`, `README.md`, `QUICK_REFERENCE.md`, `missions/README.md`, `.cursor/rules/promptdivers-2.mdc`
+- Install: `install.sh`, `install.ps1`, `templates/{agent-profile,copilot-instructions,project-agents.stub}.template.md`
+- Skills: all six under `skills/promptdivers-*/SKILL.md`
+- Protocols/squads: `orientation.md`, `pre-drop.md`, `squads/squad-*.md`
+- Tooling: `scripts/health-check.sh`, `docs/skill-registry.md`, `docs/MULTI_AGENT_SETUP.md`
+- Lore: `docs/helldivers-metaphor-reference.{md,json}`
+- Release: `VERSION`, `CHANGELOG.md`
+
+### Mission Status
+- **Portable agent model:** GREEN
+
+---
+
+## HANDOFF_JSON (2026-07-03)
+
+```json
+{
+  "schema": "promptdivers-handoff/v2",
+  "updated": "2026-07-03T22:00:00Z",
+  "mission_last": "B+D (Forge + audit consolidation)",
+  "squad_files_used": ["squads/squad-b-artillery.md", "squads/squad-d-defense.md"],
+  "model_used": "AUTO @high",
+  "model_rationale": "Multi-file contract + install changes; structural integration",
+  "planet_status": {
+    "active_fronts": ["Automatons"],
+    "hottest_sector": "install portability + Echelon wiring",
+    "threat_level": "LOW",
+    "status_detail": "v3.5.0 shipped; Echelon integrated; vendor path resolved"
+  },
+  "mission_status": "GREEN",
+  "objective": "Make Promptdivers portable to any consumer project with full agent lifecycle.",
+  "debrief_summary": "Echelon integrated into core docs; installers vendor Echelon artifacts; skills resolve vendored paths; keywords/progression unified; DEBT-002 closed; lore JSON relocated with disclaimer.",
+  "open_tasks": [],
+  "missions_queued": [
+    {
+      "priority": "primary",
+      "squad": "A",
+      "nave": "AUTO",
+      "objective": "Run A/B measurement with industrial-sales pipeline; benchmark Agent A vs Agent B orchestrator",
+      "spawned_by": "field-command-2026-04-17"
+    },
+    {
+      "priority": "primary",
+      "squad": "A",
+      "nave": "@low → @high",
+      "objective": "Train models on Paradoja case across reasoning tiers",
+      "spawned_by": "field-command-2026-04-17"
+    },
+    {
+      "priority": "secondary",
+      "squad": "D",
+      "nave": "AUTO",
+      "objective": "Decide CI/CD automation for experiments/ re-runs",
+      "spawned_by": "field-command-2026-04-17"
+    }
+  ],
+  "next_recommended": {
+    "squad": "A",
+    "nave": "AUTO",
+    "reason": "A/B measurement campaign validates orchestrator ROI on real workflow"
+  }
+}
+```
 
 ---
 

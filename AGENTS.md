@@ -138,8 +138,9 @@ If you have **persistent memory tools** (e.g. MCP), use the project’s agreed p
 
 **Session start**
 
-1. Read `PROJECT_LOG.md` if it exists (especially the handoff JSON at the end).
-2. Load critical docs: this file, any `SPEC.md` / `DESIGN.md` referenced in the log.
+1. **First drop on a project?** Read [`ORIENTATION.md`](ORIENTATION.md), then run the matching tier in [`protocols/orientation.md`](protocols/orientation.md) → [`protocols/pre-drop.md`](protocols/pre-drop.md).
+2. Read `PROJECT_LOG.md` if it exists (especially the handoff JSON at the end).
+3. Load critical docs: this file, [`AGENT_PROFILE.md`](AGENT_PROFILE.md) if present, any `SPEC.md` / `DESIGN.md` referenced in the log.
 
 **During the session**
 
@@ -187,18 +188,23 @@ If new work appears outside the agreed scope:
 
 ```
 README.md, README-ES.md, QUICK_REFERENCE.md — entry points (EN + ES); keep accurate tree and links
-docs/                             — integration guides, operating model, fleet manifest
+ORIENTATION.md, AGENT_PROFILE.md  — pre-drop briefing + operative service record (Echelon lifecycle)
+docs/                             — integration guides, operating model, fleet manifest, bridge crew, job families
 docs/roles-and-field-operatives.md — codename roster; keep in sync with squads/
+docs/skill-registry.md            — skill × job-family × tenure matrix (THE QUARTERMASTER)
+induction/                        — Boot Camp curricula per domain (_template/ for new domains)
+knowledge/                        — structured fact store (static / dynamic / derived)
+experience/                       — operational / learned / integrity / quality memory
 squads/squad-*.md                 — mission playbooks; cross-link from QUICK_REFERENCE
 stratagems/                       — concrete invokable actions: offensive/defensive/support/eagle/orbital
-protocols/*.md                    — comms, escalation, tactical signals, mission debrief (Pelican),
+protocols/*.md                    — comms, escalation, orientation, induction, promotion, mission debrief (Pelican),
                                     friendly fire, mind control, reinforce, democracy officer
 missions/tutorial-*.md            — guided tutorial missions (squad + data + LAUNCH-WEB, etc.)
 missions/README.md                — index of tutorials; explains structured paste-briefs for model reasoning
 docs/model-fleet.md               — ship manifest: AI model classes, mission routing, Illuminate risk
-skills/*/SKILL.md                 — Cursor-style skills; paths assume pack root when cloned
-scripts/                          — tooling: health-check.sh
-templates/                        — PROJECT_LOG, NEXT_MISSION, GALACTIC_WAR_MAP (templates; copy to your project)
+skills/*/SKILL.md                 — Cursor-style skills; resolve pack root or .framework-promptdivers2/
+scripts/                          — tooling: health-check.sh, install.sh, install.ps1
+templates/                        — PROJECT_LOG, NEXT_MISSION, GALACTIC_WAR_MAP, AGENT_PROFILE (copy to your project)
 AGENTS.md, CLAUDE.md              — master brief + Claude stub (do not duplicate policy into stub)
 .cursor/rules/promptdivers-2.mdc  — optional Cursor rule for consumers copying the pack
 LICENSE, CONTRIBUTING.md, SECURITY.md — legal, contribution, and vulnerability reporting
@@ -211,7 +217,7 @@ PROJECT_LOG.md                    — operational memory for this repo (dogfood)
 ## Known issues / technical debt
 
 ```
-(none tracked — add [DEBT-xxx] here when discovered)
+(none tracked — DEBT-002 closed in v3.5.0 via templates/copilot-instructions.template.md)
 ```
 
 ---
@@ -262,16 +268,24 @@ If stuck:
 
 | Human says | You do |
 |------------|--------|
-| `status` | Show `PROJECT_LOG` checkpoint / SITREP |
+| `status` | Short SITREP from `PROJECT_LOG` / latest handoff; run planet check per `protocols/pre-drop.md` only if no planet state is in context |
 | `save` | Update log + handoff (+ memory tools if present); when objectives were explicit, include a short debrief (PASS/PARTIAL/FAIL) per `protocols/mission-debrief.md` |
 | `debrief` | Pelican window: score objectives, set `mission_status`, route failures to stratagem map; then log/handoff |
 | `extract` | Same as `debrief` (mission end / extraction metaphor) |
-| `handoff` | Produce handoff JSON / summary for another agent |
+| `handoff` | Produce handoff JSON / summary for another agent; if objectives were tracked, run debrief first per `protocols/mission-debrief.md` |
 | `escalate` | Escalation protocol |
 | `TOTAL DEMOCRACY` | Operation Total Democracy |
 | `scope check` | In vs out of scope |
 | `debt` | List `[DEBT-xxx]` |
 | `abort` | Stop, report, roll back if safe |
+| `orient` | Run orientation protocol — Tier 1/2/3 per context (`protocols/orientation.md`) |
+| `onboard` | Tier 3 orientation + Boot Camp induction for a domain (ONBOARD archetype) |
+| `induct` | Run domain Boot Camp — 4 phases, graduation gate (`protocols/induction.md`) |
+| `calibrate` | Prime `knowledge/` store before first live mission (`docs/calibration-protocol.md`) |
+| `promote` | Trigger promotion review — Rookie/Veteran/Elite/Legend (`protocols/promotion.md`) |
+| `boot camp` | Synonym for `induct` |
+| `shadow` | Replay tagged operational events for training |
+| `AUTHORIZE SENIOR` | One-session Elite caps override (no permanent level change) |
 
 ---
 

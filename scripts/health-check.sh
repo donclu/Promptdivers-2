@@ -14,6 +14,10 @@ BOLD='\033[1m'
 NC='\033[0m' # No Color
 
 PROJECT_ROOT="${1:-.}"
+PACK_ROOT="$PROJECT_ROOT"
+if [ -d "$PROJECT_ROOT/.framework-promptdivers2" ]; then
+  PACK_ROOT="$PROJECT_ROOT/.framework-promptdivers2"
+fi
 SCORE=0
 TOTAL=0
 ISSUES=()
@@ -105,15 +109,44 @@ else
   check "QUICK_REFERENCE.md" "warn" "missing — copy from Promptdivers pack for quick access"
 fi
 
-# ─────────────────────────────────────────────
-# 2. Squad & Protocol Files
+# Echelon lifecycle (optional for minimal projects; expected in full pack / vendor)
+ECHELON_OK=0
+ECHELON_TOTAL=0
+for f in ORIENTATION.md AGENT_PROFILE.md; do
+  ECHELON_TOTAL=$((ECHELON_TOTAL + 1))
+  if [ -f "$PACK_ROOT/$f" ]; then
+    ECHELON_OK=$((ECHELON_OK + 1))
+  fi
+done
+for d in induction knowledge experience; do
+  ECHELON_TOTAL=$((ECHELON_TOTAL + 1))
+  if [ -d "$PACK_ROOT/$d" ]; then
+    ECHELON_OK=$((ECHELON_OK + 1))
+  fi
+done
+if [ "$ECHELON_OK" -eq "$ECHELON_TOTAL" ]; then
+  check "Echelon lifecycle files" "pass" "ORIENTATION, AGENT_PROFILE, induction/, knowledge/, experience/"
+elif [ "$ECHELON_OK" -gt 0 ]; then
+  check "Echelon lifecycle files" "warn" "$ECHELON_OK/$ECHELON_TOTAL present — run install with vendor or copy Echelon scaffold"
+else
+  check "Echelon lifecycle files" "warn" "missing — optional unless using ONBOARD / calibration / promotion"
+fi
+
+# Vendored framework pointer
+if [ -d "$PROJECT_ROOT/.framework-promptdivers2" ]; then
+  check "Vendored framework" "pass" ".framework-promptdivers2/ present"
+elif [ -d "$PACK_ROOT/squads" ] && [ -f "$PACK_ROOT/protocols/mission-debrief.md" ]; then
+  check "Vendored framework" "pass" "pack root — full doctrine in repo (no vendor dir needed)"
+elif grep -q "framework-promptdivers" "$PROJECT_ROOT/AGENTS.md" 2>/dev/null; then
+  check "Vendored framework" "warn" "AGENTS.md references vendor path but directory not found"
+fi
 # ─────────────────────────────────────────────
 
 header "2. Squad & Protocol Availability"
 
 SQUAD_COUNT=0
 for squad in a b c d; do
-  if [ -f "$PROJECT_ROOT/squads/squad-${squad}-"*.md ] 2>/dev/null; then
+  if [ -f "$PACK_ROOT/squads/squad-${squad}-"*.md ] 2>/dev/null; then
     SQUAD_COUNT=$((SQUAD_COUNT + 1))
   fi
 done
@@ -126,15 +159,15 @@ else
   check "Squad playbooks" "warn" "none found — copy squads/ from pack if using squad workflow"
 fi
 
-if [ -d "$PROJECT_ROOT/protocols" ]; then
-  PROTO_COUNT=$(find "$PROJECT_ROOT/protocols" -name "*.md" 2>/dev/null | wc -l | tr -d ' ')
+if [ -d "$PACK_ROOT/protocols" ]; then
+  PROTO_COUNT=$(find "$PACK_ROOT/protocols" -name "*.md" 2>/dev/null | wc -l | tr -d ' ')
   check "Protocols directory" "pass" "$PROTO_COUNT protocol files"
 else
   check "Protocols directory" "warn" "missing — copy protocols/ from pack"
 fi
 
-if [ -d "$PROJECT_ROOT/stratagems" ]; then
-  STRAT_COUNT=$(find "$PROJECT_ROOT/stratagems" -name "*.md" ! -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
+if [ -d "$PACK_ROOT/stratagems" ]; then
+  STRAT_COUNT=$(find "$PACK_ROOT/stratagems" -name "*.md" ! -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
   check "Stratagems directory" "pass" "$STRAT_COUNT stratagems available"
 else
   check "Stratagems directory" "warn" "missing — copy stratagems/ from pack for concrete actions"

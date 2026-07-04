@@ -20,8 +20,10 @@ If you just want the brief format (without a full tutorial), use:
 | 06 | [tutorial-06-data-analysis.md](tutorial-06-data-analysis.md) | Data → report | DATA |
 | 07 | [tutorial-07-research-prompt.md](tutorial-07-research-prompt.md) | Research → prompt / template | CONSULT + WRITE |
 | 08 | [tutorial-08-propaganda-web.md](tutorial-08-propaganda-web.md) | Campaign landing → deploy | LAUNCH-WEB |
+| 09 | [tutorial-09-new-agent-onboarding.md](tutorial-09-new-agent-onboarding.md) | First contact → Boot Camp → calibration | ONBOARD |
+| 10 | [tutorial-10-echelon-experiment.md](tutorial-10-echelon-experiment.md) | @low+framework vs @medium (EXP-001) | DATA + CONSULT |
 
-**Quick pick:** never seen the repo? → **01**. One bug? → **02**. Shiny public page? → **08**.
+**Quick pick:** never seen the repo? → **01**. One bug? → **02**. Shiny public page? → **08**. New agent on project? → **09**.
 
 ---
 

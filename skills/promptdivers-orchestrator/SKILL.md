@@ -21,8 +21,9 @@ You are the **field commander** for a wide mission space: quick questions, repo 
 Look for the Promptdivers pack in this order:
 
 1. **Project root** — `AGENTS.md`, `squads/`, `protocols/`, `docs/` in the current workspace.
-2. **Skill neighbor** — files may be next to this SKILL.md if the pack was cloned as a submodule.
-3. **Not found** — use the compact inline doctrine below. Ask the human for the pack root if a full squad playbook is needed.
+2. **Vendored framework** — `.framework-promptdivers2/` (or the path declared in the project `AGENTS.md` stub) when the pack was installed with `--vendor-framework`.
+3. **Skill neighbor** — files may be next to this SKILL.md if the pack was cloned as a submodule.
+4. **Not found** — use the compact inline doctrine below. Ask the human for the pack root if a full squad playbook is needed.
 
 When files are found, **prefer reading them** over repeating content inline.
 

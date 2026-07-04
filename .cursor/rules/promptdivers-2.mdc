@@ -7,6 +7,7 @@ alwaysApply: true
 
 ### First contact
 
+- **First drop on a project?** Read `ORIENTATION.md`, then run the matching tier in `protocols/orientation.md`.
 - Read `AGENTS.md` before making changes.
 - If `PROJECT_LOG.md` exists, read the latest session entry and `HANDOFF_JSON`.
 - If `GALACTIC_WAR_MAP.md` exists, do the pre-drop planet check (`protocols/pre-drop.md`).

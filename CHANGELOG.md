@@ -7,11 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.5.0] — 2026-07-03
+
 ### Added
 
-- `protocols/pack-self-audit.md` — dogfooding checklist for pack consistency (sources-of-truth, links, flags, onboarding).
-- `protocols/accuracy-policy.md` — metaphor vs canon accuracy policy (DEBT-001).
-- `templates/mission-brief.template.md` — copy/paste mission brief template (flags + objectives + evidence).
+- Echelon integration into core entry points (`AGENTS.md`, `README.md`, `CLAUDE.md`, `missions/README.md`, `QUICK_REFERENCE.md`, `.cursor/rules/promptdivers-2.mdc`).
+- Consumer templates: `templates/agent-profile.template.md`, `templates/copilot-instructions.template.md` (DEBT-002).
+- `knowledge/_schema-sample.yaml`, `induction/_template/facts.yaml` — scaffold gaps closed.
+- `docs/helldivers-metaphor-reference.md` + moved `revisa.json` → `docs/helldivers-metaphor-reference.json` (metaphor-only, non-canonical).
+- Health-check: Echelon lifecycle + vendored framework checks.
+- Session close sections in all squad playbooks linking to Pelican debrief.
+
+### Changed
+
+- **Installers** (`install.sh`, `install.ps1`): vendor/copy `ORIENTATION.md`, `AGENT_PROFILE.md`, `induction/`, `knowledge/`, `experience/`, and installer scripts; bootstrap uses project stubs + Echelon scaffold instead of dogfood `AGENTS.md`.
+- **Skills** (all six): path resolution includes `.framework-promptdivers2/` vendored layout.
+- **Keywords:** unified `status` semantics (SITREP default; planet check when no state); full lifecycle table in `AGENTS.md`; `novice` → `rookie` in orientation Tier 3.
+- **Progression:** operative clearance (Rookie→Legend) canonical in `protocols/promotion.md`; health-score labels in `pre-drop.md` marked as gamification only.
+- `docs/skill-registry.md`: ecosystem skills marked external (not shipped in pack `skills/`).
+- `protocols/orientation.md` → links `pre-drop.md`; tactical signals table in `QUICK_REFERENCE.md` adds WORKING/LOST.
+
+### Fixed
+
+- Echelon 3.4.0 cluster was orphaned from install path and entry docs — now wired end-to-end for consumer projects.
+- CHANGELOG `[Unreleased]` items from 3.4.0 prep merged into correct release sections; typo `metahpor` → `metaphor`.
 
 ## [3.4.0] — 2026-04-17
 
@@ -32,7 +51,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 **Knowledge & experience store:**
 - `knowledge/README.md` — schema for structured fact store (static / dynamic / derived, source, confidence, expiry).
-- `knowledge/terminids-front-ops.yaml` — example knowledge domain (Terminids front, pack-canonical metahpor).
+- `knowledge/terminids-front-ops.yaml` — example knowledge domain (Terminids front, pack-canonical metaphor).
 - `experience/README.md` — 4-domain experience structure (operational / learned / integrity / quality).
 - `experience/operational/`, `experience/learned/`, `experience/integrity/`, `experience/quality/` — scaffolded with example entries.
 
@@ -46,16 +65,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- `QUICK_REFERENCE.md` — added `ELD` and `ORT` to stratagem table; added `ONBOARD` mission archetype; added `@low/@medium/@high/@max` tier aliases to fleet section; added THE INSTRUCTOR + Bridge Crew callout to roles; added 8 lifecycle keywords (`orient`, `onboard`, `induct`, `calibrate`, `promote`, `boot camp`, `shadow`, `AUTHORIZE SENIOR`).
+- `QUICK_REFERENCE.md` — added `ELD` and `ORT` to stratagem table; added `ONBOARD` mission archetype; added `@low/@medium/@high/@max` tier aliases to fleet section; added THE INSTRUCTOR + Bridge Crew callout to roles; added 8 lifecycle keywords (`orient`, `onboard`, `induct`, `calibrate`, `promote`, `boot camp`, `shadow`, `AUTHORIZE SENIOR`); links to pack self-audit checklist.
 - `AGENTS.md` — fleet template updated to `@tier` notation (e.g. `claude-sonnet@medium`); added `Model deep` and `Model ceiling` lines; added cross-reference to `docs/reasoning-tiers.md`.
-
-### Changed
-
-- `QUICK_REFERENCE.md` — links to the pack self-audit checklist.
 - `missions/README.md` and `FIRST_MISSION.md` — onboarding now points to the mission brief template.
 - `stratagems/support/reinforce.md` — converted to an action card pointing to canonical `protocols/reinforce.md`.
 - `protocols/friendly-fire.md` — points to canonical `protocols/reinforce.md`.
 - `protocols/tactical-signals.md` — tightened wording to keep Helldivers references explicitly metaphor-only.
+- `protocols/pack-self-audit.md` — dogfooding checklist for pack consistency (sources-of-truth, links, flags, onboarding).
+- `protocols/accuracy-policy.md` — metaphor vs canon accuracy policy (DEBT-001).
+- `templates/mission-brief.template.md` — copy/paste mission brief template (flags + objectives + evidence).
 
 ## [3.3.1] — 2026-04-14
 

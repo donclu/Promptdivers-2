@@ -121,8 +121,9 @@ vendor_framework() {
   mkdir -p "${local_framework}"
   header "📦 Vendoring framework → ${local_framework}"
 
-  for p in AGENTS.md CLAUDE.md QUICK_REFERENCE.md VERSION CHANGELOG.md README.md README-ES.md FIRST_MISSION.md \
-           docs missions protocols scripts squads stratagems templates skills experiments .cursor .github; do
+  for p in AGENTS.md CLAUDE.md QUICK_REFERENCE.md ORIENTATION.md AGENT_PROFILE.md VERSION CHANGELOG.md README.md README-ES.md FIRST_MISSION.md \
+           docs missions protocols scripts squads stratagems templates skills experiments induction knowledge experience .cursor .github \
+           install.sh install.ps1; do
     if [[ -e "${PACK_DIR}/${p}" ]]; then
       cp -R "${PACK_DIR}/${p}" "${local_framework}/"
     fi
@@ -189,16 +190,40 @@ if [[ -n "${PROJECT_DIR}" ]]; then
   if [[ "$VENDOR_FRAMEWORK" == true ]]; then
     vendor_framework "${PROJECT_DIR}" "${FRAMEWORK_DIR_NAME}"
   else
-    for f in AGENTS.md CLAUDE.md QUICK_REFERENCE.md; do
-      if [[ -f "${PACK_DIR}/${f}" ]]; then
-        if [[ -f "${PROJECT_DIR}/${f}" ]]; then
-          warn "${f} already exists in ${PROJECT_DIR} — skipping (delete first to overwrite)"
+    for src in project-agents.stub.template.md project-claude.stub.template.md project-quick-reference.stub.template.md; do
+      if [[ -f "${PACK_DIR}/templates/${src}" ]]; then
+        local dest
+        case "$src" in
+          project-agents.stub.template.md) dest="AGENTS.md" ;;
+          project-claude.stub.template.md) dest="CLAUDE.md" ;;
+          project-quick-reference.stub.template.md) dest="QUICK_REFERENCE.md" ;;
+          *) dest="${src/project-/}"; dest="${dest/.stub.template.md/.md}" ;;
+        esac
+        if [[ -f "${PROJECT_DIR}/${dest}" ]]; then
+          warn "${dest} already exists in ${PROJECT_DIR} — skipping (delete first to overwrite)"
         else
-          cp "${PACK_DIR}/${f}" "${PROJECT_DIR}/"
-          ok "Copied ${f} → ${PROJECT_DIR}/"
+          cp "${PACK_DIR}/templates/${src}" "${PROJECT_DIR}/${dest}"
+          ok "Created ${dest} (stub) → ${PROJECT_DIR}/"
         fi
       fi
     done
+
+    if [[ -f "${PACK_DIR}/templates/agent-profile.template.md" && ! -f "${PROJECT_DIR}/AGENT_PROFILE.md" ]]; then
+      cp "${PACK_DIR}/templates/agent-profile.template.md" "${PROJECT_DIR}/AGENT_PROFILE.md"
+      ok "Created AGENT_PROFILE.md from template"
+    fi
+
+    for dir in knowledge experience; do
+      if [[ -d "${PACK_DIR}/${dir}" && ! -d "${PROJECT_DIR}/${dir}" ]]; then
+        cp -R "${PACK_DIR}/${dir}" "${PROJECT_DIR}/"
+        ok "Created ${dir}/ scaffold from pack"
+      fi
+    done
+
+    if [[ -f "${PACK_DIR}/ORIENTATION.md" && ! -f "${PROJECT_DIR}/ORIENTATION.md" ]]; then
+      cp "${PACK_DIR}/ORIENTATION.md" "${PROJECT_DIR}/"
+      ok "Copied ORIENTATION.md → ${PROJECT_DIR}/"
+    fi
   fi
 
   if [[ ! -f "${PROJECT_DIR}/PROJECT_LOG.md" ]]; then

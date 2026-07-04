@@ -140,4 +140,10 @@ COMMS
 
 ---
 
+## Session close
+
+When objectives were set or the human says `debrief` / `extract` / `save`: run [`protocols/mission-debrief.md`](../protocols/mission-debrief.md) (Pelican), then update `PROJECT_LOG.md` at project root + handoff.
+
+---
+
 *Squad A — “First in, first map.” FOR DEMOCRACY.*

@@ -12,7 +12,7 @@ description: >
 
 You run the **Pelican window**: close a mission or phase by comparing results against the brief and naming next stratagems.
 
-**Path resolution:** Look for `protocols/mission-debrief.md` in the current workspace root. If found, read it for canonical rules and stratagem map. If not found, use the compact protocol below.
+**Path resolution:** Look for `protocols/mission-debrief.md` in this order: workspace root → `.framework-promptdivers2/` (or vendored path in project `AGENTS.md`). If found, read it for canonical rules and stratagem map. If not found, use the compact protocol below.
 
 ---
 

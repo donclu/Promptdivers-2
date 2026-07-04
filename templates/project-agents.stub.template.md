@@ -35,10 +35,12 @@ Model (nave):
 
 ## Promptdivers routing
 
+- Framework directory: `.framework-promptdivers2/` (override with `--framework-dir` at install time)
 - Use mission tree: `.framework-promptdivers2/QUICK_REFERENCE.md`
 - Use squads: `.framework-promptdivers2/squads/`
 - Use protocols: `.framework-promptdivers2/protocols/`
 - Use stratagem codex: `.framework-promptdivers2/stratagems/README.md`
+- First drop: read `.framework-promptdivers2/ORIENTATION.md` then `protocols/orientation.md`
 
 ## Session memory
 

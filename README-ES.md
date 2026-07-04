@@ -17,6 +17,12 @@ Promptdivers es un **framework portable**: doctrina en Markdown (escuadras, prot
 
 Inspirado en *Helldivers 2*: escuadras, estratagemas, tres frentes, escalada — aplicado al trabajo de código **asistido** en proyectos reales.
 
+### Ciclo Echelon (v3.4+)
+
+- [`ORIENTATION.md`](ORIENTATION.md) · [`AGENT_PROFILE.md`](AGENT_PROFILE.md)
+- [`protocols/orientation.md`](protocols/orientation.md) · [`protocols/induction.md`](protocols/induction.md) · [`protocols/promotion.md`](protocols/promotion.md)
+- Tutorial: [`missions/tutorial-09-new-agent-onboarding.md`](missions/tutorial-09-new-agent-onboarding.md)
+
 **Skills incluidos (tres — bastan para el ciclo completo):** `promptdivers-orchestrator` (ruteo + pistas multi-dominio + flota de modelos), `promptdivers-tactical-signals` (pings), `promptdivers-pelican` (debrief / puntuación de handoff). Skills **opcionales** delgados (solo handoff, carga perezosa de escuadras, solo escalada) están **documentados, no obligatorios** — ver [docs/SKILLS_AND_EXTENSIONS.md](docs/SKILLS_AND_EXTENSIONS.md).
 
 ---
@@ -134,7 +140,10 @@ Lista completa en [README.md](README.md) y [QUICK_REFERENCE.md](QUICK_REFERENCE.
 | [docs/super-earth-operating-model.md](docs/super-earth-operating-model.md) | Arquetipos de misión |
 | [docs/agent-ecosystem-integration.md](docs/agent-ecosystem-integration.md) | Promptdivers + skills externos |
 | [protocols/mission-debrief.md](protocols/mission-debrief.md) | Debrief / Pelican |
-| [missions/README.md](missions/README.md) | Tutoriales guiados (p. ej. landing / “propaganda” web → [tutorial-08](missions/tutorial-08-propaganda-web.md)) |
+| [ORIENTATION.md](ORIENTATION.md) | Briefing pre-drop (Echelon) |
+| [AGENT_PROFILE.md](AGENT_PROFILE.md) | Ficha de servicio del operativo |
+| [docs/agent-job-families.md](docs/agent-job-families.md) | Arquetipos JF-1…JF-6 |
+| [missions/README.md](missions/README.md) | Tutoriales guiados (10 misiones + índice) |
 
 ---
 

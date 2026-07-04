@@ -1,0 +1,11 @@
+# Layer 2 — foundational facts for this induction domain
+# See protocols/induction.md Phase 2
+
+domain: _template
+updated: 2026-01-01
+
+facts:
+  - id: fact_001
+    statement: "Replace with a verifiable domain fact"
+    source: "path or human confirmation"
+    confidence: medium
