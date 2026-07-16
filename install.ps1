@@ -1,4 +1,4 @@
-# Promptdivers — installer (PowerShell)
+﻿# Promptdivers — installer (PowerShell)
 # Same behavior as install.sh: copies bundled skills to IDE global folders and optional project bootstrap.
 # Works on Windows (Windows PowerShell 5.1+ or PowerShell 7+), macOS, and Linux (PowerShell Core / pwsh).
 #
@@ -52,7 +52,7 @@ function Write-PromptHeader([string]$Message) { Write-Host "`n$Message" -Foregro
 
 function Show-InstallHelp {
     $exe = if ($PSVersionTable.PSEdition -eq 'Core') { 'pwsh' } else { 'powershell' }
-    @"
+    $helpText = @"
 
   Promptdivers — installer (PowerShell)
 
@@ -72,7 +72,7 @@ function Show-InstallHelp {
   macOS / Linux: install pwsh (https://aka.ms/powershell), then use -File ./install.ps1 from the pack root.
 
 "@
-    | Write-Host
+    Write-Host $helpText
 }
 
 # Parse args (support -Project . and --project .)

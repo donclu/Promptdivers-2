@@ -1,0 +1,62 @@
+# Quiz — [DOMAIN NAME]
+# Copy to induction/<your-domain>/quiz.yaml and fill.
+# Each layer has at least 5 questions.
+# Questions must be answerable from the domain files — not general knowledge.
+# Answers must cite a source (file path + key or line).
+
+domain: "[kebab-case domain name]"
+version: "1.0"
+
+layers:
+  layer_1_vocabulary:
+    pass_threshold: 0.80    # 80% correct
+    questions:
+      - id: L1-Q1
+        question: "What does [term] mean in this domain?"
+        expected_answer: "[definition from glossary]"
+        source: "induction/[domain]/glossary.yaml — term: [term]"
+        type: definition
+
+      - id: L1-Q2
+        question: "What is the difference between [term A] and [term B]?"
+        expected_answer: "[contrast from glossary entries]"
+        source: "induction/[domain]/glossary.yaml"
+        type: contrast
+
+      # Add at least 3 more questions for layer 1.
+
+  layer_2_facts:
+    pass_threshold: 1.00    # all 5 facts cited correctly
+    questions:
+      - id: L2-Q1
+        question: "What is the current value of [key] as of [scope]?"
+        expected_answer: "[value from knowledge/<domain>.yaml]"
+        source: "knowledge/[domain].yaml — key: [key]"
+        type: lookup
+
+      - id: L2-Q2
+        question: "What is the source authority for this domain?"
+        expected_answer: "[source_authority from knowledge/<domain>.yaml]"
+        source: "knowledge/[domain].yaml — source_authority"
+        type: lookup
+
+      # Add at least 3 more lookup questions.
+
+  layer_3_rules:
+    pass_threshold: 0.80
+    questions:
+      - id: L3-Q1
+        question: >
+          Given this scenario: [describe a realistic situation in the domain].
+          What should the operative do?
+        expected_answer: "[expected plan or decision]"
+        source: "experience/learned/[relevant-lesson].md"
+        type: scenario
+
+      - id: L3-Q2
+        question: "Why is [pattern] discouraged in this domain?"
+        expected_answer: "[reason from learned/ or curriculum anti-patterns]"
+        source: "induction/[domain]/curriculum.md — anti-patterns"
+        type: reasoning
+
+      # Add at least 3 more scenario or reasoning questions.

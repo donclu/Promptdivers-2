@@ -1,0 +1,421 @@
+{
+    "armas": [
+      {
+        "name": "Liberator",
+        "tipo": "Rifle de asalto",
+        "desc": "Arma estándar de los Helldivers. Versátil y confiable."
+      },
+      {
+        "name": "Punisher",
+        "tipo": "Escopeta",
+        "desc": "Potente a corta distancia, ideal contra grupos de Terminids."
+      },
+      {
+        "name": "Diligence",
+        "tipo": "Rifle de precisión",
+        "desc": "Alta precisión para neutralizar objetivos a distancia."
+      },
+      {
+        "name": "Scorcher",
+        "tipo": "Rifle de plasma",
+        "desc": "Dispara proyectiles de plasma explosivos."
+      },
+      {
+        "name": "Dominator",
+        "tipo": "Rifle de combate",
+        "desc": "Gran potencia de parada con munición pesada."
+      },
+      {
+        "name": "Breaker",
+        "tipo": "Escopeta automática",
+        "desc": "Elevada cadencia, letal en espacios cerrados."
+      },
+      {
+        "name": "CB-9 Exploding Crossbow",
+        "tipo": "Ballesta",
+        "desc": "Proyectiles explosivos y silenciosos."
+      },
+      {
+        "name": "Stalwart",
+        "tipo": "Ametralladora ligera",
+        "desc": "Ametralladora portátil de alta cadencia de fuego."
+      },
+      {
+        "name": "Senator",
+        "tipo": "Revólver",
+        "desc": "Pistola secundaria de alto poder de parada."
+      },
+      {
+        "name": "Redeemer",
+        "tipo": "Pistola automática",
+        "desc": "Pistola secundaria con cadencia elevada."
+      },
+      {
+        "name": "GP-31 Grenade Pistol",
+        "tipo": "Pistola lanzagranadas",
+        "desc": "Dispara granadas en miniatura como secundaria."
+      },
+      {
+        "name": "G-123 Thermite",
+        "tipo": "Granada",
+        "desc": "Arde a altísima temperatura, destruye blindaje."
+      },
+      {
+        "name": "G-16 Impact Grenade",
+        "tipo": "Granada de impacto",
+        "desc": "Explota al contacto con cualquier superficie."
+      },
+      {
+        "name": "G-10 Incendiary Grenade",
+        "tipo": "Granada incendiaria",
+        "desc": "Crea una zona de fuego persistente."
+      }
+    ],
+    "armaduras": [
+      {
+        "name": "TR-9 Cavalier of Democracy",
+        "tipo": "Media",
+        "desc": "Armadura de tipo medio (pre-order bonus)."
+      },
+      {
+        "name": "FS-05 Marksman",
+        "tipo": "Pesada",
+        "desc": "Mejora la puntería y el manejo de rifles."
+      },
+      {
+        "name": "CE-27 Ground Breaker",
+        "tipo": "Media",
+        "desc": "Equilibrio entre movilidad y protección."
+      },
+      {
+        "name": "B-01 Tactical",
+        "tipo": "Media",
+        "desc": "Armadura estándar, todo terreno."
+      },
+      {
+        "name": "FS-61 Dreadnought",
+        "tipo": "Pesada",
+        "desc": "Armadura pesada con pasiva Servo-Assisted (mejor alcance de lanzamiento y mayor salud de extremidades)."
+      },
+      {
+        "name": "SA-25 Steel Trooper",
+        "tipo": "Media",
+        "desc": "Armadura media con pasiva Servo-Assisted (mejor alcance de lanzamiento y mayor salud de extremidades)."
+      },
+      {
+        "name": "CM-09 Bonesnapper",
+        "tipo": "Media",
+        "desc": "Reducción de daño por caída y mayor resistencia."
+      },
+      {
+        "name": "SC-30 Trailblazer Scout",
+        "tipo": "Ligera",
+        "desc": "Sigilo mejorado y reducción de detección enemiga."
+      }
+    ],
+    "misiones": [
+      {
+        "name": "Eliminate Brood Commanders",
+        "tipo": "Combate",
+        "desc": "Localizar y eliminar Brood Commanders en zona hostil."
+      },
+      {
+        "name": "Terminate Illegal Broadcast",
+        "tipo": "Sabotaje",
+        "desc": "Localizar y terminar la transmisión ilegal usando el terminal o destruyendo el objetivo."
+      },
+      {
+        "name": "Retrieve Valuable Data",
+        "tipo": "Datos",
+        "desc": "Recuperar el SSSD (hard drive) y subir los datos mediante el relay/terminal."
+      },
+      {
+        "name": "Emergency Evacuation",
+        "tipo": "Rescate",
+        "desc": "Escoltar y extraer civiles antes de que lleguen los refuerzos enemigos."
+      },
+      {
+        "name": "Purge Hatcheries",
+        "tipo": "Erradicación",
+        "desc": "Destruir huevos/instalaciones de cría Terminid para frenar su avance."
+      },
+      {
+        "name": "Launch ICBM",
+        "tipo": "Exterminio",
+        "desc": "Preparar y lanzar el ICBM desde el silo (códigos/terminales) para impactar objetivos enemigos."
+      },
+      {
+        "name": "Destroy Transmission Network",
+        "tipo": "Sabotaje",
+        "desc": "Destruir la red de transmisión Automaton (antenas/infraestructura) para cortar comunicaciones."
+      },
+      {
+        "name": "Eradicate Automaton Forces",
+        "tipo": "Combate",
+        "desc": "Eliminar un número objetivo de unidades Automaton en un área delimitada."
+      },
+      {
+        "name": "Sabotage Supply Bases",
+        "tipo": "Sabotaje",
+        "desc": "Eliminar depósitos de munición y combustible enemigos."
+      },
+      {
+        "name": "Liberate planet (meta)",
+        "tipo": "Campaña",
+        "desc": "Completar suficientes operaciones para reclamar un planeta en el Galactic War (no es un objetivo de misión individual)."
+      }
+    ],
+    "objetos": [
+      {
+        "name": "Common Sample",
+        "tipo": "Recurso",
+        "desc": "Material de investigación básico para mejoras de nave."
+      },
+      {
+        "name": "Rare Sample",
+        "tipo": "Recurso",
+        "desc": "Material raro usado en mejoras avanzadas."
+      },
+      {
+        "name": "Super Sample",
+        "tipo": "Recurso",
+        "desc": "Componente de alta tecnología para mejoras de élite."
+      },
+      {
+        "name": "Requisition Slips",
+        "tipo": "Moneda",
+        "desc": "Moneda principal para desbloquear estratagemas."
+      },
+      {
+        "name": "Medals",
+        "tipo": "Moneda",
+        "desc": "Se usan para avanzar en los Warbonds."
+      },
+      {
+        "name": "Super Credits",
+        "tipo": "Moneda premium",
+        "desc": "Moneda premium para comprar contenido cosmético."
+      },
+      {
+        "name": "Warbond",
+        "tipo": "Catálogo",
+        "desc": "Pase de batalla con armas, armaduras y emotes."
+      },
+      {
+        "name": "Supply Pack",
+        "tipo": "Consumible",
+        "desc": "Mochila de apoyo que permite reabastecer munición y granadas (y a compañeros) en combate."
+      },
+      {
+        "name": "Stim",
+        "tipo": "Consumible",
+        "desc": "Inyección de recuperación de salud rápida en combate."
+      },
+      {
+        "name": "Extraction Beacon",
+        "tipo": "Utilidad",
+        "desc": "Llama a la nave de extracción al completar la misión."
+      }
+    ],
+    "personajes": [
+      {
+        "name": "Helldiver",
+        "tipo": "Jugador",
+        "desc": "Soldado élite de Super Earth, protagonista del juego."
+      },
+      {
+        "name": "Joel",
+        "tipo": "GM",
+        "desc": "El misterioso Game Master que controla los eventos galácticos."
+      },
+      {
+        "name": "Comandante de nave",
+        "tipo": "NPC",
+        "desc": "Voz que guía al Helldiver durante las misiones."
+      },
+      {
+        "name": "Ministro de la Guerra",
+        "tipo": "NPC",
+        "desc": "Alto mando que declara los objetivos de campaña."
+      },
+      {
+        "name": "Técnico de armamento",
+        "tipo": "NPC",
+        "desc": "Gestiona las estratagemas disponibles en la nave."
+      },
+      {
+        "name": "Piloto de extracción",
+        "tipo": "NPC",
+        "desc": "Pilota el Pelican-1 para extraer al equipo."
+      },
+      {
+        "name": "Recluta",
+        "tipo": "Narrativo",
+        "desc": "Soldados en entrenamiento que aspiran ser Helldivers."
+      }
+    ],
+    "estratagemas": [
+      {
+        "name": "Eagle Airstrike",
+        "tipo": "Ofensiva",
+        "desc": "Llama un ataque aéreo de pasada sobre la posición marcada."
+      },
+      {
+        "name": "Orbital Laser",
+        "tipo": "Ofensiva orbital",
+        "desc": "Rayo láser orbital de barrido que destruye todo a su paso."
+      },
+      {
+        "name": "Eagle Cluster Bomb",
+        "tipo": "Ofensiva",
+        "desc": "Lanza bombas de racimo sobre un área amplia."
+      },
+      {
+        "name": "Orbital Railcannon Strike",
+        "tipo": "Ofensiva orbital",
+        "desc": "Disparo único de altísimo poder contra un objetivo."
+      },
+      {
+        "name": "Gatling Barrage",
+        "tipo": "Ofensiva orbital",
+        "desc": "Ráfaga de proyectiles de alta cadencia desde órbita."
+      },
+      {
+        "name": "Autocannon Sentry",
+        "tipo": "Torreta",
+        "desc": "Despliega una torreta de cañón automático autónoma."
+      },
+      {
+        "name": "Machine Gun Sentry",
+        "tipo": "Torreta",
+        "desc": "Torreta ametralladora de despliegue rápido."
+      },
+      {
+        "name": "Mortar Sentry",
+        "tipo": "Torreta",
+        "desc": "Lanza morteros contra enemigos en un radio amplio."
+      },
+      {
+        "name": "Recoilless Rifle",
+        "tipo": "Apoyo",
+        "desc": "Lanzacohetes de apoyo antitanque con recarga asistida."
+      },
+      {
+        "name": "Railgun",
+        "tipo": "Apoyo",
+        "desc": "Rifle de raíles capaz de perforar blindaje pesado."
+      },
+      {
+        "name": "Shield Generator Pack",
+        "tipo": "Defensa",
+        "desc": "Mochila que genera un escudo personal de energía."
+      },
+      {
+        "name": "Jump Pack",
+        "tipo": "Movilidad",
+        "desc": "Propulsores dorsales para saltos de largo alcance."
+      },
+      {
+        "name": "Resupply",
+        "tipo": "Apoyo",
+        "desc": "Recarga de munición y granadas para todo el equipo."
+      },
+      {
+        "name": "Reinforce",
+        "tipo": "Apoyo",
+        "desc": "Llama un refuerzo para revivir a un compañero caído."
+      },
+      {
+        "name": "EAT-17",
+        "tipo": "Apoyo",
+        "desc": "Lanzador antitanque desechable lanzado desde la nave."
+      },
+      {
+        "name": "Spear",
+        "tipo": "Apoyo",
+        "desc": "Lanzamisiles de guiado automático por calor."
+      }
+    ],
+    "enemigos": [
+      {
+        "name": "Scavenger",
+        "faccion": "Terminid",
+        "desc": "Insecto pequeño y rápido, peligroso en grupos."
+      },
+      {
+        "name": "Warrior",
+        "faccion": "Terminid",
+        "desc": "Insecto de combate principal, resistente y agresivo."
+      },
+      {
+        "name": "Hive Guard",
+        "faccion": "Terminid",
+        "desc": "Guardián del nido, con armadura frontal reforzada."
+      },
+      {
+        "name": "Brood Commander",
+        "faccion": "Terminid",
+        "desc": "Líder que convoca refuerzos insectoides continuamente."
+      },
+      {
+        "name": "Charger",
+        "faccion": "Terminid",
+        "desc": "Bestia blindada de carga, rompe formaciones."
+      },
+      {
+        "name": "Bile Spewer",
+        "faccion": "Terminid",
+        "desc": "Lanza bilis corrosiva a distancia media."
+      },
+      {
+        "name": "Bile Titan",
+        "faccion": "Terminid",
+        "desc": "Titán insectoide de tamaño colosal, jefe de campo."
+      },
+      {
+        "name": "Stalker",
+        "faccion": "Terminid",
+        "desc": "Insecto invisible que embosca a los Helldivers."
+      },
+      {
+        "name": "Trooper",
+        "faccion": "Automaton",
+        "desc": "Robot de infantería básico con fusil."
+      },
+      {
+        "name": "Hulk",
+        "faccion": "Automaton",
+        "desc": "Robot bípedo pesado con armas de fuego integradas."
+      },
+      {
+        "name": "Tank",
+        "faccion": "Automaton",
+        "desc": "Vehículo blindado con cañón de alta potencia."
+      },
+      {
+        "name": "Devastator",
+        "faccion": "Automaton",
+        "desc": "Robot con escudo balístico y lanzacohetes."
+      },
+      {
+        "name": "Berserker",
+        "faccion": "Automaton",
+        "desc": "Robot de combate cuerpo a cuerpo muy agresivo."
+      },
+      {
+        "name": "Factory Strider",
+        "faccion": "Automaton",
+        "desc": "Máquina colosal que fabrica tropas robots en campo."
+      },
+      {
+        "name": "Gunship",
+        "faccion": "Automaton",
+        "desc": "Aeronave de combate robot que patrulla zonas."
+      },
+      {
+        "name": "Scout Strider",
+        "faccion": "Automaton",
+        "desc": "Meca ligero de reconocimiento con piloto expuesto."
+      }
+    ]
+  }

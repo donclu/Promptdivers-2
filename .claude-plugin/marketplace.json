@@ -1,0 +1,19 @@
+{
+  "name": "promptdivers-marketplace",
+  "owner": {
+    "name": "donclu",
+    "email": "el.donclu@gmail.com"
+  },
+  "metadata": {
+    "description": "Marketplace local que hospeda el plugin Promptdivers.",
+    "version": "3.5.0"
+  },
+  "plugins": [
+    {
+      "name": "promptdivers",
+      "source": "./plugin",
+      "description": "Marco operativo multi-agente Promptdivers: escuadras A–D, señales tácticas, protocolos, stratagems y capa de integridad. 6 skills + 18 comandos + doctrina completa.",
+      "version": "3.5.0"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+# Example operational event — illustrative, replace with real data on adoption.
+
+event_type: mission
+mission_id: Squad-B-ORB-001
+date: 2026-04-17
+squad: B
+stratagems_used: [ORB, PFG]
+model_used: claude-sonnet
+model_tier: "@medium"
+echelon_rung_final: 2   # did not need to escalate to @high/@max
+
+outcome: PASS
+
+objectives:
+  - id: obj-1
+    text: "Migrate legacy auth middleware out of the hot zone without breaking sessions"
+    result: PASS
+  - id: obj-2
+    text: "Keep scope to 4 files per batch (Squad B rule)"
+    result: PASS
+  - id: obj-3
+    text: "Produce handoff for Squad D regression pass"
+    result: PARTIAL
+    note: "Handoff written but quality/ audit not yet scheduled"
+
+cost:
+  tokens_in: 48200
+  tokens_out: 11500
+  usd_estimate: null    # fill if cost tracking is on
+
+observations: >
+  Low-rung planning (Haiku@low during PFG station 1) correctly gated the
+  migration into 3 batches of 4 files. The Forge never had to climb to
+  @high because the knowledge/ domain file already carried the session
+  token handling contract. A @high call would have added ~40% cost for
+  no quality gain on this mission shape.
+
+follow_up:
+  - experience/learned/why-low-rung-planning-saves-heavy-rung-cost.md

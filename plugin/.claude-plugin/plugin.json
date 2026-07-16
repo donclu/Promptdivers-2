@@ -1,0 +1,25 @@
+{
+  "name": "promptdivers",
+  "version": "3.5.0",
+  "description": "Promptdivers — marco operativo multi-agente (temática Helldivers) para Claude Code: escuadras A–D, señales tácticas, protocolos de misión, stratagems y una capa de integridad Ministry-of-Truth. Incluye 6 skills, 18 comandos y toda la doctrina, autocontenidos.",
+  "author": {
+    "name": "donclu",
+    "email": "el.donclu@gmail.com"
+  },
+  "homepage": "https://github.com/donclu/Promptdivers-2",
+  "repository": "https://github.com/donclu/Promptdivers-2",
+  "license": "MIT",
+  "keywords": [
+    "multi-agent",
+    "orchestration",
+    "promptdivers",
+    "helldivers",
+    "squads",
+    "missions",
+    "tactical-signals",
+    "stratagems",
+    "ministry-of-truth",
+    "spanish",
+    "workflow"
+  ]
+}

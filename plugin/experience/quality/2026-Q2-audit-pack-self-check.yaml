@@ -1,0 +1,41 @@
+# Example quality audit — illustrative.
+# Audits live here regardless of outcome; they are the agent's long memory of what broke.
+
+audit_id: 2026-Q2-pack-self-check
+date: 2026-04-17
+auditor: THE AUDITOR
+scope: "Self-audit of the Promptdivers pack — links, schema consistency, canon drift"
+
+findings:
+
+  - id: F-001
+    severity: MEDIUM
+    category: illuminate
+    text: >
+      docs/reasoning-tiers.md carries cross-provider tier aliases that require
+      external verification against each provider's current docs. If not
+      verified within the expiry window, entries risk becoming false claims.
+    resolution: deferred
+    follow_up_mission: null
+    note: "Tracked via the `last_verified` field in reasoning-tiers.md itself."
+
+  - id: F-002
+    severity: LOW
+    category: terminid
+    text: >
+      knowledge/terminids-front-ops.yaml ships with placeholder dynamic values
+      and low confidence. This is intentional for the pack as a template but
+      will produce misleading derived metrics if the consuming project does
+      not replace them before running Echelon rung 2+.
+    resolution: open
+    follow_up_mission: null
+    note: "Documented in docs/calibration-protocol.md §priming."
+
+recurrence_check:
+  - prior_audit: null    # first audit in the pack's quality ledger
+    recurring_finding_ids: []
+
+# Audit cadence: run at every major pack version bump (VERSION file) and
+# at every extract when the session touched 3+ pack files.
+# Findings never vanish — they become `resolution: fixed` with a commit sha
+# or `resolution: deferred` with a named owner.

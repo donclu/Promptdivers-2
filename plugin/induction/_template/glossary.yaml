@@ -1,0 +1,28 @@
+# Glossary — [DOMAIN NAME]
+# Copy to induction/<your-domain>/glossary.yaml and fill.
+# Minimum 10 terms before the curriculum is considered active.
+# Terms here feed Layer 1 vocabulary drills and quiz.yaml.
+
+domain: "[kebab-case domain name]"
+created: "YYYY-MM-DD"
+last_reviewed: "YYYY-MM-DD"
+
+terms:
+  - term: "[Term 1]"
+    definition: "[One-sentence definition using plain language]"
+    synonyms: []
+    antonyms: []
+    source: "[URL or document]"
+    note: "[Optional — context specific to this project]"
+
+  - term: "[Term 2]"
+    definition: "[Definition]"
+    synonyms: []
+    antonyms: []
+    source: "[URL or document]"
+
+  # Add at least 8 more terms before marking this curriculum active.
+  # Prefer terms that are:
+  # (a) domain-specific (not in a general dictionary)
+  # (b) used in knowledge/<domain>.yaml
+  # (c) frequently appear in experience/learned/ entries
